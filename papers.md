@@ -130,7 +130,8 @@
 <img src="svgs/e6e15a434fb7ff91803b90f86f96bac0.svg?invert_in_darkmode" align=middle width=141.37212045pt height=33.2053986pt/>  
 <img src="svgs/908f1d9e35f3d768d48e741f931f6914.svg?invert_in_darkmode" align=middle width=478.23323955pt height=84.6738387pt/>  
 <img src="svgs/2a0f84fec0172ae51bfe0b983b3edf64.svg?invert_in_darkmode" align=middle width=326.00016075pt height=27.9453933pt/>  
-<img src="svgs/1061f8fca3bf89f6d24b9d1c8575eae5.svg?invert_in_darkmode" align=middle width=419.4236574pt height=27.9453933pt/>
+<img src="svgs/1061f8fca3bf89f6d24b9d1c8575eae5.svg?invert_in_darkmode" align=middle width=419.4236574pt height=27.9453933pt/>  
+
 > **_NOTE:_** The estimators <img src="svgs/c0b1011abbb7fe0877418710b9a042f0.svg?invert_in_darkmode" align=middle width=136.4868285pt height=24.657534pt/> and <img src="svgs/f958022a491e85342a86708a4aea6f40.svg?invert_in_darkmode" align=middle width=70.22293575pt height=24.657534pt/> all belong to the well-studied class of U-statistics. Thus, under fairly minor conditions, *these estimators are unbiased, asymptotically normal, and have finite-sample probabilistic bounds*  
 
 ### **We introduce three bounded loss assumptions:**  
@@ -275,10 +276,12 @@ and the constant
 ### **Conditional Importance:  Adjusting for Dependence Between <img src="svgs/0f40e6e5e62540b00031284316b128ba.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/> and <img src="svgs/13dd556b083841259b42bf0b978ccb52.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/>**  
 <img src="svgs/9418b1e57f8320d5f6ed575832b1cc28.svg?invert_in_darkmode" align=middle width=576.29246895pt height=37.8085059pt/>  
 <img src="svgs/9213402d780ee7e4bfb14d8058894981.svg?invert_in_darkmode" align=middle width=141.6255126pt height=33.2053986pt/>  
+
 > **_NOTE:_** This means that CMR will not be influenced by impossible combinations of <img src="svgs/7e0dded6496a3ed3f3c0db74604087ac.svg?invert_in_darkmode" align=middle width=15.94753545pt height=14.1552444pt/> and <img src="svgs/345508ce4e933b712fe803f442f74d63.svg?invert_in_darkmode" align=middle width=15.94753545pt height=14.1552444pt/>, while MR may be influenced by them
 
 ### **Estimation of CMR by Weighting, Matching, or Imputation**  
 <img src="svgs/66a53a6f2a16676d89ee543e74e396f2.svg?invert_in_darkmode" align=middle width=561.7138626pt height=27.9453933pt/>  
+
 > **_NOTE:_**  
 > - <img src="svgs/e6ab88bcb3a29eee07efa0d274334010.svg?invert_in_darkmode" align=middle width=72.7000758pt height=24.657534pt/> is unbiased for <img src="svgs/1082da229d899ac1ef48990348a4e30a.svg?invert_in_darkmode" align=middle width=62.42608185pt height=24.657534pt/> <img src="svgs/d4e48e19eb2277145137d98de3d2cfd1.svg?invert_in_darkmode" align=middle width=544.4781012pt height=43.0684122pt/>
 > - if the inverse probability weight <img src="svgs/83852ec7f50accfa6271cbd81caa41fb.svg?invert_in_darkmode" align=middle width=125.43850605pt height=34.6486305pt/> is known, then <img src="svgs/f54935d1e5f95b43279b0ee9e6b03d71.svg?invert_in_darkmode" align=middle width=70.74802185pt height=24.657534pt/> is unbiased for <img src="svgs/1082da229d899ac1ef48990348a4e30a.svg?invert_in_darkmode" align=middle width=62.42608185pt height=24.657534pt/> (see Appendix A.7).
