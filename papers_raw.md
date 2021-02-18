@@ -249,9 +249,8 @@ $$
 \mathbf{X}_{1}^{\prime} \mathbf{X}_{1} & \mathbf{X}_{1}^{\prime} \mathbf{W} \mathbf{X}_{2} \\
 \mathbf{X}_{2}^{\prime} \mathbf{W} \mathbf{X}_{1} & \mathbf{X}_{2}^{\prime} \mathbf{X}_{2}
 \end{array}\right] \beta\right\}
-$$  
-where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
-identity matrix.  
+$$ where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
+identity matrix.    
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any $f_{\beta} \in \mathcal{F}_{l m}$ and any fixed coefficients $\xi_{\text {orig }}, \xi_{\text {switch }} \in \mathbb{R},$ the linear combination  
@@ -268,9 +267,8 @@ $$
 \mathbf{X}_{2}^{\prime} \mathbf{y}
 \end{array}\right]^{\prime}\right)^{\prime}
 $$  
-and $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right) .$
-> **_NOTE:_**
->
+and $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right) .$  
+> **_NOTE:_**  
 > - Thus, minimizing $\xi_{\text {orig }} \hat{e}_{\text {orig }}\left(f_{\beta}\right)+\xi_{\text {switch }} \hat{e}_{\text {switch }}\left(f_{\beta}\right)$ is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - $\mathcal{F}_{\operatorname{lm}, r_{\operatorname{lm}}}:=\left\{f_{\beta}: f_{\beta}(x)=x^{\prime} \beta, \quad \beta \in \mathbb{R}^{p}, \quad \beta^{\prime} \mathbf{M}_{\operatorname{lm}} \beta \leq r_{\operatorname{lm}}\right\}$
 > - The resulting optimization problem is a (possibly non-convex) quadratic program withone  quadratic  constraint  
