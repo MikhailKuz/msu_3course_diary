@@ -284,7 +284,7 @@ $$
 $$
 \mathcal{F}_{\mathbf{D}, r_{k}}=\left\{f_{\alpha}: f_{\alpha}(x)=\mu+\sum_{i=1}^{R} k\left(x, \mathbf{D}_{[i, \cdot]}\right) \alpha_{[i]}, \quad\left\|f_{\alpha}\right\|_{k} \leq r_{k}, \quad \alpha \in \mathbb{R}^{R}\right\}
 $$  
-Above, the norm $\left\|f_{\alpha}\right\|_{k}$ is defined as
+Above, the norm $\left\|f_{\alpha}\right\|_{k}$ is defined as  
 $$
 \left\|f_{\alpha}\right\|_{k}:=\sum_{i=1}^{R} \sum_{j=1}^{R} \alpha_{[i]} \alpha_{[j]} k\left(\mathbf{D}_{[i, \cdot]}, \mathbf{D}_{[j, \cdot]}\right)=\alpha^{\prime} \mathbf{K}_{\mathbf{D}} \alpha
 $$  
@@ -316,17 +316,16 @@ $$
 
 ***Conditional Importance:  Adjusting for Dependence Between $X{1}$ and $X{2}$***  
 $e_{\text {cond }}(f):=\mathbb{E}_{X_{2}} \mathbb{E}_{\left(Y^{(b)}, X_{1}^{(a)}, X_{2}^{(b)}\right)}\left[L\left\{f,\left(Y^{(b)}, X_{1}^{(a)}, X_{2}^{(b)}\right)\right\} \mid X_{2}^{(a)}=X_{2}^{(b)}=X_{2}\right]$  
-$C M R(f)=\frac{e_{\text {cond }}(f)}{e_{\text {orig }}(f)}$
-> **_NOTE:_**This means that CMR will not be influenced by impossible combinations of $x_{1}$ and $x_{2}$, while MR may be influenced by them
+$C M R(f)=\frac{e_{\text {cond }}(f)}{e_{\text {orig }}(f)}$  
+> **_NOTE:_** This means that CMR will not be influenced by impossible combinations of $x_{1}$ and $x_{2}$, while MR may be influenced by them
 
 ***Estimation of CMR by Weighting, Matching, or Imputation***  
 $\hat{e}_{\text {weight }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} w\left(\mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right) \times L\left\{f,\left(\mathbf{y}_{[j]}, \mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right)\right\}$  
-> **_NOTE:_** $\hat{e}_{\text {weight }}(f)$ is unbiased for $e_{\text {cond }}(f)$
-$\hat{e}_{\text {match }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} \frac{1\left(\mathbf{X}_{2[j, \cdot]}=\mathbf{X}_{2[i, \cdot]}\right)}{\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, j)}\right.} \times L\left\{f,\left(\mathbf{y}_{[j]}, \mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right)\right\}$  
 > **_NOTE:_**
+> - $\hat{e}_{\text {weight }}(f)$ is unbiased for $e_{\text {cond }}(f)$ $\hat{e}_{\text {match }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} \frac{1\left(\mathbf{X}_{2[j, \cdot]}=\mathbf{X}_{2[i, \cdot]}\right)}{\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, j)}\right.} \times L\left\{f,\left(\mathbf{y}_{[j]}, \mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right)\right\}$
 > - if the inverse probability weight $\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, \cdot}\right)^{-1}$ is known, then $\hat{e}_{\text {match }}(f)$ is unbiased for $e_{\text {cond }}(f)$ (see Appendix A.7).
 > - However, when the covariate space is continuous or high dimensional, we typically cannotestimate  CMR  nonparametrically.
-> - When the covariate space is continuous or high dimensional we define $\mu_{1}$ to be the conditional expectation function $\mu_{1}\left(x_{2}\right)=\mathbb{E}\left(X_{1} \mid X_{2}=x_{2}\right),$ and assume that the random residual $X$ $\mu_{1}\left(X_{2}\right)$ is independent of $X_{2}$. Under this assumption, it can be shown that  
+> - When the covariate space is continuous or high dimensional we define $\mu_{1}$ to be the conditional expectation function $\mu_{1}\left(x_{2}\right)=\mathbb{E}\left(X_{1} \mid X_{2}=x_{2}\right),$ and assume that the random residual $X$ $\mu_{1}\left(X_{2}\right)$ is independent of $X_{2}$. Under this assumption, it can be shown that
 >   $$
 >   e_{\text {cond }}(f)=\mathbb{E} L\left[f,\left(Y^{(b)},\left\{X_{1}^{(a)}-\mu_{1}\left(X_{2}^{(a)}\right)\right\}+\mu_{1}\left(X_{2}^{(b)}\right), X_{2}^{(b)}\right)\right]
 >   $$  
