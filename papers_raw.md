@@ -193,16 +193,21 @@ $$
 1. (Predictions are sufficient for computing the loss) The loss $L\left\{f,\left(Y, X_{1}, X_{2}\right)\right\}$ depends on the covariates $\left(X_{1}, X_{2}\right)$ only via the prediction function $f,$ that is, $L\left\{f,\left(y, x_{1}^{(a)}, x_{2}^{(a)}\right)\right\}=$  
 $$
 L\left\{f,\left(y, x_{1}^{(b)}, x_{2}^{(b)}\right)\right\} \text { whenever } f\left(x_{1}^{(a)}, x_{2}^{(a)}\right)=f\left(x_{1}^{(b)}, x_{2}^{(b)}\right)
-$$
-2. (Irrelevant information does not improve predictions) For any distribution $D$ satisfying $X_{1} \perp_{D}\left(X_{2}, Y\right)$, there exists a function $f_{D}$ satisfying
+$$  
+   
+2. (Irrelevant information does not improve predictions) For any distribution $D$ satisfying $X_{1} \perp_{D}\left(X_{2}, Y\right)$, there exists a function $f_{D}$ satisfying  
+
 $$
 \mathbb{E}_{D} L\left\{f_{D},\left(Y, X_{1}, X_{2}\right)\right\}=\min _{f \in \mathcal{F}} \mathbb{E}_{D} L\left\{f,\left(Y, X_{1}, X_{2}\right)\right\} and
 $$
 $$
 f_{D}\left(x_{1}^{(a)}, x_{2}\right)=f_{D}\left(x_{1}^{(b)}, x_{2}\right) \text { for any } x_{1}^{(a)}, x_{1}^{(b)} \in \mathcal{X}_{1} \text { and } x_{2} \in \mathcal{X}_{2}
 $$  
-Let $\gamma=0$. Under the above assumptions, it follows that either (i) there exists a function $\hat{g}_{-, 0}$ minimizing $\hat{h}_{-, 0}$ that does not satisfy Condition $8,$ or $(ii)$ $\hat{e}_{\text {orig }}\left(\hat{g}_{-, 0}\right) \leq \epsilon_{a b s}$ and $\widehat{M R}\left(g_{-, 0}\right) \leq$ 1 for any function $\hat{g}_{-, 0}$ minimizing $\hat{h}_{-, 0}$.
+
+Let $\gamma=0$. Under the above assumptions, it follows that either (i) there exists a function $\hat{g}_{-, 0}$ minimizing $\hat{h}_{-, 0}$ that does not satisfy Condition $8,$ or $(ii)$ $\hat{e}_{\text {orig }}\left(\hat{g}_{-, 0}\right) \leq \epsilon_{a b s}$ and $\widehat{M R}\left(g_{-, 0}\right) \leq$ 1 for any function $\hat{g}_{-, 0}$ minimizing $\hat{h}_{-, 0}$.  
+
 > **_NOTE:_** tractability of our approach, as minimizing $\hat{h}_{-, \gamma}$ for $\gamma \geq 0$ is equivalent to minimizing reweighted empirical loss over an expanded sample of size $n^{2}$:  
+> 
 > $$
 > \hat{h}_{-, \gamma}(f)=\gamma \hat{e}_{\text {orig }}(f)+\hat{e}_{\text {switch }}(f)=\sum_{i=1}^{n} \sum_{j=1}^{n} w_{\gamma}(i, j) L\left\{f,\left(\mathbf{y}_{[i]}, \mathbf{X}_{1[j, \cdot]}, \mathbf{X}_{2[i, \cdot]}\right)\right\}, where
 > $$  
@@ -220,12 +225,15 @@ Given an observed sample, we define the following condition for a pair of values
 **Lemma 13** (*Upper bound for $\widehat{M R}$*) If $\gamma \in \mathbb{R}$ satisfies $\gamma \leq 0$ and $\hat{h}_{+, \gamma}\left(\hat{g}_{+, \gamma}\right) \geq 0,$ then  
 $$
 \widehat{M R}(f) \leq\left\{\frac{\hat{h}_{+, \gamma}\left(\hat{g}_{+, \gamma}\right)}{\epsilon_{a b s}}-1\right\} \gamma^{-1}
-$$
-for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that
+$$  
+
+for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that  
+
 $$
 \widehat{M R}(f) \leq\left|\gamma^{-1}\right| \quad \text { for all } f \in \mathcal{F}
 $$  
-Additionally, if $f=\hat{g}_{+, \gamma}$ and at least one of the inequalities in Condition 12 holds with equality, then Eq 6.4 holds with equality.
+
+Additionally, if $f=\hat{g}_{+, \gamma}$ and at least one of the inequalities in Condition 12 holds with equality, then Eq 6.4 holds with equality.  
 **Lemma 14** (*Monotonicity for $\widehat{M R}$ upper bound binary search*) The following monotonicity results hold:  
 1. $\hat{h}_{+, \gamma}\left(\hat{g}_{+, \gamma}\right)$ is monotonically increasing in $\gamma$.  
 2. $\hat{e}_{\text {orig }}\left(\hat{g}_{+, \gamma}\right)$ is monotonically decreasing in $\gamma$ for $\gamma \leq 0,$ and Condition 12 holds for $\gamma=0$ and $\epsilon_{a b s} \geq \min _{f \in \mathcal{F}} \hat{e}_{\text {orig }}(f)$  
@@ -238,11 +246,15 @@ Additionally, if $f=\hat{g}_{+, \gamma}$ and at least one of the inequalities in
 ***MR & MCR for Linear Models, Additive Models***
 Throughout this section, we assume that $\mathcal{X} \subset \mathbb{R}^{p}$ for $p \in \mathbb{Z}^{+},$ that $\mathcal{Y} \subset \mathbb{R}^{1},$ and that $L$ is the squared error loss function $L\left(f,\left(y, x_{1}, x_{2}\right)=\left(y-f\left(x_{1}, x_{2}\right)\right)^{2}\right.$.  
 **Proposition 15** (*Interpreting $M R,$ and computing empirical MR for linear models*) For any prediction model $f,$ let $e_{\text {orig }}(f), e_{\text {switch }}(f), \hat{e}_{\text {orig }}(f),$ and $\hat{e}_{\text {switch }}(f)$ be defined based on the squared error loss $L\left(f,\left(y, x_{1}, x_{2}\right)\right):=\left(y-f\left(x_{1}, x_{2}\right)\right)^{2}$ for $y \in \mathbb{R}, x_{1} \in \mathbb{R}^{p_{1}},$ and $x_{2} \in \mathbb{R}^{p_{2}}$  
+
 where $p_{1}$ and $p_{2}$ are positive integers. Let $\beta=\left(\beta_{1}, \beta_{2}\right)$ and $f_{\beta}$ satisfy $\beta_{1} \in \mathbb{R}^{p_{1}}, \beta_{2} \in \mathbb{R}^{p_{2}}$ and $f_{\beta}(x)=x^{\prime} \beta=x_{1}^{\prime} \beta_{1}+x_{2}^{\prime} \beta_{2} .$ Then  
+
 $$
 M R\left(f_{\beta}\right)=1+\frac{2}{e_{\text {orig }}\left(f_{\beta}\right)}\left\{\operatorname{Cov}\left(Y, X_{1}\right) \beta_{1}-\beta_{2}^{\prime} \operatorname{Cov}\left(X_{2}, X_{1}\right) \beta_{1}\right\}
 $$  
-and, for finite samples,
+
+and, for finite samples,  
+
 $$
 \left.\hat{e}_{\text {switch }}\left(f_{\beta}\right)=\frac{1}{n}\left\{\begin{array}{l}
 \mathbf{y}^{\prime} \mathbf{y}-2\left[\begin{array}{c}
@@ -253,7 +265,9 @@ $$
 \mathbf{X}_{1}^{\prime} \mathbf{X}_{1} & \mathbf{X}_{1}^{\prime} \mathbf{W} \mathbf{X}_{2} \\
 \mathbf{X}_{2}^{\prime} \mathbf{W} \mathbf{X}_{1} & \mathbf{X}_{2}^{\prime} \mathbf{X}_{2}
 \end{array}\right] \beta\right\}
-$$ where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
+$$  
+
+where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
 identity matrix.  
 
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
@@ -289,7 +303,9 @@ $$
 $$
 \mathcal{F}_{\mathbf{D}, r_{k}}=\left\{f_{\alpha}: f_{\alpha}(x)=\mu+\sum_{i=1}^{R} k\left(x, \mathbf{D}_{[i, \cdot]}\right) \alpha_{[i]}, \quad\left\|f_{\alpha}\right\|_{k} \leq r_{k}, \quad \alpha \in \mathbb{R}^{R}\right\}
 $$  
+
 Above, the norm $\left\|f_{\alpha}\right\|_{k}$ is defined as  
+
 $$
 \left\|f_{\alpha}\right\|_{k}:=\sum_{i=1}^{R} \sum_{j=1}^{R} \alpha_{[i]} \alpha_{[j]} k\left(\mathbf{D}_{[i, \cdot]}, \mathbf{D}_{[j, \cdot]}\right)=\alpha^{\prime} \mathbf{K}_{\mathbf{D}} \alpha
 $$  
