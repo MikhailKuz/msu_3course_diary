@@ -269,7 +269,7 @@ $$
 \end{array}\right]^{\prime}\right)^{\prime}
 $$  
 and $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right) .$
-> **_NOTE:_**   
+> **_NOTE:_**
 >
 > - Thus, minimizing $\xi_{\text {orig }} \hat{e}_{\text {orig }}\left(f_{\beta}\right)+\xi_{\text {switch }} \hat{e}_{\text {switch }}\left(f_{\beta}\right)$ is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - $\mathcal{F}_{\operatorname{lm}, r_{\operatorname{lm}}}:=\left\{f_{\beta}: f_{\beta}(x)=x^{\prime} \beta, \quad \beta \in \mathbb{R}^{p}, \quad \beta^{\prime} \mathbf{M}_{\operatorname{lm}} \beta \leq r_{\operatorname{lm}}\right\}$

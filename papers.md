@@ -148,9 +148,11 @@
 > - The  existence  of  this  uniform  bound  implies  that  it  is  feasible  to  train  a  model  and  to evaluate its importance using the *same data*  
 
 **Theorem 6** (*"Inner" MCR Bounds*) Given constants <img src="svgs/434f6d79cf3e7605879c945f0bcce27a.svg?invert_in_darkmode" align=middle width=36.80923125pt height=21.1872144pt/> and <img src="svgs/efa3244ceb1894cbd7e062da6bb9ebf0.svg?invert_in_darkmode" align=middle width=42.5760192pt height=21.1872144pt/> if Assumptions 1 , 2 and 3 hold for all <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> and then
+
 <p align="center"><img src="svgs/000e14dd720dd2e79a9b10e37abefcab.svg?invert_in_darkmode" align=middle width=333.1536153pt height=59.1786591pt/></p>  
 
 ***Calculating Empirical Estimates of MCR***  
+
 - computing <img src="svgs/17c03d0793e9a6170c1cf7020c514308.svg?invert_in_darkmode" align=middle width=73.6439253pt height=34.3683945pt/> however will require that we are able to minimize arbitrary linear combinations of <img src="svgs/2b98820d751e478539757714225e28c0.svg?invert_in_darkmode" align=middle width=57.4717209pt height=24.657534pt/> and <img src="svgs/daf800b1b76c20be39f70242e874487e.svg?invert_in_darkmode" align=middle width=71.7092244pt height=24.657534pt/>
 - we present bound functions <img src="svgs/49e648991ffdfcbccd3b3fb2005ebe4b.svg?invert_in_darkmode" align=middle width=17.3288181pt height=22.8310566pt/> and <img src="svgs/706a470865330c718598b5dc21ed291e.svg?invert_in_darkmode" align=middle width=17.1461697pt height=22.8310566pt/> satisfying <img src="svgs/4ea8c210394ae0fbc804a501d7f4f746.svg?invert_in_darkmode" align=middle width=77.5422813pt height=24.657534pt/> <img src="svgs/6cf76cf8bcf20ee06c13946ba1c7bc3f.svg?invert_in_darkmode" align=middle width=139.30602675pt height=32.9680131pt/> simultaneously for all <img src="svgs/33a26985ed3f74c6c328d961bdb4040f.svg?invert_in_darkmode" align=middle width=306.673455pt height=24.657534pt/>
 - almost all of the results shown in this section, and those in Section 6.2 . also hold if we replace <img src="svgs/d758b434ea5969b8eb5cf4ea54c47c3e.svg?invert_in_darkmode" align=middle width=43.85524275pt height=22.8310566pt/> with <img src="svgs/c96dc920c4b6fd8b88f1e068eff8fe4f.svg?invert_in_darkmode" align=middle width=42.3689541pt height=22.8310566pt/> throughout (see Eq 3.5), including in the definition of <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> and <img src="svgs/59e22f4aaefc5ca42e8f5a653371b456.svg?invert_in_darkmode" align=middle width=59.25291075pt height=31.5068952pt/>  
@@ -256,11 +258,12 @@ and the constant
 ***Estimation of CMR by Weighting, Matching, or Imputation***  
 <img src="svgs/66a53a6f2a16676d89ee543e74e396f2.svg?invert_in_darkmode" align=middle width=561.7138626pt height=27.9453933pt/>  
 > **_NOTE:_** <img src="svgs/e6ab88bcb3a29eee07efa0d274334010.svg?invert_in_darkmode" align=middle width=72.7000758pt height=24.657534pt/> is unbiased for <img src="svgs/1082da229d899ac1ef48990348a4e30a.svg?invert_in_darkmode" align=middle width=62.42608185pt height=24.657534pt/>
-<img src="svgs/d4e48e19eb2277145137d98de3d2cfd1.svg?invert_in_darkmode" align=middle width=544.4781012pt height=43.0684122pt/>  
+> <img src="svgs/d4e48e19eb2277145137d98de3d2cfd1.svg?invert_in_darkmode" align=middle width=544.4781012pt height=43.0684122pt/>  
 > **_NOTE:_**
 > - if the inverse probability weight <img src="svgs/83852ec7f50accfa6271cbd81caa41fb.svg?invert_in_darkmode" align=middle width=125.43850605pt height=34.6486305pt/> is known, then <img src="svgs/f54935d1e5f95b43279b0ee9e6b03d71.svg?invert_in_darkmode" align=middle width=70.74802185pt height=24.657534pt/> is unbiased for <img src="svgs/1082da229d899ac1ef48990348a4e30a.svg?invert_in_darkmode" align=middle width=62.42608185pt height=24.657534pt/> (see Appendix A.7).
 > - However, when the covariate space is continuous or high dimensional, we typically cannotestimate  CMR  nonparametrically.
 > - When the covariate space is continuous or high dimensional we define <img src="svgs/3118e416dde61fa174ee23f070c8b8e3.svg?invert_in_darkmode" align=middle width=16.45747125pt height=14.1552444pt/> to be the conditional expectation function <img src="svgs/bdbfe60ca01dc1f0e00b7569dfc4f8f6.svg?invert_in_darkmode" align=middle width=199.6532934pt height=24.657534pt/> and assume that the random residual <img src="svgs/cbfb1b2a33b28eab8a3e59464768e810.svg?invert_in_darkmode" align=middle width=14.90868885pt height=22.4657235pt/> <img src="svgs/6dfccda44725dbea4f6d308182ce766c.svg?invert_in_darkmode" align=middle width=53.79768405pt height=24.657534pt/> is independent of <img src="svgs/3930949a56ee806512c58ed9903c1033.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/>. Under this assumption, it can be shown that  
+>   
 >   <p align="center"><img src="svgs/0fa25d3952dac8f38e7a89cc1211f583.svg?invert_in_darkmode" align=middle width=513.97555275pt height=29.58934275pt/></p>  
 
 ***Simulations of Bootstrap Confidence Intervals***
@@ -273,6 +276,7 @@ and the constant
   - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI  
 **Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
     
+
 ***COMPAS score***  
 The bootstrap 95% CI for <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> on “inadmissible variables” is **[1.00, 1.73]**  
 For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> range with a 95% bootstrap CI is equal to **[1.62, 3.96]**  
