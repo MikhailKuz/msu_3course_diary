@@ -171,10 +171,13 @@ $$
 **Lemma 9** (*Lower bound for*) If $\gamma \in \mathbb{R}$ satisfies $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0,$ then $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$
 $$
 \frac{\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right)}{\epsilon_{a b s}}-\gamma \leq \widehat{M R}(f)
-$$ for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that  
+$$  
+for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that  
+
 $$
 -\gamma \leq \widehat{M R}(f) \quad \text { for all } f \in \mathcal{F}
 $$  
+
 > **_NOTE:_**
 > - Additionally, if $f=\hat{g}_{-, \gamma}$ and at least one of the inequalities in Condition 8 holds with equality, then top Eq holds with equality.
 > - It remains to determine which value of $\gamma$ should be used in top Eq. The following lemma implies that this value can be determined by a binary search, given a particular value of interest for $\epsilon_{\mathrm{abs}}$  
@@ -251,6 +254,7 @@ $$
 \end{array}\right] \beta\right\}
 $$ where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
 identity matrix.  
+
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any $f_{\beta} \in \mathcal{F}_{l m}$ and any fixed coefficients $\xi_{\text {orig }}, \xi_{\text {switch }} \in \mathbb{R},$ the linear combination  

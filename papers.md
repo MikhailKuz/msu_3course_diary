@@ -158,8 +158,11 @@
 ***Binary Search for Empirical MR Lower Bound***
 **Condition 8** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> lower bound*) <img src="svgs/f78966e0991a9e03d6ee41a14a557d3f.svg?invert_in_darkmode" align=middle width=108.19909155pt height=31.5068952pt/> and <img src="svgs/98e16b9bf83e07cded0253295956f7a3.svg?invert_in_darkmode" align=middle width=128.55289755pt height=24.657534pt/>  
 **Lemma 9** (*Lower bound for*) If <img src="svgs/6fd73a861ca99d39a24a5cc49413f9e5.svg?invert_in_darkmode" align=middle width=41.38717935pt height=22.6483917pt/> satisfies <img src="svgs/546ffd587a2a4c3c2eeb3f7482ce8f31.svg?invert_in_darkmode" align=middle width=112.76531475pt height=31.5068952pt/> then <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> satisfying <img src="svgs/53b35323e4d819003c03929275df6ae0.svg?invert_in_darkmode" align=middle width=110.565444pt height=24.657534pt/>
-<p align="center"><img src="svgs/d35418f16d6b41defffadc5a3a374ff9.svg?invert_in_darkmode" align=middle width=184.41855465pt height=40.6157334pt/></p> for all <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> satisfying <img src="svgs/53b35323e4d819003c03929275df6ae0.svg?invert_in_darkmode" align=middle width=110.565444pt height=24.657534pt/> It also follows that  
+<p align="center"><img src="svgs/d35418f16d6b41defffadc5a3a374ff9.svg?invert_in_darkmode" align=middle width=184.41855465pt height=40.6157334pt/></p>  
+for all <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> satisfying <img src="svgs/53b35323e4d819003c03929275df6ae0.svg?invert_in_darkmode" align=middle width=110.565444pt height=24.657534pt/> It also follows that  
+
 <p align="center"><img src="svgs/464324796aabc4c18339fe10ec82d0c4.svg?invert_in_darkmode" align=middle width=210.3427557pt height=20.59359555pt/></p>  
+
 > **_NOTE:_**
 > - Additionally, if <img src="svgs/9179443fc63bac0f71cbe3dd5070aa80.svg?invert_in_darkmode" align=middle width=61.3665261pt height=22.8310566pt/> and at least one of the inequalities in Condition 8 holds with equality, then top Eq holds with equality.
 > - It remains to determine which value of <img src="svgs/11c596de17c342edeed29f489aa4b274.svg?invert_in_darkmode" align=middle width=9.42388095pt height=14.1552444pt/> should be used in top Eq. The following lemma implies that this value can be determined by a binary search, given a particular value of interest for <img src="svgs/8ea213afa93e648ee39ecc7d61fcf6c9.svg?invert_in_darkmode" align=middle width=25.6930476pt height=14.1552444pt/>  
@@ -210,6 +213,7 @@ where <img src="svgs/f467c5bf149d12e7bb28489e6164ebf9.svg?invert_in_darkmode" al
 and, for finite samples,
 <p align="center"><img src="svgs/be714082c545f51d061d0247c89542d8.svg?invert_in_darkmode" align=middle width=555.1804962pt height=41.7812637pt/></p> where <img src="svgs/4782371ddecbf6bb53080a79ca3d442c.svg?invert_in_darkmode" align=middle width=191.34402705pt height=27.7756545pt/> is the <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> -length vector of ones, and <img src="svgs/54a937784e79b8adddb37d9b2263e27c.svg?invert_in_darkmode" align=middle width=15.29494725pt height=22.5570873pt/> is the <img src="svgs/3add1221abfa79cb14021bc2dacd5725.svg?invert_in_darkmode" align=middle width=39.8249445pt height=19.1781018pt/>
 identity matrix.  
+
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any <img src="svgs/0b3224020b22b8293953c6417cc644b2.svg?invert_in_darkmode" align=middle width=64.70986995pt height=22.8310566pt/> and any fixed coefficients <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> the linear combination  
