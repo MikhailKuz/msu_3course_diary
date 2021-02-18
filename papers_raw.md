@@ -350,7 +350,7 @@ $\hat{e}_{\text {weight }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} w
 > - if the inverse probability weight $\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, \cdot}\right)^{-1}$ is known, then $\hat{e}_{\text {match }}(f)$ is unbiased for $e_{\text {cond }}(f)$ (see Appendix A.7).
 > - However, when the covariate space is continuous or high dimensional, we typically cannotestimate  CMR  nonparametrically.
 > - When the covariate space is continuous or high dimensional we define $\mu_{1}$ to be the conditional expectation function $\mu_{1}\left(x_{2}\right)=\mathbb{E}\left(X_{1} \mid X_{2}=x_{2}\right),$ and assume that the random residual $X$ $\mu_{1}\left(X_{2}\right)$ is independent of $X_{2}$. Under this assumption, it can be shown that  
-> 
+>
 >   $$
 >   e_{\text {cond }}(f)=\mathbb{E} L\left[f,\left(Y^{(b)},\left\{X_{1}^{(a)}-\mu_{1}\left(X_{2}^{(a)}\right)\right\}+\mu_{1}\left(X_{2}^{(b)}\right), X_{2}^{(b)}\right)\right]
 >   $$  
