@@ -210,6 +210,7 @@ where <img src="svgs/f467c5bf149d12e7bb28489e6164ebf9.svg?invert_in_darkmode" al
 and, for finite samples,
 <p align="center"><img src="svgs/be714082c545f51d061d0247c89542d8.svg?invert_in_darkmode" align=middle width=555.1804962pt height=41.7812637pt/></p> where <img src="svgs/4782371ddecbf6bb53080a79ca3d442c.svg?invert_in_darkmode" align=middle width=191.34402705pt height=27.7756545pt/> is the <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> -length vector of ones, and <img src="svgs/54a937784e79b8adddb37d9b2263e27c.svg?invert_in_darkmode" align=middle width=15.29494725pt height=22.5570873pt/> is the <img src="svgs/3add1221abfa79cb14021bc2dacd5725.svg?invert_in_darkmode" align=middle width=39.8249445pt height=19.1781018pt/>
 identity matrix.  
+
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any <img src="svgs/0b3224020b22b8293953c6417cc644b2.svg?invert_in_darkmode" align=middle width=64.70986995pt height=22.8310566pt/> and any fixed coefficients <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> the linear combination  

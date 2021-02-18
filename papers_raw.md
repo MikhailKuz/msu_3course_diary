@@ -251,6 +251,7 @@ $$
 \end{array}\right] \beta\right\}
 $$ where $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right), \mathbf{1}_{n}$ is the $n$ -length vector of ones, and $\mathbf{I}_{n}$ is the $n \times n$
 identity matrix.  
+
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any $f_{\beta} \in \mathcal{F}_{l m}$ and any fixed coefficients $\xi_{\text {orig }}, \xi_{\text {switch }} \in \mathbb{R},$ the linear combination  
