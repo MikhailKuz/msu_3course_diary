@@ -147,8 +147,8 @@ $$
 \text { where } \epsilon_{\text {out }}:=\epsilon+2 B_{\text {ref }} \sqrt{\frac{\log \left(3 \delta^{-1}\right)}{2 n}}, \text { and } \mathcal{Q}_{\text {out }}:=\frac{B_{\text {switch }}}{b_{\text {orig }}}-\frac{B_{\text {switch }}-B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{n}}}{b_{\text {orig }}+B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{2 n}}}
 \end{array}
 $$  
-> **_NOTE:_**  
->  
+
+> **_NOTE:_**    
 > - As $n$ increases, $\epsilon_{out}$ approaches $\epsilon$ and $\mathcal{Q}_{out}$ approaches zero
 > - with high probability, the largest possible estimation error for $M R(f)$ across all models in $\mathcal{F}$ is bounded by $q(\delta, r, n)$, which can be made arbitrarily small by increasing $n$ and decreasing $r$
 > - The  existence  of  this  uniform  bound  implies  that  it  is  feasible  to  train  a  model  and  to evaluate its importance using the *same data*  
@@ -269,7 +269,7 @@ $$
 \end{array}\right]^{\prime}\right)^{\prime}
 $$  
 and $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right) .$
-> **_NOTE:_** 
+> **_NOTE:_**   
 >
 > - Thus, minimizing $\xi_{\text {orig }} \hat{e}_{\text {orig }}\left(f_{\beta}\right)+\xi_{\text {switch }} \hat{e}_{\text {switch }}\left(f_{\beta}\right)$ is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - $\mathcal{F}_{\operatorname{lm}, r_{\operatorname{lm}}}:=\left\{f_{\beta}: f_{\beta}(x)=x^{\prime} \beta, \quad \beta \in \mathbb{R}^{p}, \quad \beta^{\prime} \mathbf{M}_{\operatorname{lm}} \beta \leq r_{\operatorname{lm}}\right\}$
