@@ -238,7 +238,7 @@ is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in
 
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
 
-and <p align="center"><img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/></p>    
+<p align="center"><img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/></p>  
 
 > **_NOTE:_**  
 > 
