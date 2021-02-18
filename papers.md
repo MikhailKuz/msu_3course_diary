@@ -113,43 +113,31 @@
 
 ### Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
-
 **Датасет** - iid  
 
 ***Введём несколько определений***:  
-
 *a population ε-Rashomon set*:  <img src="svgs/9342112aaa03b638367e4057db8fb58c.svg?invert_in_darkmode" align=middle width=331.3169772pt height=24.657534pt/>
 *model relience*: <img src="svgs/246d2949518f0e072a94de9eb5a00789.svg?invert_in_darkmode" align=middle width=277.7566704pt height=30.648288pt/>
-*a population-level model class reliance (MCR) range*: <img src="svgs/ffa3ac10030479bc13de83a17339abe9.svg?invert_in_darkmode" align=middle width=469.3592046pt height=27.9453933pt/>
-
+*a population-level model class reliance (MCR) range*: <img src="svgs/ffa3ac10030479bc13de83a17339abe9.svg?invert_in_darkmode" align=middle width=469.3592046pt height=27.9453933pt/>  
 > **_NOTE:_** If <img src="svgs/221ba46e23343b21cce257f1ad15c790.svg?invert_in_darkmode" align=middle width=73.51693965pt height=24.657534pt/> is low, then no well-performing model in <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/> places high importance on <img src="svgs/ef94a731f1a699515d87dca8d785af8e.svg?invert_in_darkmode" align=middle width=25.55943555pt height=22.4657235pt/> and <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> can be discarded at low cost regardless of future modeling decisions. Similarly for <img src="svgs/aec420cc680f5f9a2f41f3c8f47d7c4f.svg?invert_in_darkmode" align=middle width=73.69956825pt height=24.657534pt/>  the set of functions <img src="svgs/ff02df9d466f24ac28a9a6651c5544b7.svg?invert_in_darkmode" align=middle width=16.23606435pt height=22.4657235pt/> as an <img src="svgs/89f2e0d2d24bcf44db73aab8fc03252c.svg?invert_in_darkmode" align=middle width=7.8729552pt height=14.1552444pt/> -margin-expectation-cover if for any <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> and any distribution <img src="svgs/e03ebcf17dcf2d3f40dc9021b39a1cde.svg?invert_in_darkmode" align=middle width=18.63245505pt height=22.4657235pt/> there exists <img src="svgs/999c928b27f4389347a61bf0a4e60c1e.svg?invert_in_darkmode" align=middle width=44.7575601pt height=22.4657235pt/> such that <img src="svgs/14a9d4a60f0054370c550fc4cb835c28.svg?invert_in_darkmode" align=middle width=176.8293186pt height=24.657534pt/>  the covering number <img src="svgs/76c49413e779522d8543e9095fa14ade.svg?invert_in_darkmode" align=middle width=57.3215874pt height=24.657534pt/> to be the size of the smallest <img src="svgs/89f2e0d2d24bcf44db73aab8fc03252c.svg?invert_in_darkmode" align=middle width=7.8729552pt height=14.1552444pt/> -margin-expectationcover for <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/>  
-
-
-
+  
 ***Возможны следующие вариации empirical MR:***  
-<img src="svgs/e6e15a434fb7ff91803b90f86f96bac0.svg?invert_in_darkmode" align=middle width=141.37212045pt height=33.2053986pt/>
-<img src="svgs/908f1d9e35f3d768d48e741f931f6914.svg?invert_in_darkmode" align=middle width=478.23323955pt height=84.6738387pt/>
-<img src="svgs/2a0f84fec0172ae51bfe0b983b3edf64.svg?invert_in_darkmode" align=middle width=326.00016075pt height=27.9453933pt/>
-<img src="svgs/1061f8fca3bf89f6d24b9d1c8575eae5.svg?invert_in_darkmode" align=middle width=419.4236574pt height=27.9453933pt/>_
-
+<img src="svgs/e6e15a434fb7ff91803b90f86f96bac0.svg?invert_in_darkmode" align=middle width=141.37212045pt height=33.2053986pt/>  
+<img src="svgs/908f1d9e35f3d768d48e741f931f6914.svg?invert_in_darkmode" align=middle width=478.23323955pt height=84.6738387pt/>  
+<img src="svgs/2a0f84fec0172ae51bfe0b983b3edf64.svg?invert_in_darkmode" align=middle width=326.00016075pt height=27.9453933pt/>  
+<img src="svgs/1061f8fca3bf89f6d24b9d1c8575eae5.svg?invert_in_darkmode" align=middle width=419.4236574pt height=27.9453933pt/>  
 > **_NOTE:_** The estimators <img src="svgs/c0b1011abbb7fe0877418710b9a042f0.svg?invert_in_darkmode" align=middle width=136.4868285pt height=24.657534pt/> and <img src="svgs/f958022a491e85342a86708a4aea6f40.svg?invert_in_darkmode" align=middle width=70.22293575pt height=24.657534pt/> all belong to the well-studied class of U-statistics. Thus, under fairly minor conditions, *these estimators are unbiased, asymptotically normal, and have finite-sample probabilistic bounds*  
 
-
-
 ***We introduce three bounded loss assumptions:***
-**Assumption 1** (*Bounded individual loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/d00be88766456732b157a8a360587de6.svg?invert_in_darkmode" align=middle width=25.57074135pt height=21.1872144pt/> <img src="svgs/0362b866c8b100f031c67717d70a820c.svg?invert_in_darkmode" align=middle width=165.13601775pt height=24.657534pt/> for any <img src="svgs/0b87ec9fbf75c80286c35c55797da12c.svg?invert_in_darkmode" align=middle width=193.18192575pt height=24.657534pt/>
-**Assumption 2** (*Bounded relative loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/c0ed02762c6b0ac304747f5bf91ffe75.svg?invert_in_darkmode" align=middle width=137.1650412pt height=24.657534pt/> <img src="svgs/63d9f5512ad2b947f85f05497d90b219.svg?invert_in_darkmode" align=middle width=187.79617395pt height=24.657534pt/> for any <img src="svgs/64b09dfb5f3a9ec25bf5d7c35d66cbb6.svg?invert_in_darkmode" align=middle width=102.8955939pt height=24.657534pt/>
-**Assumption 3** (*Bounded aggregate loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/bb133ec4145b6d217554879fbcb0294e.svg?invert_in_darkmode" align=middle width=43.83563745pt height=24.657534pt/> <img src="svgs/5e52e9438c61cb4a30a51bb74ec1b3ab.svg?invert_in_darkmode" align=middle width=350.7039987pt height=24.657534pt/>
-
-> **_NOTE:_** some constants can be derived from others
-
-
+**Assumption 1** (*Bounded individual loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/d00be88766456732b157a8a360587de6.svg?invert_in_darkmode" align=middle width=25.57074135pt height=21.1872144pt/> <img src="svgs/0362b866c8b100f031c67717d70a820c.svg?invert_in_darkmode" align=middle width=165.13601775pt height=24.657534pt/> for any <img src="svgs/0b87ec9fbf75c80286c35c55797da12c.svg?invert_in_darkmode" align=middle width=193.18192575pt height=24.657534pt/>  
+**Assumption 2** (*Bounded relative loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/c0ed02762c6b0ac304747f5bf91ffe75.svg?invert_in_darkmode" align=middle width=137.1650412pt height=24.657534pt/> <img src="svgs/63d9f5512ad2b947f85f05497d90b219.svg?invert_in_darkmode" align=middle width=187.79617395pt height=24.657534pt/> for any <img src="svgs/64b09dfb5f3a9ec25bf5d7c35d66cbb6.svg?invert_in_darkmode" align=middle width=102.8955939pt height=24.657534pt/>  
+**Assumption 3** (*Bounded aggregate loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/bb133ec4145b6d217554879fbcb0294e.svg?invert_in_darkmode" align=middle width=43.83563745pt height=24.657534pt/> <img src="svgs/5e52e9438c61cb4a30a51bb74ec1b3ab.svg?invert_in_darkmode" align=middle width=350.7039987pt height=24.657534pt/>  
+> **_NOTE:_** some constants can be derived from others  
 
 **Theorem 4** (*"Outer" MCR Bounds*) Given a constant <img src="svgs/434f6d79cf3e7605879c945f0bcce27a.svg?invert_in_darkmode" align=middle width=36.80923125pt height=21.1872144pt/>, let <img src="svgs/41cbe9d9685c9fe8cad27d3d509034af.svg?invert_in_darkmode" align=middle width=188.42796225pt height=24.657534pt/> and <img src="svgs/7c5035652a2f41d75f3e01dd3df70735.svg?invert_in_darkmode" align=middle width=185.4142224pt height=24.657534pt/> be prediction models that attain the highest and lowest model reliance among models in <img src="svgs/d3818fe9bff73052412280a7dd7dbd92.svg?invert_in_darkmode" align=middle width=33.38939175pt height=24.657534pt/>. If <img src="svgs/c1775ebbacd300a3b1ef7df2941ffdff.svg?invert_in_darkmode" align=middle width=27.5224092pt height=22.8310566pt/> and <img src="svgs/ff8ee454f3798d20024ce335ac8d0cd5.svg?invert_in_darkmode" align=middle width=27.7050576pt height=22.8310566pt/> satisfy Assumptions 1, 2, 3 , then
-<p align="center"><img src="svgs/ebcebe13dcb38ae5f6e293c269c81a0f.svg?invert_in_darkmode" align=middle width=583.70409405pt height=103.69392825pt/></p>
-
-> **_NOTE:_** 
->
+<p align="center"><img src="svgs/ebcebe13dcb38ae5f6e293c269c81a0f.svg?invert_in_darkmode" align=middle width=583.70409405pt height=103.69392825pt/></p>  
+> **_NOTE:_**  
+> 
 > - As <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> increases, <img src="svgs/237bd810324c5f192a7fbd8bd326009a.svg?invert_in_darkmode" align=middle width=25.8989379pt height=14.1552444pt/> approaches <img src="svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.6723921pt height=14.1552444pt/> and <img src="svgs/38834d7d013b79060f2d086645a17c25.svg?invert_in_darkmode" align=middle width=32.6512659pt height=22.4657235pt/> approaches zero
 > - with high probability, the largest possible estimation error for <img src="svgs/90799cd0f3f2624e7fb9c1a986dba025.svg?invert_in_darkmode" align=middle width=52.95103275pt height=24.657534pt/> across all models in <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/> is bounded by <img src="svgs/9cec0385363b3dee00c10f8cbbf0dd5f.svg?invert_in_darkmode" align=middle width=59.16670155pt height=24.657534pt/>, which can be made arbitrarily small by increasing <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> and decreasing <img src="svgs/89f2e0d2d24bcf44db73aab8fc03252c.svg?invert_in_darkmode" align=middle width=7.8729552pt height=14.1552444pt/>
 > - The  existence  of  this  uniform  bound  implies  that  it  is  feasible  to  train  a  model  and  to evaluate its importance using the *same data*
