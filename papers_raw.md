@@ -166,7 +166,7 @@ $$
 - we present bound functions $b_{-}$ and $b_{+}$ satisfying $b_{-}\left(\epsilon_{\mathrm{abs}}\right) \leq$ $\widehat{M R}(f) \leq b_{+}\left(\epsilon_{\text {abs }}\right)$ simultaneously for all $\left\{f, \epsilon_{\text {abs }}: \hat{e}_{\text {orig }}(f) \leq \epsilon_{\text {abs }}, f \in \mathcal{F}, \epsilon_{\text {abs }}>0\right\}$
 - almost all of the results shown in this section, and those in Section 6.2 . also hold if we replace $\hat{e}_{\text {switch }}$ with $\hat{e}_{\text {divide }}$ throughout (see Eq 3.5), including in the definition of $\widehat{M R}$ and $\hat{h}_{-, \gamma}(f) .$  
 
-***Binary Search for Empirical MR Lower Bound***
+***Binary Search for Empirical MR Lower Bound***  
 **Condition 8** (*Criteria to continue search for $\widehat{M R}$ lower bound*) $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0$ and $\hat{e}_{\text {orig }}\left(\hat{g}_{-, \gamma}\right) \leq \epsilon_{a b s}$  
 **Lemma 9** (*Lower bound*) If $\gamma \in \mathbb{R}$ satisfies $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0,$ then $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$
 $$
@@ -216,7 +216,7 @@ Let $\gamma=0$. Under the above assumptions, it follows that either (i) there ex
 > w_{\gamma}(i, j)=\frac{\gamma 1(i=j)}{n}+\frac{1(i \neq j)}{n(n-1)} \geq 0
 > $$  
 
-***Binary Search for Empirical MR Upper Bound***
+***Binary Search for Empirical MR Upper Bound***  
 $\hat{h}_{+, \gamma}(f):=\hat{e}_{\text {orig }}(f)+\gamma \hat{e}_{\text {switch }}(f), \quad$ and $\quad \hat{g}_{+, \gamma, \mathcal{F}} \in \underset{f \in \mathcal{F}}{\arg \min } \hat{h}_{+, \gamma}(f)$
 Given an observed sample, we define the following condition for a pair of values $\left\{\gamma, \epsilon_{\mathrm{abs}}\right\} \in$ $\mathbb{R}_{<0} \times \mathbb{R}_{>0},$ and argmin function $\hat{g}_{+, \gamma}:$  
 **Condition 12** (*Criteria to continue search for $\widehat{M R}$ upper bound*) $\hat{h}_{+, \gamma}\left(\hat{g}_{+, \gamma}\right) \geq 0$ and $\hat{e}_{\text {orig }}\left(\hat{g}_{+, \gamma}\right) \leq \epsilon_{a b s}$  
@@ -243,7 +243,7 @@ Additionally, if $f=\hat{g}_{+, \gamma}$ and at least one of the inequalities in
 ***Convex Models***
 - **идея**: пусть функции параметризуются некоторым вектором переменных, разобьём это пространство на симплексы, на них h совпадает в вершинах с некоторой гиперплоскостью, заменяем h её, получаем нижнию оценку, так для всех подвыборок из пространства и индуктивно повторяем процедуру  
 
-***MR & MCR for Linear Models, Additive Models***
+***MR & MCR for Linear Models, Additive Models***  
 Throughout this section, we assume that $\mathcal{X} \subset \mathbb{R}^{p}$ for $p \in \mathbb{Z}^{+},$ that $\mathcal{Y} \subset \mathbb{R}^{1},$ and that $L$ is the squared error loss function $L\left(f,\left(y, x_{1}, x_{2}\right)=\left(y-f\left(x_{1}, x_{2}\right)\right)^{2}\right.$.  
 **Proposition 15** (*Interpreting $M R,$ and computing empirical MR for linear models*) For any prediction model $f,$ let $e_{\text {orig }}(f), e_{\text {switch }}(f), \hat{e}_{\text {orig }}(f),$ and $\hat{e}_{\text {switch }}(f)$ be defined based on the squared error loss $L\left(f,\left(y, x_{1}, x_{2}\right)\right):=\left(y-f\left(x_{1}, x_{2}\right)\right)^{2}$ for $y \in \mathbb{R}, x_{1} \in \mathbb{R}^{p_{1}},$ and $x_{2} \in \mathbb{R}^{p_{2}}$  
 
@@ -313,7 +313,7 @@ $$
 \left\|f_{\alpha}\right\|_{k}:=\sum_{i=1}^{R} \sum_{j=1}^{R} \alpha_{[i]} \alpha_{[j]} k\left(\mathbf{D}_{[i, \cdot]}, \mathbf{D}_{[j, \cdot]}\right)=\alpha^{\prime} \mathbf{K}_{\mathbf{D}} \alpha
 $$  
 
-***Calculating MCR***
+***Calculating MCR***  
 For any two constants $\xi_{\text {orig }}, \xi_{\text {switch }} \in \mathbb{R},$ we can show that minimizing the linear combination $\xi_{\text {orig }} \hat{e}_{\text {orig }}\left(f_{\alpha}\right)+\xi_{\text {switch }} \hat{e}_{\text {switch }}\left(f_{\alpha}\right)$ over $\mathcal{F}_{\mathbf{D}, r_{k}}$ is equivalent to the minimization problem  
 $$
 \begin{array}{l}
@@ -354,7 +354,7 @@ $\hat{e}_{\text {weight }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} w
 >   e_{\text {cond }}(f)=\mathbb{E} L\left[f,\left(Y^{(b)},\left\{X_{1}^{(a)}-\mu_{1}\left(X_{2}^{(a)}\right)\right\}+\mu_{1}\left(X_{2}^{(b)}\right), X_{2}^{(b)}\right)\right]
 >   $$  
 
-***Simulations of Bootstrap Confidence Intervals***
+***Simulations of Bootstrap Confidence Intervals***  
 **идея**:  
 * 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
   - на training subset: обучаем reference model

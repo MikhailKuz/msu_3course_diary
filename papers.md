@@ -155,7 +155,7 @@
 - we present bound functions <img src="svgs/49e648991ffdfcbccd3b3fb2005ebe4b.svg?invert_in_darkmode" align=middle width=17.3288181pt height=22.8310566pt/> and <img src="svgs/706a470865330c718598b5dc21ed291e.svg?invert_in_darkmode" align=middle width=17.1461697pt height=22.8310566pt/> satisfying <img src="svgs/4ea8c210394ae0fbc804a501d7f4f746.svg?invert_in_darkmode" align=middle width=77.5422813pt height=24.657534pt/> <img src="svgs/6cf76cf8bcf20ee06c13946ba1c7bc3f.svg?invert_in_darkmode" align=middle width=139.30602675pt height=32.9680131pt/> simultaneously for all <img src="svgs/33a26985ed3f74c6c328d961bdb4040f.svg?invert_in_darkmode" align=middle width=306.673455pt height=24.657534pt/>
 - almost all of the results shown in this section, and those in Section 6.2 . also hold if we replace <img src="svgs/d758b434ea5969b8eb5cf4ea54c47c3e.svg?invert_in_darkmode" align=middle width=43.85524275pt height=22.8310566pt/> with <img src="svgs/c96dc920c4b6fd8b88f1e068eff8fe4f.svg?invert_in_darkmode" align=middle width=42.3689541pt height=22.8310566pt/> throughout (see Eq 3.5), including in the definition of <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> and <img src="svgs/59e22f4aaefc5ca42e8f5a653371b456.svg?invert_in_darkmode" align=middle width=59.25291075pt height=31.5068952pt/>  
 
-***Binary Search for Empirical MR Lower Bound***
+***Binary Search for Empirical MR Lower Bound***  
 **Condition 8** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> lower bound*) <img src="svgs/f78966e0991a9e03d6ee41a14a557d3f.svg?invert_in_darkmode" align=middle width=108.19909155pt height=31.5068952pt/> and <img src="svgs/98e16b9bf83e07cded0253295956f7a3.svg?invert_in_darkmode" align=middle width=128.55289755pt height=24.657534pt/>  
 **Lemma 9** (*Lower bound*) If <img src="svgs/6fd73a861ca99d39a24a5cc49413f9e5.svg?invert_in_darkmode" align=middle width=41.38717935pt height=22.6483917pt/> satisfies <img src="svgs/546ffd587a2a4c3c2eeb3f7482ce8f31.svg?invert_in_darkmode" align=middle width=112.76531475pt height=31.5068952pt/> then <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> satisfying <img src="svgs/53b35323e4d819003c03929275df6ae0.svg?invert_in_darkmode" align=middle width=110.565444pt height=24.657534pt/>
 <p align="center"><img src="svgs/d35418f16d6b41defffadc5a3a374ff9.svg?invert_in_darkmode" align=middle width=184.41855465pt height=40.6157334pt/></p>  
@@ -191,7 +191,7 @@ Let <img src="svgs/7eaedc1b9d7a4b11f78f1c63edf34f3a.svg?invert_in_darkmode" alig
 > 
 > <p align="center"><img src="svgs/a742f1228e4becff1028d59ebd959863.svg?invert_in_darkmode" align=middle width=294.95653275pt height=38.8349148pt/></p>  
 
-***Binary Search for Empirical MR Upper Bound***
+***Binary Search for Empirical MR Upper Bound***  
 <img src="svgs/0e966d02453e06d54e13be3a54b050da.svg?invert_in_darkmode" align=middle width=244.25013525pt height=31.5068952pt/> and <img src="svgs/371d351a36ba28cf9b36f9e86d04fcaa.svg?invert_in_darkmode" align=middle width=172.5885018pt height=32.3286942pt/>
 Given an observed sample, we define the following condition for a pair of values <img src="svgs/b4635f8bf548f2dce0e282964bd75129.svg?invert_in_darkmode" align=middle width=75.2081418pt height=24.657534pt/> <img src="svgs/bb9800eb58b40dd0ed5704c9b5310a59.svg?invert_in_darkmode" align=middle width=83.6986887pt height=22.6483917pt/> and argmin function <img src="svgs/527755e80d779eb423ee66bb3decc25c.svg?invert_in_darkmode" align=middle width=39.40301805pt height=22.8310566pt/>  
 **Condition 12** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> upper bound*) <img src="svgs/f29ef9fa70fdd5d92c6556934e00cb2a.svg?invert_in_darkmode" align=middle width=107.8338327pt height=31.5068952pt/> and <img src="svgs/fe3321fe2a8418bcf480637a0eaf2ef4.svg?invert_in_darkmode" align=middle width=128.37026895pt height=24.657534pt/>  
@@ -214,7 +214,7 @@ Additionally, if <img src="svgs/692bc89af45dda02a0ba212a04b4d344.svg?invert_in_d
 ***Convex Models***
 - **идея**: пусть функции параметризуются некоторым вектором переменных, разобьём это пространство на симплексы, на них h совпадает в вершинах с некоторой гиперплоскостью, заменяем h её, получаем нижнию оценку, так для всех подвыборок из пространства и индуктивно повторяем процедуру  
 
-***MR & MCR for Linear Models, Additive Models***
+***MR & MCR for Linear Models, Additive Models***  
 Throughout this section, we assume that <img src="svgs/525d2b68f96a33db3c9d6903b457a4cc.svg?invert_in_darkmode" align=middle width=54.6987507pt height=22.6483917pt/> for <img src="svgs/6f1cc81a5cf62297d38807247fd66323.svg?invert_in_darkmode" align=middle width=54.8001564pt height=26.1773094pt/> that <img src="svgs/df0525dd40363d25686f8908e12835aa.svg?invert_in_darkmode" align=middle width=58.0684467pt height=26.7617526pt/> and that <img src="svgs/ddcb483302ed36a59286424aa5e0be17.svg?invert_in_darkmode" align=middle width=11.18724255pt height=22.4657235pt/> is the squared error loss function <img src="svgs/923d1ef8595c8ce2325a43ac73658a77.svg?invert_in_darkmode" align=middle width=245.722785pt height=37.8085059pt/>.  
 **Proposition 15** (*Interpreting <img src="svgs/a31992ee5753d0c3a9729a5e32257c37.svg?invert_in_darkmode" align=middle width=34.9144092pt height=22.4657235pt/> and computing empirical MR for linear models*) For any prediction model <img src="svgs/6f60e7714a307b2095b24945797a63b4.svg?invert_in_darkmode" align=middle width=13.4703921pt height=22.8310566pt/> let <img src="svgs/f76c52abf47fa74538b1bc013b6119a6.svg?invert_in_darkmode" align=middle width=205.83066405pt height=24.657534pt/> and <img src="svgs/daf800b1b76c20be39f70242e874487e.svg?invert_in_darkmode" align=middle width=71.7092244pt height=24.657534pt/> be defined based on the squared error loss <img src="svgs/6c90a58890f7ff2a437bb89bf09b2e32.svg?invert_in_darkmode" align=middle width=253.25707275pt height=31.3608075pt/> for <img src="svgs/e4fe82e8dcbe27f21551c668ef1b30ad.svg?invert_in_darkmode" align=middle width=115.23138495pt height=22.6483917pt/> and <img src="svgs/de660c07e8f4febe3f8c5cb400a4dd55.svg?invert_in_darkmode" align=middle width=61.1029419pt height=22.6483917pt/>  
 
@@ -256,7 +256,7 @@ Above, the norm <img src="svgs/22cfa2de4616bd3325e7675d8a3080ca.svg?invert_in_da
 
 <p align="center"><img src="svgs/f439d9dda12151905456d8654480e0cb.svg?invert_in_darkmode" align=middle width=349.7462727pt height=50.04352485pt/></p>  
 
-***Calculating MCR***
+***Calculating MCR***  
 For any two constants <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> we can show that minimizing the linear combination <img src="svgs/b068a4fd3be4b75e042fc286083c2f05.svg?invert_in_darkmode" align=middle width=252.99885435pt height=24.657534pt/> over <img src="svgs/3d8eb5d1919b6d0e2d2306f0219f4006.svg?invert_in_darkmode" align=middle width=39.5225523pt height=22.4657235pt/> is equivalent to the minimization problem  
 <p align="center"><img src="svgs/d8a7c6054e9bfc0b36e3ab7f0ead8485.svg?invert_in_darkmode" align=middle width=521.3086296pt height=41.87855595pt/></p>  
 
@@ -286,7 +286,7 @@ and the constant
 > - When the covariate space is continuous or high dimensional we define <img src="svgs/3118e416dde61fa174ee23f070c8b8e3.svg?invert_in_darkmode" align=middle width=16.45747125pt height=14.1552444pt/> to be the conditional expectation function <img src="svgs/bdbfe60ca01dc1f0e00b7569dfc4f8f6.svg?invert_in_darkmode" align=middle width=199.6532934pt height=24.657534pt/> and assume that the random residual <img src="svgs/cbfb1b2a33b28eab8a3e59464768e810.svg?invert_in_darkmode" align=middle width=14.90868885pt height=22.4657235pt/> <img src="svgs/6dfccda44725dbea4f6d308182ce766c.svg?invert_in_darkmode" align=middle width=53.79768405pt height=24.657534pt/> is independent of <img src="svgs/3930949a56ee806512c58ed9903c1033.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/>. Under this assumption, it can be shown that
 >   <p align="center"><img src="svgs/0fa25d3952dac8f38e7a89cc1211f583.svg?invert_in_darkmode" align=middle width=513.97555275pt height=29.58934275pt/></p>  
 
-***Simulations of Bootstrap Confidence Intervals***
+***Simulations of Bootstrap Confidence Intervals***  
 **идея**:  
 * 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
   - на training subset: обучаем reference model
