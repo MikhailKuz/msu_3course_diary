@@ -146,7 +146,7 @@ $$
 \mathbb{P}\left(M C R_{-}(\epsilon)<\widehat{M C R}_{-}\left(\epsilon_{\text {out }}\right)-\mathcal{Q}_{\text {out }}\right) \leq \delta \\
 \text { where } \epsilon_{\text {out }}:=\epsilon+2 B_{\text {ref }} \sqrt{\frac{\log \left(3 \delta^{-1}\right)}{2 n}}, \text { and } \mathcal{Q}_{\text {out }}:=\frac{B_{\text {switch }}}{b_{\text {orig }}}-\frac{B_{\text {switch }}-B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{n}}}{b_{\text {orig }}+B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{2 n}}}
 \end{array}
-$$
+$$  
 > **_NOTE:_**  
 >  
 > - As $n$ increases, $\epsilon_{out}$ approaches $\epsilon$ and $\mathcal{Q}_{out}$ approaches zero
