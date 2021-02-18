@@ -147,8 +147,8 @@ $$
 \text { where } \epsilon_{\text {out }}:=\epsilon+2 B_{\text {ref }} \sqrt{\frac{\log \left(3 \delta^{-1}\right)}{2 n}}, \text { and } \mathcal{Q}_{\text {out }}:=\frac{B_{\text {switch }}}{b_{\text {orig }}}-\frac{B_{\text {switch }}-B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{n}}}{b_{\text {orig }}+B_{\text {ind }} \sqrt{\frac{\log \left(6 \delta^{-1}\right)}{2 n}}}
 \end{array}
 $$
-> **_NOTE:_**
->
+> **_NOTE:_**  
+>  
 > - As $n$ increases, $\epsilon_{out}$ approaches $\epsilon$ and $\mathcal{Q}_{out}$ approaches zero
 > - with high probability, the largest possible estimation error for $M R(f)$ across all models in $\mathcal{F}$ is bounded by $q(\delta, r, n)$, which can be made arbitrarily small by increasing $n$ and decreasing $r$
 > - The  existence  of  this  uniform  bound  implies  that  it  is  feasible  to  train  a  model  and  to evaluate its importance using the *same data*  
