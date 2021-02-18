@@ -298,6 +298,7 @@ and the constant
 - 2 подход (проще): cэмплируем выборку с ориг. датасета (500 times), делим его на 2 части:
   - на 1ой части обучаем модель
   - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI  
+
 **Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
     
 ### **COMPAS score**  
