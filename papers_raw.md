@@ -321,7 +321,7 @@ $C M R(f)=\frac{e_{\text {cond }}(f)}{e_{\text {orig }}(f)}$
 
 ***Estimation of CMR by Weighting, Matching, or Imputation***  
 $\hat{e}_{\text {weight }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} w\left(\mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right) \times L\left\{f,\left(\mathbf{y}_{[j]}, \mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right)\right\}$  
-> **_NOTE:_**
+> **_NOTE:_**  
 > - $\hat{e}_{\text {weight }}(f)$ is unbiased for $e_{\text {cond }}(f)$ $\hat{e}_{\text {match }}(f):=\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{j \neq i} \frac{1\left(\mathbf{X}_{2[j, \cdot]}=\mathbf{X}_{2[i, \cdot]}\right)}{\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, j)}\right.} \times L\left\{f,\left(\mathbf{y}_{[j]}, \mathbf{X}_{1[i, \cdot]}, \mathbf{X}_{2[j, \cdot]}\right)\right\}$
 > - if the inverse probability weight $\mathbb{P}\left(X_{2}=\mathbf{X}_{2[i, \cdot}\right)^{-1}$ is known, then $\hat{e}_{\text {match }}(f)$ is unbiased for $e_{\text {cond }}(f)$ (see Appendix A.7).
 > - However, when the covariate space is continuous or high dimensional, we typically cannotestimate  CMR  nonparametrically.
