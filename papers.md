@@ -208,18 +208,16 @@ Throughout this section, we assume that <img src="svgs/525d2b68f96a33db3c9d6903b
 where <img src="svgs/f467c5bf149d12e7bb28489e6164ebf9.svg?invert_in_darkmode" align=middle width=14.82311325pt height=14.1552444pt/> and <img src="svgs/d882a6b325cb3b31b5866882721cf8de.svg?invert_in_darkmode" align=middle width=14.82311325pt height=14.1552444pt/> are positive integers. Let <img src="svgs/68c7990caff502dcc6b82b5c20cd1423.svg?invert_in_darkmode" align=middle width=85.5193251pt height=24.657534pt/> and <img src="svgs/3410e8b77a8601e7618820f2558e3a50.svg?invert_in_darkmode" align=middle width=16.09314465pt height=22.8310566pt/> satisfy <img src="svgs/9207b882cde6a3c8348e7b908a96ada7.svg?invert_in_darkmode" align=middle width=130.9615329pt height=22.8310566pt/> and <img src="svgs/c4d33f1e2243b813f0f048aa9e6af3ae.svg?invert_in_darkmode" align=middle width=198.64429365pt height=24.7161288pt/> Then  
 <p align="center"><img src="svgs/82c1692dfe28e39c7cf6212f043b2a51.svg?invert_in_darkmode" align=middle width=457.9519164pt height=37.6933392pt/></p>  
 and, for finite samples,
-<p align="center"><img src="svgs/be714082c545f51d061d0247c89542d8.svg?invert_in_darkmode" align=middle width=555.1804962pt height=41.7812637pt/></p>  
-where <img src="svgs/4782371ddecbf6bb53080a79ca3d442c.svg?invert_in_darkmode" align=middle width=191.34402705pt height=27.7756545pt/> is the <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> -length vector of ones, and <img src="svgs/54a937784e79b8adddb37d9b2263e27c.svg?invert_in_darkmode" align=middle width=15.29494725pt height=22.5570873pt/> is the <img src="svgs/3add1221abfa79cb14021bc2dacd5725.svg?invert_in_darkmode" align=middle width=39.8249445pt height=19.1781018pt/>
-identity matrix.  
+<p align="center"><img src="svgs/be714082c545f51d061d0247c89542d8.svg?invert_in_darkmode" align=middle width=555.1804962pt height=41.7812637pt/></p> where <img src="svgs/4782371ddecbf6bb53080a79ca3d442c.svg?invert_in_darkmode" align=middle width=191.34402705pt height=27.7756545pt/> is the <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> -length vector of ones, and <img src="svgs/54a937784e79b8adddb37d9b2263e27c.svg?invert_in_darkmode" align=middle width=15.29494725pt height=22.5570873pt/> is the <img src="svgs/3add1221abfa79cb14021bc2dacd5725.svg?invert_in_darkmode" align=middle width=39.8249445pt height=19.1781018pt/>
+identity matrix.    
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any <img src="svgs/0b3224020b22b8293953c6417cc644b2.svg?invert_in_darkmode" align=middle width=64.70986995pt height=22.8310566pt/> and any fixed coefficients <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> the linear combination  
 <p align="center"><img src="svgs/796ba6fd697e42f02cac98a866f078f6.svg?invert_in_darkmode" align=middle width=251.9973423pt height=17.0319402pt/></p>  
 is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in_darkmode" align=middle width=10.165551pt height=22.8310566pt/> to the quadratic function <img src="svgs/a7fe98af31abe4ec0f2bcf89897e9162.svg?invert_in_darkmode" align=middle width=109.56035475pt height=24.7161288pt/> where
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
-and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>
-> **_NOTE:_**
->
+and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>  
+> **_NOTE:_**  
 > - Thus, minimizing <img src="svgs/a612f2a8a19baad1e773c87b9e75576f.svg?invert_in_darkmode" align=middle width=251.99734395pt height=24.657534pt/> is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - <img src="svgs/b37e1c7739e7d50605fe8a0fd4e1eb9a.svg?invert_in_darkmode" align=middle width=409.1601789pt height=24.7161288pt/>
 > - The resulting optimization problem is a (possibly non-convex) quadratic program withone  quadratic  constraint  
