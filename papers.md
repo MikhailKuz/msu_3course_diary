@@ -110,9 +110,8 @@
   - даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
   *Итоги экспериментов*:
     - NRFE и RFE в целом имеют одинаковое качество
-    
-      
   
+---
 
 ## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
