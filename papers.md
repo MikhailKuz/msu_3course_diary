@@ -111,12 +111,12 @@
   *Итоги экспериментов*:
     - NRFE и RFE в целом имеют одинаковое качество
 
-#### Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf)
+### Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 
 **Датасет** - iid  
 
-##### *Введём несколько определений*:  
+***Введём несколько определений***:  
 
 *a population ε-Rashomon set*:  <img src="svgs/9342112aaa03b638367e4057db8fb58c.svg?invert_in_darkmode" align=middle width=331.3169772pt height=24.657534pt/>
 *model relience*: <img src="svgs/246d2949518f0e072a94de9eb5a00789.svg?invert_in_darkmode" align=middle width=277.7566704pt height=30.648288pt/>
@@ -340,23 +340,16 @@ and the constant
 
 
 ***Simulations of Bootstrap Confidence Intervals***  
-
-**идея**: 
-
-* 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset 
-
+**идея**:
+- 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset 
   - на training subset: обучаем reference model
-
   - на analysis subset: сэмплируем выборку (500 times) и считаем <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, а после CI
-
 - 2 подход (проще): cэмплируем выборку с ориг. датасета (500 times), делим его на 2 части:
   - на 1ой части обучаем модель
-  - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI
+  - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI  
 
-**Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself
-
-
-
-***COMPAS score***
+**Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
+  
+***COMPAS score***  
 The bootstrap 95% CI for <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> on “inadmissible variables” is **[1.00, 1.73]**  
 For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> range with a 95% bootstrap CI is equal to **[1.62, 3.96]**
