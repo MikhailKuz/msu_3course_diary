@@ -218,15 +218,11 @@ is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
 and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>  
 
-
-
 > **_NOTE:_**  
 > 
 > - Thus, minimizing <img src="svgs/a612f2a8a19baad1e773c87b9e75576f.svg?invert_in_darkmode" align=middle width=251.99734395pt height=24.657534pt/> is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - <img src="svgs/b37e1c7739e7d50605fe8a0fd4e1eb9a.svg?invert_in_darkmode" align=middle width=409.1601789pt height=24.7161288pt/>
 > - The resulting optimization problem is a (possibly non-convex) quadratic program withone  quadratic  constraint  
-
-
 
 **Lemma 17** (*Loss upper bound for linear models*) If <img src="svgs/100b67cef52c22ef5bf59da78336d102.svg?invert_in_darkmode" align=middle width=33.83375655pt height=22.5570873pt/> is positive definite, <img src="svgs/91aac9730317276af725abd8cef04ca9.svg?invert_in_darkmode" align=middle width=13.1963865pt height=22.4657235pt/> is bounded within a known range, and there exists a known constant <img src="svgs/6940e84f35678b3aff684d787e5ef463.svg?invert_in_darkmode" align=middle width=18.5237019pt height=14.1552444pt/> such that <img src="svgs/6c698ef3df94efbf508a6c4c59849479.svg?invert_in_darkmode" align=middle width=99.43675995pt height=28.8949551pt/> for all <img src="svgs/061d1720a5d427021651f245afb95c39.svg?invert_in_darkmode" align=middle width=107.86838535pt height=24.657534pt/> then Assumption 1 holds for the model class <img src="svgs/e6a5639c07265f2bb3ea3c3691189a1e.svg?invert_in_darkmode" align=middle width=57.9626322pt height=22.4657235pt/> the squared error loss function, and the constant  
 <p align="center"><img src="svgs/77a0819beceab655eb7fcd723d52d3b3.svg?invert_in_darkmode" align=middle width=439.88553345pt height=49.3155696pt/></p>  
