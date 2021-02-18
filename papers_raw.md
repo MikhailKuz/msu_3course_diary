@@ -276,7 +276,9 @@ identity matrix.
 $$
 \xi_{\text {orig }} \hat{e}_{\text {orig }}\left(f_{\beta}\right)+\xi_{\text {switch }} \hat{e}_{\text {switch }}\left(f_{\beta}\right)
 $$  
-is proportional in $\beta$ to the quadratic function $-2 \mathbf{q}^{\prime} \beta+\beta^{\prime} \mathbf{Q} \beta,$ where
+
+is proportional in $\beta$ to the quadratic function $-2 \mathbf{q}^{\prime} \beta+\beta^{\prime} \mathbf{Q} \beta,$ where  
+
 $$
 \mathbf{Q}:=\xi_{\text {orig }} \mathbf{X}^{\prime} \mathbf{X}+\xi_{\text {switch }}\left[\begin{array}{cc}
 \mathbf{X}_{1}^{\prime} \mathbf{X}_{1} & \mathbf{X}_{1}^{\prime} \mathbf{W} \mathbf{X}_{2} \\
@@ -286,6 +288,7 @@ $$
 \mathbf{X}_{2}^{\prime} \mathbf{y}
 \end{array}\right]^{\prime}\right)^{\prime}
 $$  
+
 and $\mathbf{W}:=\frac{1}{n-1}\left(\mathbf{1}_{n} \mathbf{1}_{n}^{\prime}-\mathbf{I}_{n}\right) .$  
 
 > **_NOTE:_**  

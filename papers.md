@@ -233,8 +233,11 @@ identity matrix.
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any <img src="svgs/0b3224020b22b8293953c6417cc644b2.svg?invert_in_darkmode" align=middle width=64.70986995pt height=22.8310566pt/> and any fixed coefficients <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> the linear combination  
 <p align="center"><img src="svgs/796ba6fd697e42f02cac98a866f078f6.svg?invert_in_darkmode" align=middle width=251.9973423pt height=17.0319402pt/></p>  
-is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in_darkmode" align=middle width=10.165551pt height=22.8310566pt/> to the quadratic function <img src="svgs/a7fe98af31abe4ec0f2bcf89897e9162.svg?invert_in_darkmode" align=middle width=109.56035475pt height=24.7161288pt/> where
+
+is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in_darkmode" align=middle width=10.165551pt height=22.8310566pt/> to the quadratic function <img src="svgs/a7fe98af31abe4ec0f2bcf89897e9162.svg?invert_in_darkmode" align=middle width=109.56035475pt height=24.7161288pt/> where  
+
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
+
 and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>  
 
 > **_NOTE:_**  
