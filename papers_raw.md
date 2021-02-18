@@ -168,10 +168,11 @@ $$
 
 ***Binary Search for Empirical MR Lower Bound***
 **Condition 8** (*Criteria to continue search for $\widehat{M R}$ lower bound*) $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0$ and $\hat{e}_{\text {orig }}\left(\hat{g}_{-, \gamma}\right) \leq \epsilon_{a b s}$  
-**Lemma 9** (*Lower bound for*) If $\gamma \in \mathbb{R}$ satisfies $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0,$ then $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$
+**Lemma 9** (*Lower bound*) If $\gamma \in \mathbb{R}$ satisfies $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0,$ then $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$
 $$
 \frac{\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right)}{\epsilon_{a b s}}-\gamma \leq \widehat{M R}(f)
 $$  
+
 for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that  
 
 $$
