@@ -192,7 +192,7 @@ Let <img src="svgs/7eaedc1b9d7a4b11f78f1c63edf34f3a.svg?invert_in_darkmode" alig
 > <p align="center"><img src="svgs/a742f1228e4becff1028d59ebd959863.svg?invert_in_darkmode" align=middle width=294.95653275pt height=38.8349148pt/></p>  
 
 ### **Binary Search for Empirical MR Upper Bound**  
-<img src="svgs/0e966d02453e06d54e13be3a54b050da.svg?invert_in_darkmode" align=middle width=244.25013525pt height=31.5068952pt/> and <img src="svgs/371d351a36ba28cf9b36f9e86d04fcaa.svg?invert_in_darkmode" align=middle width=172.5885018pt height=32.3286942pt/>
+<img src="svgs/0e966d02453e06d54e13be3a54b050da.svg?invert_in_darkmode" align=middle width=244.25013525pt height=31.5068952pt/> and <img src="svgs/371d351a36ba28cf9b36f9e86d04fcaa.svg?invert_in_darkmode" align=middle width=172.5885018pt height=32.3286942pt/>  
 Given an observed sample, we define the following condition for a pair of values <img src="svgs/b4635f8bf548f2dce0e282964bd75129.svg?invert_in_darkmode" align=middle width=75.2081418pt height=24.657534pt/> <img src="svgs/bb9800eb58b40dd0ed5704c9b5310a59.svg?invert_in_darkmode" align=middle width=83.6986887pt height=22.6483917pt/> and argmin function <img src="svgs/527755e80d779eb423ee66bb3decc25c.svg?invert_in_darkmode" align=middle width=39.40301805pt height=22.8310566pt/>  
 **Condition 12** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> upper bound*) <img src="svgs/f29ef9fa70fdd5d92c6556934e00cb2a.svg?invert_in_darkmode" align=middle width=107.8338327pt height=31.5068952pt/> and <img src="svgs/fe3321fe2a8418bcf480637a0eaf2ef4.svg?invert_in_darkmode" align=middle width=128.37026895pt height=24.657534pt/>  
 > **_NOTE:_** We can now develop a procedure to upper bound <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/>, as shown in the next lemma.  
@@ -238,7 +238,7 @@ is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in
 
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
 
-and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>  
+and <p align="center"><img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/></p>    
 
 > **_NOTE:_**  
 > 
