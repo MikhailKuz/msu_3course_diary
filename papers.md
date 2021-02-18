@@ -210,7 +210,6 @@ where <img src="svgs/f467c5bf149d12e7bb28489e6164ebf9.svg?invert_in_darkmode" al
 and, for finite samples,
 <p align="center"><img src="svgs/be714082c545f51d061d0247c89542d8.svg?invert_in_darkmode" align=middle width=555.1804962pt height=41.7812637pt/></p> where <img src="svgs/4782371ddecbf6bb53080a79ca3d442c.svg?invert_in_darkmode" align=middle width=191.34402705pt height=27.7756545pt/> is the <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687625pt height=14.1552444pt/> -length vector of ones, and <img src="svgs/54a937784e79b8adddb37d9b2263e27c.svg?invert_in_darkmode" align=middle width=15.29494725pt height=22.5570873pt/> is the <img src="svgs/3add1221abfa79cb14021bc2dacd5725.svg?invert_in_darkmode" align=middle width=39.8249445pt height=19.1781018pt/>
 identity matrix.  
-
 > **_NOTE:_** сложность вычисления растёт линейно (можно расписать)  
 
 **Remark 16** (*Tractability of empirical MCR for linear model classes*) For any <img src="svgs/0b3224020b22b8293953c6417cc644b2.svg?invert_in_darkmode" align=middle width=64.70986995pt height=22.8310566pt/> and any fixed coefficients <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> the linear combination  
@@ -218,11 +217,16 @@ identity matrix.
 is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in_darkmode" align=middle width=10.165551pt height=22.8310566pt/> to the quadratic function <img src="svgs/a7fe98af31abe4ec0f2bcf89897e9162.svg?invert_in_darkmode" align=middle width=109.56035475pt height=24.7161288pt/> where
 <p align="center"><img src="svgs/3762cef6fe75f3c2cf65ed00324eb916.svg?invert_in_darkmode" align=middle width=673.38272595pt height=51.6443763pt/></p>  
 and <img src="svgs/5c5511dec0dc056c46fd62faf70175bf.svg?invert_in_darkmode" align=middle width=171.02633955pt height=27.7756545pt/>  
+
+
+
 > **_NOTE:_**  
 > 
 > - Thus, minimizing <img src="svgs/a612f2a8a19baad1e773c87b9e75576f.svg?invert_in_darkmode" align=middle width=251.99734395pt height=24.657534pt/> is equivalent to an unconstrained (possibly non-convex) quadratic program.
 > - <img src="svgs/b37e1c7739e7d50605fe8a0fd4e1eb9a.svg?invert_in_darkmode" align=middle width=409.1601789pt height=24.7161288pt/>
 > - The resulting optimization problem is a (possibly non-convex) quadratic program withone  quadratic  constraint  
+
+
 
 **Lemma 17** (*Loss upper bound for linear models*) If <img src="svgs/100b67cef52c22ef5bf59da78336d102.svg?invert_in_darkmode" align=middle width=33.83375655pt height=22.5570873pt/> is positive definite, <img src="svgs/91aac9730317276af725abd8cef04ca9.svg?invert_in_darkmode" align=middle width=13.1963865pt height=22.4657235pt/> is bounded within a known range, and there exists a known constant <img src="svgs/6940e84f35678b3aff684d787e5ef463.svg?invert_in_darkmode" align=middle width=18.5237019pt height=14.1552444pt/> such that <img src="svgs/6c698ef3df94efbf508a6c4c59849479.svg?invert_in_darkmode" align=middle width=99.43675995pt height=28.8949551pt/> for all <img src="svgs/061d1720a5d427021651f245afb95c39.svg?invert_in_darkmode" align=middle width=107.86838535pt height=24.657534pt/> then Assumption 1 holds for the model class <img src="svgs/e6a5639c07265f2bb3ea3c3691189a1e.svg?invert_in_darkmode" align=middle width=57.9626322pt height=22.4657235pt/> the squared error loss function, and the constant  
 <p align="center"><img src="svgs/77a0819beceab655eb7fcd723d52d3b3.svg?invert_in_darkmode" align=middle width=439.88553345pt height=49.3155696pt/></p>  
