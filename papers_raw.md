@@ -171,13 +171,11 @@ $$
 **Lemma 9** (*Lower bound for*) If $\gamma \in \mathbb{R}$ satisfies $\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right) \geq 0,$ then $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$
 $$
 \frac{\hat{h}_{-, \gamma}\left(\hat{g}_{-, \gamma}\right)}{\epsilon_{a b s}}-\gamma \leq \widehat{M R}(f)
-$$
-for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that
+$$ for all $f \in \mathcal{F}$ satisfying $\hat{e}_{\text {orig }}(f) \leq \epsilon_{a b s} .$ It also follows that  
 $$
 -\gamma \leq \widehat{M R}(f) \quad \text { for all } f \in \mathcal{F}
 $$  
-> **_NOTE:_**  
->
+> **_NOTE:_**
 > - Additionally, if $f=\hat{g}_{-, \gamma}$ and at least one of the inequalities in Condition 8 holds with equality, then top Eq holds with equality.
 > - It remains to determine which value of $\gamma$ should be used in top Eq. The following lemma implies that this value can be determined by a binary search, given a particular value of interest for $\epsilon_{\mathrm{abs}}$  
 
@@ -203,8 +201,8 @@ Let $\gamma=0$. Under the above assumptions, it follows that either (i) there ex
 > **_NOTE:_** tractability of our approach, as minimizing $\hat{h}_{-, \gamma}$ for $\gamma \geq 0$ is equivalent to minimizing reweighted empirical loss over an expanded sample of size $n^{2}$:  
 > $$
 > \hat{h}_{-, \gamma}(f)=\gamma \hat{e}_{\text {orig }}(f)+\hat{e}_{\text {switch }}(f)=\sum_{i=1}^{n} \sum_{j=1}^{n} w_{\gamma}(i, j) L\left\{f,\left(\mathbf{y}_{[i]}, \mathbf{X}_{1[j, \cdot]}, \mathbf{X}_{2[i, \cdot]}\right)\right\}, where
-> $$
->
+> $$  
+> 
 > $$
 > w_{\gamma}(i, j)=\frac{\gamma 1(i=j)}{n}+\frac{1(i \neq j)}{n(n-1)} \geq 0
 > $$  
