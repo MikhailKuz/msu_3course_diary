@@ -289,6 +289,13 @@ and the constant
 > 
 >   <p align="center"><img src="svgs/0fa25d3952dac8f38e7a89cc1211f583.svg?invert_in_darkmode" align=middle width=513.97555275pt height=29.58934275pt/></p>  
 
+ ### **Illustrative Toy Example with Simulated Data**    
+**Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
+Обучаются reference model/models. <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/> получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
+- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models == 0: все 1
+- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models != 0: соотвествующей дисперсией столбца  
+Причём, если нам необходимо <img src="svgs/a1440dd74ba1e92365207181e8af0963.svg?invert_in_darkmode" align=middle width=33.66241065pt height=15.2968299pt/> (p-доля хороших моделей, n-количество всего моделей) в <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
+
 ### **Simulations of Bootstrap Confidence Intervals**  
 **идея**:  
 * 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
