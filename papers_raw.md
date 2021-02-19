@@ -1,3 +1,7 @@
+<!--- 
+activate p2
+python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md 
+-->
 # Конспекты статей 
 - **Accurate and Robust Feature Importance Estimation under Distribution Shifts, 2020**  [[paper]](https://arxiv.org/pdf/2009.14454.pdf)
   - описывается подход к оценке важности признаков для нейросетей: основная сеть обучается совместно с дополнительной (second net), у которой:
@@ -177,7 +181,7 @@ for all <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" 
 **Proposition 11** (*Nonnegative weights for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> lower bound binary search*) Assume that <img src="svgs/ddcb483302ed36a59286424aa5e0be17.svg?invert_in_darkmode" align=middle width=11.18724255pt height=22.4657235pt/> and <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/> satisfy the following conditions.
 1. (Predictions are sufficient for computing the loss) The loss <img src="svgs/6225945d71c19385d6974d89fef070c8.svg?invert_in_darkmode" align=middle width=126.41557005pt height=24.657534pt/> depends on the covariates <img src="svgs/71446c7042f29be8b69cdce4486843df.svg?invert_in_darkmode" align=middle width=62.0777355pt height=24.657534pt/> only via the prediction function <img src="svgs/6f60e7714a307b2095b24945797a63b4.svg?invert_in_darkmode" align=middle width=13.4703921pt height=22.8310566pt/> that is, <img src="svgs/e662b59c69bde0122d0f3c14733dad40.svg?invert_in_darkmode" align=middle width=167.5446201pt height=37.8085059pt/>  
 <p align="center"><img src="svgs/ab5d39333dc0b4d38e3971f66a8c87b3.svg?invert_in_darkmode" align=middle width=436.60400025pt height=29.58934275pt/></p>  
-   
+
 2. (Irrelevant information does not improve predictions) For any distribution <img src="svgs/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode" align=middle width=14.06623185pt height=22.4657235pt/> satisfying <img src="svgs/854174f37909fe339f9951113939cff2.svg?invert_in_darkmode" align=middle width=109.1157507pt height=24.657534pt/>, there exists a function <img src="svgs/59594839feb5edee4a012442140a945b.svg?invert_in_darkmode" align=middle width=19.1501013pt height=22.8310566pt/> satisfying  
 
 <p align="center"><img src="svgs/b885a87b87979c28f2c3e022e8f30e4c.svg?invert_in_darkmode" align=middle width=391.5711261pt height=25.2967704pt/></p>
@@ -309,5 +313,7 @@ and the constant
 **Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
     
 ### **COMPAS score**  
+<img src="./images/compas.png" alt="drawing" width="400"/>  
+
 The bootstrap 95% CI for <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> on “inadmissible variables” is **[1.00, 1.73]**  
 For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> range with a 95% bootstrap CI is equal to **[1.62, 3.96]**  
