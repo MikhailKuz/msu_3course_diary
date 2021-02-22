@@ -117,7 +117,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   
 ---
 
-## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf)
+## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 **Датасет** - iid  
 
@@ -136,6 +136,56 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 <img src="svgs/1061f8fca3bf89f6d24b9d1c8575eae5.svg?invert_in_darkmode" align=middle width=419.4236574pt height=27.9453933pt/>  
 
 > **_NOTE:_** The estimators <img src="svgs/c0b1011abbb7fe0877418710b9a042f0.svg?invert_in_darkmode" align=middle width=136.4868285pt height=24.657534pt/> and <img src="svgs/f958022a491e85342a86708a4aea6f40.svg?invert_in_darkmode" align=middle width=70.22293575pt height=24.657534pt/> all belong to the well-studied class of U-statistics. Thus, under fairly minor conditions, *these estimators are unbiased, asymptotically normal, and have finite-sample probabilistic bounds*  
+> Можно заменить сочетание всех пар объектов на группы и внутри них делать такое сочетание  
+
+  
+
+ ### **Illustrative Toy Example with Simulated Data**    
+**Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
+Обучаются reference model/models. <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/> получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
+- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models == 0: все 1
+- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models != 0: соотвествующей дисперсией столбца  
+
+Причём, если нам необходимо <img src="svgs/a1440dd74ba1e92365207181e8af0963.svg?invert_in_darkmode" align=middle width=33.66241065pt height=15.2968299pt/> (p-доля хороших моделей, n-количество всего моделей) в <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
+
+### **Simulations of Bootstrap Confidence Intervals**  
+**идея**:  
+* 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
+  - на training subset: обучаем reference model
+  - на analysis subset: сэмплируем выборку (500 times) и считаем <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, а после CI
+- 2 подход (проще): cэмплируем выборку с ориг. датасета (500 times), делим его на 2 части:
+  - на 1ой части обучаем модель
+  - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI  
+
+**Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
+    
+### **COMPAS score**  
+**Эксперимент**:  
+Как влияют половые и подобные необъективные признаки на скор того, что подсудимый вновь разбоем.  
+
+**Используемая модель:** регрессия + RBF ядро   
+**Используемый датасет:** 500 train, 2873 test  
+**Используемые признаки:**  
+
+<img src="./images/compas.png" alt="drawing" width="400"/>  
+  
+
+Итог:  
+- 1000 бустреэп сэмплирований -> 12 часов  
+
+The bootstrap 95% CI for <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> on “inadmissible variables” is **[1.00, 1.73]**  
+For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> range with a 95% bootstrap CI is equal to **[1.62, 3.96]**  
+
+
+<img src="./images/MCR_range.png" alt="drawing" width="400"/>  
+
+
+Идея работы алгоритма:  
+- Считаем необходимые матрицы и значения (расстояния, коэффициент регуляризации и т.д.)  
+- Считам MRC
+
+
+
 
 ### **We introduce three bounded loss assumptions:**  
 **Assumption 1** (*Bounded individual loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/d00be88766456732b157a8a360587de6.svg?invert_in_darkmode" align=middle width=25.57074135pt height=21.1872144pt/> <img src="svgs/0362b866c8b100f031c67717d70a820c.svg?invert_in_darkmode" align=middle width=165.13601775pt height=24.657534pt/> for any <img src="svgs/0b87ec9fbf75c80286c35c55797da12c.svg?invert_in_darkmode" align=middle width=193.18192575pt height=24.657534pt/>  
@@ -214,6 +264,7 @@ Additionally, if <img src="svgs/692bc89af45dda02a0ba212a04b4d344.svg?invert_in_d
 2. <img src="svgs/2ead0012ddc2757a440b834d302d12db.svg?invert_in_darkmode" align=middle width=80.6646588pt height=24.657534pt/> is monotonically decreasing in <img src="svgs/11c596de17c342edeed29f489aa4b274.svg?invert_in_darkmode" align=middle width=9.42388095pt height=14.1552444pt/> for <img src="svgs/941aeee7a2af301370e4bd2b845a266c.svg?invert_in_darkmode" align=middle width=44.12692515pt height=21.1872144pt/> and Condition 12 holds for <img src="svgs/7eaedc1b9d7a4b11f78f1c63edf34f3a.svg?invert_in_darkmode" align=middle width=39.56070195pt height=21.1872144pt/> and <img src="svgs/16aef5d14baf6d317c969f434771c61c.svg?invert_in_darkmode" align=middle width=164.0929158pt height=24.657534pt/>  
 3. Given <img src="svgs/909d5560f3f72e4f5fb2ec4279bb8e9a.svg?invert_in_darkmode" align=middle width=31.17609165pt height=14.1552444pt/> the upper boundary <img src="svgs/bedf1387f1d8ea60dc20aba0df3b351a.svg?invert_in_darkmode" align=middle width=147.0394629pt height=38.7304599pt/> is monotonically increasing in in the range where <img src="svgs/fe3321fe2a8418bcf480637a0eaf2ef4.svg?invert_in_darkmode" align=middle width=128.37026895pt height=24.657534pt/> and <img src="svgs/322e3f3c4226f78afced05d4a1469ccb.svg?invert_in_darkmode" align=middle width=44.12692515pt height=21.1872144pt/> and decreasing in the range where <img src="svgs/9797c7cad099a2ff0815db17daca3708.svg?invert_in_darkmode" align=middle width=128.37026895pt height=24.657534pt/> and <img src="svgs/3f570e5f36cf91c64cee6df1059362c0.svg?invert_in_darkmode" align=middle width=39.56070195pt height=21.1872144pt/>  
 > **_NOTE:_** Together, the results from Lemma 14 imply that we can use a binary search across <img src="svgs/6fd73a861ca99d39a24a5cc49413f9e5.svg?invert_in_darkmode" align=middle width=41.38717935pt height=22.6483917pt/> to tighten the boundary on <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> from Lemma <img src="svgs/47d3617445b54b7c6cb9fb47355578d6.svg?invert_in_darkmode" align=middle width=21.00464355pt height=21.1872144pt/>  
+> Как подбирается gamma: сначала ищем интервал вида [-a, a] на границах которого не будет выполнятся необходимое условие, потом индуктивно делим отрезок попалам и "сжимаем" границы  
 
 ### **Convex Models**
 - **идея**: пусть функции параметризуются некоторым вектором переменных, разобьём это пространство на симплексы, на них h совпадает в вершинах с некоторой гиперплоскостью, заменяем h её, получаем нижнию оценку, так для всех подвыборок из пространства и индуктивно повторяем процедуру  
@@ -293,27 +344,3 @@ and the constant
 > 
 >   <p align="center"><img src="svgs/0fa25d3952dac8f38e7a89cc1211f583.svg?invert_in_darkmode" align=middle width=513.97555275pt height=29.58934275pt/></p>  
 
- ### **Illustrative Toy Example with Simulated Data**    
-**Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
-Обучаются reference model/models. <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/> получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
-- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models == 0: все 1
-- если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models != 0: соотвествующей дисперсией столбца  
-
-Причём, если нам необходимо <img src="svgs/a1440dd74ba1e92365207181e8af0963.svg?invert_in_darkmode" align=middle width=33.66241065pt height=15.2968299pt/> (p-доля хороших моделей, n-количество всего моделей) в <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
-
-### **Simulations of Bootstrap Confidence Intervals**  
-**идея**:  
-* 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
-  - на training subset: обучаем reference model
-  - на analysis subset: сэмплируем выборку (500 times) и считаем <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, а после CI
-- 2 подход (проще): cэмплируем выборку с ориг. датасета (500 times), делим его на 2 части:
-  - на 1ой части обучаем модель
-  - на 2ой оцениваем её <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/>, получаем CI  
-
-**Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
-    
-### **COMPAS score**  
-<img src="./images/compas.png" alt="drawing" width="400"/>  
-
-The bootstrap 95% CI for <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> on “inadmissible variables” is **[1.00, 1.73]**  
-For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e96968.svg?invert_in_darkmode" align=middle width=62.73063885pt height=34.3683945pt/> range with a 95% bootstrap CI is equal to **[1.62, 3.96]**  
