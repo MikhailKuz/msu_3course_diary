@@ -159,7 +159,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 
 **Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
     
-### **COMPAS score**  
+### COMPAS score  
 **Эксперимент**:  
 Как влияют половые и подобные необъективные признаки на скор того, что подсудимый вновь разбоем.  
 
