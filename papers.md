@@ -117,11 +117,53 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   
 ---
 
+## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf)  
+**Важность** - влияние input на интересующую функцию от <img src="svgs/c11cd2e3029f26a6a31c3a9ac4a5c75b.svg?invert_in_darkmode" align=middle width=9.97711605pt height=14.6118786pt/>  
+
+Consider **expanded  probability  space** on <img src="svgs/3d2ab5621d0e3b8ba2a24770cb64eb7c.svg?invert_in_darkmode" align=middle width=48.35611935pt height=22.4657235pt/>, with distribution <img src="svgs/743e458cb82e29385967a897f829f72c.svg?invert_in_darkmode" align=middle width=138.4187607pt height=24.657534pt/>. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
+For a quantity  of interes <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/>, and an input <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/>, **the Quantitative Input Influence** of <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/> on <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/> is defined to be  
+<p align="center"><img src="svgs/165b14f3f1928fc05d5033d72aab9887.svg?invert_in_darkmode" align=middle width=226.0421493pt height=18.7598829pt/></p>  
+*QII for Individual Outcomes*  
+<p align="center"><img src="svgs/7c26eeade99c63335a9b5c26962019d9.svg?invert_in_darkmode" align=middle width=424.78349595pt height=16.438356pt/></p>  
+*QII for Group Outcomes*  
+<p align="center"><img src="svgs/4f552a0189d3b5cf332e08010515704c.svg?invert_in_darkmode" align=middle width=422.13070515pt height=20.95157625pt/></p>  
+<p align="center"><img src="svgs/881d5f1752d720149616182e5337ff88.svg?invert_in_darkmode" align=middle width=428.30357625pt height=51.3856596pt/></p>  
+*QII for Group Disparity*  
+<p align="center"><img src="svgs/02316401afc24f0b6eb83c2febf22757.svg?invert_in_darkmode" align=middle width=384.38888895pt height=21.8400138pt/></p>  
+<p align="center"><img src="svgs/c3f5b34c233bbfffb967c9a8c5faa840.svg?invert_in_darkmode" align=middle width=267.65091045pt height=21.8400138pt/></p>  
+<p align="center"><img src="svgs/3620a0f76d361fd4a88877ca5d3f70db.svg?invert_in_darkmode" align=middle width=354.0841755pt height=59.1786591pt/></p>  
+*Set  QII*  
+<p align="center"><img src="svgs/441e6e259a63ecc504c7025036c1caa1.svg?invert_in_darkmode" align=middle width=206.1864618pt height=18.7598829pt/></p>  
+*Marginal QII*  
+<p align="center"><img src="svgs/9a288a77c3bf932e9114c2821cab745f.svg?invert_in_darkmode" align=middle width=317.39127585pt height=20.49507075pt/></p>  
+
+:large_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
+
+### Transparency Schemas
+It consists of the following elements:
+- *A quantity of interest*, which captures the aspect of the system we wish to gain transparency into
+- *An intervention distribution*, which defines how a counterfactual distribution is constructed from the true distribution
+- *A difference measure*, which quantifies the difference between two quantities of interest
+- *An aggregation technique*, which combines marginal QII measures across different subsets of inputs (features)
+  
+### Experiments  
+В реальности сложность полного алгоритма большая -> сэмплируем выборку и на ней применяем алгоритм + добавляем шум <img src="svgs/a39614f21b3b5d05cb2247844922df04.svg?invert_in_darkmode" align=middle width=104.74126575pt height=24.657534pt/> для приватности. Доказано, что при достаточном n можно приблизить оценки истинных параметров сколь угодно близко (по вероятности).  
+Для определения влияния признака не достаточно его одного изменить. Нужно другие тоже изменить. Это обусловлено наличием скоррелированных признаков.  
+
+Стандартные методы для получения важности признака:
+- Mutual Information
+- Jaccard Index
+- Pearson Correlation
+- Disparate Impact Ratio
+  
+Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.   
+  
+
 ## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 **Датасет** - iid  
 
-### **Введём несколько определений**:  
+### Введём несколько определений:  
 *a population ε-Rashomon set*:  <img src="svgs/9342112aaa03b638367e4057db8fb58c.svg?invert_in_darkmode" align=middle width=331.3169772pt height=24.657534pt/>  
 *model relience*: <img src="svgs/246d2949518f0e072a94de9eb5a00789.svg?invert_in_darkmode" align=middle width=277.7566704pt height=30.648288pt/>  
 *a population-level model class reliance (MCR) range*: <img src="svgs/ffa3ac10030479bc13de83a17339abe9.svg?invert_in_darkmode" align=middle width=469.3592046pt height=27.9453933pt/>  
@@ -129,7 +171,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 *the covering number <img src="svgs/76c49413e779522d8543e9095fa14ade.svg?invert_in_darkmode" align=middle width=57.3215874pt height=24.657534pt/>*: to be the size of the smallest <img src="svgs/89f2e0d2d24bcf44db73aab8fc03252c.svg?invert_in_darkmode" align=middle width=7.8729552pt height=14.1552444pt/> -margin-expectationcover for <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/>  
 > **_NOTE:_** If <img src="svgs/221ba46e23343b21cce257f1ad15c790.svg?invert_in_darkmode" align=middle width=73.51693965pt height=24.657534pt/> is low, then no well-performing model in <img src="svgs/84cc939597f3eec200843a2fc8830732.svg?invert_in_darkmode" align=middle width=13.447467pt height=22.4657235pt/> places high importance on <img src="svgs/ef94a731f1a699515d87dca8d785af8e.svg?invert_in_darkmode" align=middle width=25.55943555pt height=22.4657235pt/> and <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> can be discarded at low cost regardless of future modeling decisions. Similarly for <img src="svgs/aec420cc680f5f9a2f41f3c8f47d7c4f.svg?invert_in_darkmode" align=middle width=73.69956825pt height=24.657534pt/>.  
 
-### **Возможны следующие вариации empirical MR:**  
+### Возможны следующие вариации empirical MR:
 <img src="svgs/e6e15a434fb7ff91803b90f86f96bac0.svg?invert_in_darkmode" align=middle width=141.37212045pt height=33.2053986pt/>  
 <img src="svgs/908f1d9e35f3d768d48e741f931f6914.svg?invert_in_darkmode" align=middle width=478.23323955pt height=84.6738387pt/>  
 <img src="svgs/2a0f84fec0172ae51bfe0b983b3edf64.svg?invert_in_darkmode" align=middle width=326.00016075pt height=27.9453933pt/>  
@@ -140,7 +182,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 
   
 
- ### **Illustrative Toy Example with Simulated Data**    
+ ### Illustrative Toy Example with Simulated Data    
 **Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
 Обучаются reference model/models. <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/> получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
 - если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models == 0: все 1
@@ -148,7 +190,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 
 Причём, если нам необходимо <img src="svgs/a1440dd74ba1e92365207181e8af0963.svg?invert_in_darkmode" align=middle width=33.66241065pt height=15.2968299pt/> (p-доля хороших моделей, n-количество всего моделей) в <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
 
-### **Simulations of Bootstrap Confidence Intervals**  
+### Simulations of Bootstrap Confidence Intervals  
 **идея**:  
 * 1 подход: возьмём ориг. датасет (20k записей), посчитаем на нем MCR, разделим весь датасет на 2 части training subset and analysis subset
   - на training subset: обучаем reference model
@@ -159,7 +201,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 
 **Итог**: 1 подход more robust to the misspecification of the models used to approximate Y and the model of Y itself  
     
-### **COMPAS score**  
+### COMPAS score  
 **Эксперимент**:  
 Как влияют половые и подобные необъективные признаки на скор того, что подсудимый вновь разбоем.  
 
@@ -187,7 +229,7 @@ For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e969
 
 
 
-### **We introduce three bounded loss assumptions:**  
+### We introduce three bounded loss assumptions:  
 **Assumption 1** (*Bounded individual loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/d00be88766456732b157a8a360587de6.svg?invert_in_darkmode" align=middle width=25.57074135pt height=21.1872144pt/> <img src="svgs/0362b866c8b100f031c67717d70a820c.svg?invert_in_darkmode" align=middle width=165.13601775pt height=24.657534pt/> for any <img src="svgs/0b87ec9fbf75c80286c35c55797da12c.svg?invert_in_darkmode" align=middle width=193.18192575pt height=24.657534pt/>  
 **Assumption 2** (*Bounded relative loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/c0ed02762c6b0ac304747f5bf91ffe75.svg?invert_in_darkmode" align=middle width=137.1650412pt height=24.657534pt/> <img src="svgs/63d9f5512ad2b947f85f05497d90b219.svg?invert_in_darkmode" align=middle width=187.79617395pt height=24.657534pt/> for any <img src="svgs/64b09dfb5f3a9ec25bf5d7c35d66cbb6.svg?invert_in_darkmode" align=middle width=102.8955939pt height=24.657534pt/>  
 **Assumption 3** (*Bounded aggregate loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/bb133ec4145b6d217554879fbcb0294e.svg?invert_in_darkmode" align=middle width=43.83563745pt height=24.657534pt/> <img src="svgs/5e52e9438c61cb4a30a51bb74ec1b3ab.svg?invert_in_darkmode" align=middle width=350.7039987pt height=24.657534pt/>
@@ -204,12 +246,12 @@ For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e969
 **Theorem 6** (*"Inner" MCR Bounds*) Given constants <img src="svgs/434f6d79cf3e7605879c945f0bcce27a.svg?invert_in_darkmode" align=middle width=36.80923125pt height=21.1872144pt/> and <img src="svgs/efa3244ceb1894cbd7e062da6bb9ebf0.svg?invert_in_darkmode" align=middle width=42.5760192pt height=21.1872144pt/> if Assumptions 1 , 2 and 3 hold for all <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> and then
 <p align="center"><img src="svgs/000e14dd720dd2e79a9b10e37abefcab.svg?invert_in_darkmode" align=middle width=333.1536153pt height=59.1786591pt/></p>  
 
-### **Calculating Empirical Estimates of MCR**  
+### Calculating Empirical Estimates of MCR  
 - computing <img src="svgs/17c03d0793e9a6170c1cf7020c514308.svg?invert_in_darkmode" align=middle width=73.6439253pt height=34.3683945pt/> however will require that we are able to minimize arbitrary linear combinations of <img src="svgs/2b98820d751e478539757714225e28c0.svg?invert_in_darkmode" align=middle width=57.4717209pt height=24.657534pt/> and <img src="svgs/daf800b1b76c20be39f70242e874487e.svg?invert_in_darkmode" align=middle width=71.7092244pt height=24.657534pt/>
 - we present bound functions <img src="svgs/49e648991ffdfcbccd3b3fb2005ebe4b.svg?invert_in_darkmode" align=middle width=17.3288181pt height=22.8310566pt/> and <img src="svgs/706a470865330c718598b5dc21ed291e.svg?invert_in_darkmode" align=middle width=17.1461697pt height=22.8310566pt/> satisfying <img src="svgs/4ea8c210394ae0fbc804a501d7f4f746.svg?invert_in_darkmode" align=middle width=77.5422813pt height=24.657534pt/> <img src="svgs/6cf76cf8bcf20ee06c13946ba1c7bc3f.svg?invert_in_darkmode" align=middle width=139.30602675pt height=32.9680131pt/> simultaneously for all <img src="svgs/33a26985ed3f74c6c328d961bdb4040f.svg?invert_in_darkmode" align=middle width=306.673455pt height=24.657534pt/>
 - almost all of the results shown in this section, and those in Section 6.2 . also hold if we replace <img src="svgs/d758b434ea5969b8eb5cf4ea54c47c3e.svg?invert_in_darkmode" align=middle width=43.85524275pt height=22.8310566pt/> with <img src="svgs/c96dc920c4b6fd8b88f1e068eff8fe4f.svg?invert_in_darkmode" align=middle width=42.3689541pt height=22.8310566pt/> throughout (see Eq 3.5), including in the definition of <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> and <img src="svgs/59e22f4aaefc5ca42e8f5a653371b456.svg?invert_in_darkmode" align=middle width=59.25291075pt height=31.5068952pt/>  
 
-### **Binary Search for Empirical MR Lower Bound**  
+### Binary Search for Empirical MR Lower Bound  
 **Condition 8** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> lower bound*) <img src="svgs/f78966e0991a9e03d6ee41a14a557d3f.svg?invert_in_darkmode" align=middle width=108.19909155pt height=31.5068952pt/> and <img src="svgs/98e16b9bf83e07cded0253295956f7a3.svg?invert_in_darkmode" align=middle width=128.55289755pt height=24.657534pt/>  
 **Lemma 9** (*Lower bound*) If <img src="svgs/6fd73a861ca99d39a24a5cc49413f9e5.svg?invert_in_darkmode" align=middle width=41.38717935pt height=22.6483917pt/> satisfies <img src="svgs/546ffd587a2a4c3c2eeb3f7482ce8f31.svg?invert_in_darkmode" align=middle width=112.76531475pt height=31.5068952pt/> then <img src="svgs/83f4b767e68d7919b1dfbb786c10d92a.svg?invert_in_darkmode" align=middle width=43.3560171pt height=22.8310566pt/> satisfying <img src="svgs/53b35323e4d819003c03929275df6ae0.svg?invert_in_darkmode" align=middle width=110.565444pt height=24.657534pt/>
 <p align="center"><img src="svgs/d35418f16d6b41defffadc5a3a374ff9.svg?invert_in_darkmode" align=middle width=184.41855465pt height=40.6157334pt/></p>  
@@ -245,7 +287,7 @@ Let <img src="svgs/7eaedc1b9d7a4b11f78f1c63edf34f3a.svg?invert_in_darkmode" alig
 > 
 > <p align="center"><img src="svgs/a742f1228e4becff1028d59ebd959863.svg?invert_in_darkmode" align=middle width=294.95653275pt height=38.8349148pt/></p>  
 
-### **Binary Search for Empirical MR Upper Bound**  
+### Binary Search for Empirical MR Upper Bound  
 <img src="svgs/0e966d02453e06d54e13be3a54b050da.svg?invert_in_darkmode" align=middle width=244.25013525pt height=31.5068952pt/> and <img src="svgs/371d351a36ba28cf9b36f9e86d04fcaa.svg?invert_in_darkmode" align=middle width=172.5885018pt height=32.3286942pt/>  
 Given an observed sample, we define the following condition for a pair of values <img src="svgs/b4635f8bf548f2dce0e282964bd75129.svg?invert_in_darkmode" align=middle width=75.2081418pt height=24.657534pt/> <img src="svgs/bb9800eb58b40dd0ed5704c9b5310a59.svg?invert_in_darkmode" align=middle width=83.6986887pt height=22.6483917pt/> and argmin function <img src="svgs/527755e80d779eb423ee66bb3decc25c.svg?invert_in_darkmode" align=middle width=39.40301805pt height=22.8310566pt/>  
 **Condition 12** (*Criteria to continue search for <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> upper bound*) <img src="svgs/f29ef9fa70fdd5d92c6556934e00cb2a.svg?invert_in_darkmode" align=middle width=107.8338327pt height=31.5068952pt/> and <img src="svgs/fe3321fe2a8418bcf480637a0eaf2ef4.svg?invert_in_darkmode" align=middle width=128.37026895pt height=24.657534pt/>  
@@ -266,10 +308,10 @@ Additionally, if <img src="svgs/692bc89af45dda02a0ba212a04b4d344.svg?invert_in_d
 > **_NOTE:_** Together, the results from Lemma 14 imply that we can use a binary search across <img src="svgs/6fd73a861ca99d39a24a5cc49413f9e5.svg?invert_in_darkmode" align=middle width=41.38717935pt height=22.6483917pt/> to tighten the boundary on <img src="svgs/3ad1b4f7e9adbad3bbb7704a6ee71e46.svg?invert_in_darkmode" align=middle width=30.3481893pt height=32.9680131pt/> from Lemma <img src="svgs/47d3617445b54b7c6cb9fb47355578d6.svg?invert_in_darkmode" align=middle width=21.00464355pt height=21.1872144pt/>  
 > Как подбирается gamma: сначала ищем интервал вида [-a, a] на границах которого не будет выполнятся необходимое условие, потом индуктивно делим отрезок попалам и "сжимаем" границы  
 
-### **Convex Models**
+### Convex Models
 - **идея**: пусть функции параметризуются некоторым вектором переменных, разобьём это пространство на симплексы, на них h совпадает в вершинах с некоторой гиперплоскостью, заменяем h её, получаем нижнию оценку, так для всех подвыборок из пространства и индуктивно повторяем процедуру  
 
-### **MR & MCR for Linear Models, Additive Models**  
+### MR & MCR for Linear Models, Additive Models  
 Throughout this section, we assume that <img src="svgs/525d2b68f96a33db3c9d6903b457a4cc.svg?invert_in_darkmode" align=middle width=54.6987507pt height=22.6483917pt/> for <img src="svgs/6f1cc81a5cf62297d38807247fd66323.svg?invert_in_darkmode" align=middle width=54.8001564pt height=26.1773094pt/> that <img src="svgs/df0525dd40363d25686f8908e12835aa.svg?invert_in_darkmode" align=middle width=58.0684467pt height=26.7617526pt/> and that <img src="svgs/ddcb483302ed36a59286424aa5e0be17.svg?invert_in_darkmode" align=middle width=11.18724255pt height=22.4657235pt/> is the squared error loss function <img src="svgs/923d1ef8595c8ce2325a43ac73658a77.svg?invert_in_darkmode" align=middle width=245.722785pt height=37.8085059pt/>.  
 **Proposition 15** (*Interpreting <img src="svgs/a31992ee5753d0c3a9729a5e32257c37.svg?invert_in_darkmode" align=middle width=34.9144092pt height=22.4657235pt/> and computing empirical MR for linear models*) For any prediction model <img src="svgs/6f60e7714a307b2095b24945797a63b4.svg?invert_in_darkmode" align=middle width=13.4703921pt height=22.8310566pt/> let <img src="svgs/f76c52abf47fa74538b1bc013b6119a6.svg?invert_in_darkmode" align=middle width=205.83066405pt height=24.657534pt/> and <img src="svgs/daf800b1b76c20be39f70242e874487e.svg?invert_in_darkmode" align=middle width=71.7092244pt height=24.657534pt/> be defined based on the squared error loss <img src="svgs/6c90a58890f7ff2a437bb89bf09b2e32.svg?invert_in_darkmode" align=middle width=253.25707275pt height=31.3608075pt/> for <img src="svgs/e4fe82e8dcbe27f21551c668ef1b30ad.svg?invert_in_darkmode" align=middle width=115.23138495pt height=22.6483917pt/> and <img src="svgs/de660c07e8f4febe3f8c5cb400a4dd55.svg?invert_in_darkmode" align=middle width=61.1029419pt height=22.6483917pt/>  
 
@@ -304,36 +346,36 @@ is proportional in <img src="svgs/8217ed3c32a785f0b5aad4055f432ad8.svg?invert_in
 **Lemma 17** (*Loss upper bound for linear models*) If <img src="svgs/100b67cef52c22ef5bf59da78336d102.svg?invert_in_darkmode" align=middle width=33.83375655pt height=22.5570873pt/> is positive definite, <img src="svgs/91aac9730317276af725abd8cef04ca9.svg?invert_in_darkmode" align=middle width=13.1963865pt height=22.4657235pt/> is bounded within a known range, and there exists a known constant <img src="svgs/6940e84f35678b3aff684d787e5ef463.svg?invert_in_darkmode" align=middle width=18.5237019pt height=14.1552444pt/> such that <img src="svgs/6c698ef3df94efbf508a6c4c59849479.svg?invert_in_darkmode" align=middle width=99.43675995pt height=28.8949551pt/> for all <img src="svgs/061d1720a5d427021651f245afb95c39.svg?invert_in_darkmode" align=middle width=107.86838535pt height=24.657534pt/> then Assumption 1 holds for the model class <img src="svgs/e6a5639c07265f2bb3ea3c3691189a1e.svg?invert_in_darkmode" align=middle width=57.9626322pt height=22.4657235pt/> the squared error loss function, and the constant  
 <p align="center"><img src="svgs/77a0819beceab655eb7fcd723d52d3b3.svg?invert_in_darkmode" align=middle width=439.88553345pt height=49.3155696pt/></p>  
 
-### **Regression Models in a Reproducing Kernel Hilbert Space**  
+### Regression Models in a Reproducing Kernel Hilbert Space  
 <p align="center"><img src="svgs/f152422d3cf308e8074964937d68cf28.svg?invert_in_darkmode" align=middle width=523.8295458pt height=49.3155696pt/></p>  
 
 Above, the norm <img src="svgs/22cfa2de4616bd3325e7675d8a3080ca.svg?invert_in_darkmode" align=middle width=41.12024895pt height=24.657534pt/> is defined as  
 
 <p align="center"><img src="svgs/f439d9dda12151905456d8654480e0cb.svg?invert_in_darkmode" align=middle width=349.7462727pt height=50.04352485pt/></p>  
 
-### **Calculating MCR**  
+### Calculating MCR  
 For any two constants <img src="svgs/0409c0ab67c9122543d5824c2a06cdb9.svg?invert_in_darkmode" align=middle width=126.8860329pt height=22.8310566pt/> we can show that minimizing the linear combination <img src="svgs/b068a4fd3be4b75e042fc286083c2f05.svg?invert_in_darkmode" align=middle width=252.99885435pt height=24.657534pt/> over <img src="svgs/3d8eb5d1919b6d0e2d2306f0219f4006.svg?invert_in_darkmode" align=middle width=39.5225523pt height=22.4657235pt/> is equivalent to the minimization problem  
 <p align="center"><img src="svgs/d8a7c6054e9bfc0b36e3ab7f0ead8485.svg?invert_in_darkmode" align=middle width=521.3086296pt height=41.87855595pt/></p>  
 
-### **Upper Bounding the Loss**  
+### Upper Bounding the Loss  
 **Lemma 18** (*Loss upper bound for regression in a RKHS*) Assume that <img src="svgs/91aac9730317276af725abd8cef04ca9.svg?invert_in_darkmode" align=middle width=13.1963865pt height=22.4657235pt/> is bounded within a known range, and there exists a known constant <img src="svgs/a34893f936d403e4c7359da7d0f1c543.svg?invert_in_darkmode" align=middle width=18.7519233pt height=14.1552444pt/> such that <img src="svgs/00f6d1fd9af3305908e15bd35bbd1b4c.svg?invert_in_darkmode" align=middle width=139.2236901pt height=28.8949551pt/> for all <img src="svgs/061d1720a5d427021651f245afb95c39.svg?invert_in_darkmode" align=middle width=107.86838535pt height=24.657534pt/> where <img src="svgs/a9ef3251a5017c4616da0900c628b14d.svg?invert_in_darkmode" align=middle width=89.13141435pt height=27.6567522pt/> is the function satisfying <img src="svgs/969ba4e57956c0e0fd6463b65af971d8.svg?invert_in_darkmode" align=middle width=151.6835991pt height=27.9453933pt/> Under these  
 conditions, Assumption 1 holds for the model class <img src="svgs/e685076412a653c02d66142cc1e0ed5c.svg?invert_in_darkmode" align=middle width=44.2942599pt height=22.4657235pt/> the squared error loss function,  
 and the constant  
 <p align="center"><img src="svgs/ae60df13655e43238ca8f03632db4e1b.svg?invert_in_darkmode" align=middle width=502.7319198pt height=49.3155696pt/></p>  
 
-### **Model Reliance and Causal Effects**  
+### Model Reliance and Causal Effects  
 - Let <img src="svgs/43eaeea5accf88ac13066ee1ab6b9987.svg?invert_in_darkmode" align=middle width=214.69168875pt height=24.657534pt/>, <img src="svgs/de918639f648bb439f957cb95a016797.svg?invert_in_darkmode" align=middle width=228.33899715pt height=24.657534pt/>    
   Proposition 19 (Causal interpretations of MR) For any prediction model <img src="svgs/6f60e7714a307b2095b24945797a63b4.svg?invert_in_darkmode" align=middle width=13.4703921pt height=22.8310566pt/> let <img src="svgs/aab3629f27d1dd612675e41cb2c01b89.svg?invert_in_darkmode" align=middle width=57.4717242pt height=24.657534pt/> and <img src="svgs/b8e7e1e4676cdf4d56668f68fc33fa71.svg?invert_in_darkmode" align=middle width=71.7092277pt height=24.657534pt/> be defined based on the squared error loss <img src="svgs/6c266fd1b1212004666a94b52921d4e4.svg?invert_in_darkmode" align=middle width=206.7998988pt height=26.7617526pt/> If <img src="svgs/3675b601c02d116f8e8a850460297267.svg?invert_in_darkmode" align=middle width=114.35700045pt height=24.657534pt/> (conditional ignorability) and <img src="svgs/b30ff4acda4ba75b66d09e7c2e4d942f.svg?invert_in_darkmode" align=middle width=180.7854444pt height=24.657534pt/> for all values of c (positivity), then <img src="svgs/6e12165d0a4eb03d896e215ef3078a51.svg?invert_in_darkmode" align=middle width=61.2957213pt height=24.657534pt/> is equal to  
   <p align="center"><img src="svgs/34ff3e72777eddf6bcd7caf78cfc7c37.svg?invert_in_darkmode" align=middle width=562.7067171pt height=46.7371938pt/></p>  
   where <img src="svgs/98d9c567d581efe4fc60e397e4297dc1.svg?invert_in_darkmode" align=middle width=50.2912245pt height=24.657534pt/> is the marginal variance of the treatment assignment.
 
-### **Conditional Importance:  Adjusting for Dependence Between <img src="svgs/0f40e6e5e62540b00031284316b128ba.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/> and <img src="svgs/13dd556b083841259b42bf0b978ccb52.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/>**  
+### Conditional Importance:  Adjusting for Dependence Between <img src="svgs/0f40e6e5e62540b00031284316b128ba.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/> and <img src="svgs/13dd556b083841259b42bf0b978ccb52.svg?invert_in_darkmode" align=middle width=23.12787675pt height=22.4657235pt/>  
 <img src="svgs/9418b1e57f8320d5f6ed575832b1cc28.svg?invert_in_darkmode" align=middle width=576.29246895pt height=37.8085059pt/>  
 <img src="svgs/9213402d780ee7e4bfb14d8058894981.svg?invert_in_darkmode" align=middle width=141.6255126pt height=33.2053986pt/>  
 
 > **_NOTE:_** This means that CMR will not be influenced by impossible combinations of <img src="svgs/7e0dded6496a3ed3f3c0db74604087ac.svg?invert_in_darkmode" align=middle width=15.94753545pt height=14.1552444pt/> and <img src="svgs/345508ce4e933b712fe803f442f74d63.svg?invert_in_darkmode" align=middle width=15.94753545pt height=14.1552444pt/>, while MR may be influenced by them
 
-### **Estimation of CMR by Weighting, Matching, or Imputation**  
+### Estimation of CMR by Weighting, Matching, or Imputation  
 <img src="svgs/66a53a6f2a16676d89ee543e74e396f2.svg?invert_in_darkmode" align=middle width=561.7138626pt height=27.9453933pt/>  
 
 > **_NOTE:_**  
