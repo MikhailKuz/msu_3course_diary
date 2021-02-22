@@ -158,7 +158,7 @@ $$
 \iota^{Q}(i, S)=Q\left(X_{-S} U_{S}\right)-Q\left(X_{-S \cup\{i\}} U_{S \cup\{i\}}\right)
 $$  
 
-:large_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
+:small_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
 
 ### Transparency Schemas
 It consists of the following elements:

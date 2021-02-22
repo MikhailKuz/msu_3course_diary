@@ -137,7 +137,7 @@ For a quantity  of interes <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?i
 *Marginal QII*  
 <p align="center"><img src="svgs/9a288a77c3bf932e9114c2821cab745f.svg?invert_in_darkmode" align=middle width=317.39127585pt height=20.49507075pt/></p>  
 
-:large_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
+:small_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
 
 ### Transparency Schemas
 It consists of the following elements:
