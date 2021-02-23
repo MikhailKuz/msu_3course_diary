@@ -117,23 +117,28 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   
 ---
 
-## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf)  
+## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
 **Важность** - влияние input на интересующую функцию от <img src="svgs/c11cd2e3029f26a6a31c3a9ac4a5c75b.svg?invert_in_darkmode" align=middle width=9.97711605pt height=14.6118786pt/>  
 
 Consider **expanded  probability  space** on <img src="svgs/3d2ab5621d0e3b8ba2a24770cb64eb7c.svg?invert_in_darkmode" align=middle width=48.35611935pt height=22.4657235pt/>, with distribution <img src="svgs/743e458cb82e29385967a897f829f72c.svg?invert_in_darkmode" align=middle width=138.4187607pt height=24.657534pt/>. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
 For a quantity  of interes <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/>, and an input <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/>, **the Quantitative Input Influence** of <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/> on <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/> is defined to be  
 <p align="center"><img src="svgs/165b14f3f1928fc05d5033d72aab9887.svg?invert_in_darkmode" align=middle width=226.0421493pt height=18.7598829pt/></p>  
+
 *QII for Individual Outcomes*  
 <p align="center"><img src="svgs/7c26eeade99c63335a9b5c26962019d9.svg?invert_in_darkmode" align=middle width=424.78349595pt height=16.438356pt/></p>  
+
 *QII for Group Outcomes*  
 <p align="center"><img src="svgs/4f552a0189d3b5cf332e08010515704c.svg?invert_in_darkmode" align=middle width=422.13070515pt height=20.95157625pt/></p>  
 <p align="center"><img src="svgs/881d5f1752d720149616182e5337ff88.svg?invert_in_darkmode" align=middle width=428.30357625pt height=51.3856596pt/></p>  
+
 *QII for Group Disparity*  
 <p align="center"><img src="svgs/02316401afc24f0b6eb83c2febf22757.svg?invert_in_darkmode" align=middle width=384.38888895pt height=21.8400138pt/></p>  
 <p align="center"><img src="svgs/c3f5b34c233bbfffb967c9a8c5faa840.svg?invert_in_darkmode" align=middle width=267.65091045pt height=21.8400138pt/></p>  
 <p align="center"><img src="svgs/3620a0f76d361fd4a88877ca5d3f70db.svg?invert_in_darkmode" align=middle width=354.0841755pt height=59.1786591pt/></p>  
+
 *Set  QII*  
 <p align="center"><img src="svgs/441e6e259a63ecc504c7025036c1caa1.svg?invert_in_darkmode" align=middle width=206.1864618pt height=18.7598829pt/></p>  
+
 *Marginal QII*  
 <p align="center"><img src="svgs/9a288a77c3bf932e9114c2821cab745f.svg?invert_in_darkmode" align=middle width=317.39127585pt height=20.49507075pt/></p>  
 
@@ -149,16 +154,30 @@ It consists of the following elements:
 ### Experiments  
 В реальности сложность полного алгоритма большая -> сэмплируем выборку и на ней применяем алгоритм + добавляем шум <img src="svgs/a39614f21b3b5d05cb2247844922df04.svg?invert_in_darkmode" align=middle width=104.74126575pt height=24.657534pt/> для приватности. Доказано, что при достаточном n можно приблизить оценки истинных параметров сколь угодно близко (по вероятности).  
 Для определения влияния признака не достаточно его одного изменить. Нужно другие тоже изменить. Это обусловлено наличием скоррелированных признаков.  
+Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.  
 
-Стандартные методы для получения важности признака:
+Filter methods for computing the importance of a feature:
 - Mutual Information
 - Jaccard Index
 - Pearson Correlation
-- Disparate Impact Ratio
-  
-Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.   
-  
+- Disparate Impact Ratio  
 
+Embedded importance:
+- Bayesian Rule Lists
+- Supersparse Linear IntegerModels
+- Probabilistic  Scaling  
+  
+### Appendix
+**Shapley value** - <img src="svgs/9bdbff647fbb9cabbd799700c4b77575.svg?invert_in_darkmode" align=middle width=204.56316045pt height=24.6577353pt/>, where <img src="svgs/ecb3735a7e249535bca17707c6df48c4.svg?invert_in_darkmode" align=middle width=142.03270125pt height=76.6033587pt/>  
+**The Banzhaf Index** defines as <img src="svgs/819f38106c0afccdcb86fe0c2685d3e9.svg?invert_in_darkmode" align=middle width=235.3303524pt height=27.7756545pt/>
+- index  is  not  guaranteed  to  be  *efficient*, i.e. <img src="svgs/54db9a2e914365bceb7c3eb42f96db26.svg?invert_in_darkmode" align=middle width=103.575351pt height=24.6577353pt/> is not necessarily equal to <img src="svgs/fc6d302183dd80c822ba12c907941e10.svg?invert_in_darkmode" align=middle width=36.3432432pt height=24.657534pt/>. But satisfies *2-efficiency* property  
+- the only function to satisfy (*sym*), (*d*), (*mono*) and (*2-eff*)
+- tend to select sets with the cardinality equals to <img src="svgs/d6d54860f3796e33548482099695dec5.svg?invert_in_darkmode" align=middle width=26.30529495pt height=24.657534pt/>  
+
+**The Deegan-Packel index** - <img src="svgs/b7d7d23521edb069027f70eeb0e1773e.svg?invert_in_darkmode" align=middle width=240.23633535pt height=27.7756545pt/>
+- work with binary "outcome" (<img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.5578603pt height=14.1552444pt/>) of subsets in <img src="svgs/f9c4988898e7f532b9f826a75014ed3c.svg?invert_in_darkmode" align=middle width=14.99998995pt height=22.4657235pt/>
+  
+  
 ## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 **Датасет** - iid  

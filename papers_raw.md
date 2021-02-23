@@ -117,7 +117,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   
 ---
 
-## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf)  
+## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
 **Важность** - влияние input на интересующую функцию от $\textbf{x}$  
 
 Consider **expanded  probability  space** on $\mathcal{X} \times \mathcal{X}$, with distribution $\tilde{\pi}(\mathbf{x}, \mathbf{u})=\pi(\mathbf{x}) \pi(\mathbf{u})$. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
@@ -125,10 +125,12 @@ For a quantity  of interes $Q_{\mathcal{A}}(\cdot)$, and an input $i$, **the Qua
 $$
 \iota^{Q \mathcal{A}}(i)=Q_{\mathcal{A}}(X)-Q_{\mathcal{A}}\left(X_{-i} U_{i}\right)
 $$  
+
 *QII for Individual Outcomes*  
 $$
 \iota_{\text {ind }}^{\mathrm{x}}(i)=\mathbb{E}(c(X)=1 \mid X=\mathbf{x})-\mathbb{E}\left(c\left(X_{-i} U_{i}\right)=1 \mid X=\mathbf{x}\right)
 $$  
+
 *QII for Group Outcomes*  
 $$
 \iota_{\mathrm{grp}}^{\mathcal{Y}}(i)=\mathbb{E}(c(X)=1 \mid X \in \mathcal{Y})-\mathbb{E}\left(c\left(X_{-i} U_{i}\right)=1 \mid X \in \mathcal{Y}\right)
@@ -136,6 +138,7 @@ $$
 $$
 \hat{\mathbb{E}}_{\mathcal{D}}\left(c\left(X_{-S}\right)=1\right)=\frac{\sum_{\left.\mathbf{u}_{S} \in \mathcal{D}\right|_{S}} \sum_{\mathbf{x} \in \mathcal{D}} \mathbb{1}\left(c\left(\left.\mathbf{x}\right|_{N \backslash S} \mathbf{u}_{S}\right)=1\right)}{|\mathcal{D}|^{2}}
 $$  
+
 *QII for Group Disparity*  
 $$
 Q_{\text {disp }}^{\mathcal{Y}}(\cdot)=\mid \mathbb{E}(c(\cdot)=1 \mid X \in \mathcal{Y})-\mathbb{E}(c(\cdot)=1 \mid X \notin \mathcal{Y})
@@ -149,10 +152,12 @@ $$
 -\frac{1}{|\mathcal{D} \backslash \mathcal{Y}|} \sum_{\mathbf{x} \in \mathcal{D} \backslash \mathcal{Y}} \sum_{\mathbf{u}_{S} \in \mathcal{D}_{S}} \mathbb{1}\left(c\left(\left.\mathbf{x}\right|_{N \backslash S} \mathbf{u}_{S}\right)=1\right) \mid
 \end{array}
 $$  
+
 *Set  QII*  
 $$
 \iota^{Q}(S)=Q(X)-Q\left(X_{-S} U_{S}\right)
 $$  
+
 *Marginal QII*  
 $$
 \iota^{Q}(i, S)=Q\left(X_{-S} U_{S}\right)-Q\left(X_{-S \cup\{i\}} U_{S \cup\{i\}}\right)
@@ -170,16 +175,30 @@ It consists of the following elements:
 ### Experiments  
 В реальности сложность полного алгоритма большая -> сэмплируем выборку и на ней применяем алгоритм + добавляем шум $\operatorname{Lap}(\Delta f(\mathcal{D}) / \epsilon)$ для приватности. Доказано, что при достаточном n можно приблизить оценки истинных параметров сколь угодно близко (по вероятности).  
 Для определения влияния признака не достаточно его одного изменить. Нужно другие тоже изменить. Это обусловлено наличием скоррелированных признаков.  
+Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.  
 
-Стандартные методы для получения важности признака:
+Filter methods for computing the importance of a feature:
 - Mutual Information
 - Jaccard Index
 - Pearson Correlation
-- Disparate Impact Ratio
-  
-Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.   
-  
+- Disparate Impact Ratio  
 
+Embedded importance:
+- Bayesian Rule Lists
+- Supersparse Linear IntegerModels
+- Probabilistic  Scaling  
+  
+### Appendix
+**Shapley value** - $\varphi_{i}(N, v)=\sum_{S \subseteq N} p[S] m_{i}(S)$, where $p[S]=\frac{1}{n} \frac{1}{\left(\begin{array}{c}n-1 \\ |S|\end{array}\right)}$  
+**The Banzhaf Index** defines as $\beta_{i}(N, v)=\frac{1}{2^{n-1}} \sum_{S \subseteq N \backslash\{i\}} m_{i}(S)$
+- index  is  not  guaranteed  to  be  *efficient*, i.e. $\sum_{i \in N} \beta_{i}(N, v)$ is not necessarily equal to $v(N)$. But satisfies *2-efficiency* property  
+- the only function to satisfy (*sym*), (*d*), (*mono*) and (*2-eff*)
+- tend to select sets with the cardinality equals to $n/2$  
+
+**The Deegan-Packel index** - $\delta_{i}(N, v)=\frac{1}{|\mathcal{M}(v)|} \sum_{S \in \mathcal{M}(v): i \in S} \frac{1}{|S|}$
+- work with binary "outcome" ($v$) of subsets in $N$
+  
+  
 ## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 **Датасет** - iid  
