@@ -2,121 +2,136 @@
 activate p2
 python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md 
 -->
-# Конспекты статей 
-- **Accurate and Robust Feature Importance Estimation under Distribution Shifts, 2020**  [[paper]](https://arxiv.org/pdf/2009.14454.pdf)
-  - описывается подход к оценке важности признаков для нейросетей: основная сеть обучается совместно с дополнительной (second net), у которой:
-    - цель - научиться предсказывать loss основной сети
-    - input - латентные представления после некоторых слоёв основной сети
-    - loss
-      - contrastive training - сохраняем правильное упорядочивание пар скоров
-      - dropout calibration - hinge loss + доверительные интервалы
-  - используется Granger определение причинности (связь между признаком и целевой переменной сущетсвует, если качество только ухудшится при отбрасывании данного признака)
-  - важность признака - разница предсказаний вспомогательной сети с его маскированием и без  
-  *Итог*:
-    - на 15-30 % лучше качество, чем у Shap
-    - при увеличении различия распределения x_test, по сравнению с x_train, loss second net монотонно растёт
-    - подход устойчивей при сильных изменениях x_test Deep_Shap'а в 2 раза
+# Конспекты статей
+1. [Thiagarajan JJ at el (2020) Accurate and Robust Feature Importance Estimation under Distribution Shifts](#1)
+2. [Wojtas M, Chen K (2020) Feature Importance Ranking for Deep Learning](#2)
+3. [Gimenez JR, Ghorbani A, Zou J (2019) Knockoffs for the mass: new feature importance statistics with false discovery guarantees](#3)
+4. [Lundberg S, Lee S (2017) A Unified Approach to Interpreting Model Predictions](#4)
+5. [Shrikumar A, Greenside P, Kundaje A (2017) Learning Important Features Through Propagating Activation Differences](#5)
+6. [Schwab P, Karlen W (2019) CXPlain: Causal Explanations for Model Interpretation under Uncertainty](#6)
+7. [Strobl C, Boulesteix A, Zeileis A & Hothorn T (2017) Bias in random forest variable importance measures](#7)
+8. [Gregorutti B, Michel B, Saint-Pierre P (2015) Grouped variable importance with random forests and application to multiple functional data analysis](#8)
+9. [Gregorutti B, Michel B, Saint-Pierre P (2017) Correlation and variable importance in random forests](#9)
+10. [Kononenko I et al (2010) An efficient explanation of individual classifications using game theory](#10)
+11. [Datta A, Sen S, Zick Y (2016) Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](#11)
+12. [Fisher A, Rudin C, Dominici F (2018) All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](#12)
+13. [Louppe G, Wehenkel L, Sutera A, Geurts P (2013) Understanding variable importances in forests of randomized trees](#13)  
 
-- **Feature Importance Ranking for Deep Learning, 2020** [[paper]](https://arxiv.org/pdf/2010.08973.pdf)
-  - рассматривается две сети operator net и selector net, маски для признаков - бинарные вектора (1 - берем признак, 0 - нет), оптимальное кол-во признаков - гиперпараметр
-  - обучение происходит поочередно
-  - operator net:
-    - цель - обучение с учителем конкретной задачи
-    - input - x и маска признаков
-    - loss - соответствующий задаче
-  - selector net:
-    - цель - предсказать loss operator net
-    - input - маска признаков
-    - loss - l2 с loss'ом, переданным от operator net
-  - важность признака - соответствующая компонента градиента loss'а selector net'а в точке оптимального набора признаков
-  - процесс построения оптимального набора очень долгий  
-  *Итог*:
-    - в среднем лучше качество на синтетических данных
-    - лучшее RFE, BAHSIC, mRMR, CCM на 4-ёх benchmark датасетах
+## <a name="1"/> Thiagarajan JJ at el (2020) [Accurate and Robust Feature Importance Estimation under Distribution Shifts](https://arxiv.org/pdf/2009.14454.pdf)
+- описывается подход к оценке важности признаков для нейросетей: основная сеть обучается совместно с дополнительной (second net), у которой:
+  - цель - научиться предсказывать loss основной сети
+  - input - латентные представления после некоторых слоёв основной сети
+  - loss
+    - contrastive training - сохраняем правильное упорядочивание пар скоров
+    - dropout calibration - hinge loss + доверительные интервалы
+- используется Granger определение причинности (связь между признаком и целевой переменной сущетсвует, если качество только ухудшится при отбрасывании данного признака)
+- важность признака - разница предсказаний вспомогательной сети с его маскированием и без  
+*Итог*:
+- на 15-30 % лучше качество, чем у Shap
+- при увеличении различия распределения x_test, по сравнению с x_train, loss second net монотонно растёт
+- подход устойчивей при сильных изменениях x_test Deep_Shap'а в 2 раза
 
-- **Knockoffs for the mass: new feature importance statistics with false discovery guarantees, 2019** [[paper]](https://arxiv.org/pdf/1807.06214.pdf)
-  - аппроксимируется распределение данных (только признаки) байесовскими сетями
-  - используется аугментация выборки определённым образом (чтобы не выходить за исходное распределение)
-  - вместо того, чтобы перемешивать значения признака (в permutation importance), берется взвешенная сумма исходного признака и соответствующего признака из аугментированной выборки
-  - важность признака - площадь под кривой (y - доля правильно отобранных признаков, x - параметр взвешенной суммы) для некоторого диапазона (например, [0, 10])
-  - FDR в реальности нельзя оценить, предполагается, что мы хорошо моделируем распределение выборки
+## <a name="2"/> Wojtas M, Chen K (2020) [Feature Importance Ranking for Deep Learning](https://arxiv.org/pdf/2010.08973.pdf)
+- рассматривается две сети operator net и selector net, маски для признаков - бинарные вектора (1 - берем признак, 0 - нет), оптимальное кол-во признаков - гиперпараметр
+- обучение происходит поочередно
+- operator net:
+  - цель - обучение с учителем конкретной задачи
+  - input - x и маска признаков
+  - loss - соответствующий задаче
+- selector net:
+  - цель - предсказать loss operator net
+  - input - маска признаков
+  - loss - l2 с loss'ом, переданным от operator net
+- важность признака - соответствующая компонента градиента loss'а selector net'а в точке оптимального набора признаков
+- процесс построения оптимального набора очень долгий  
+*Итог*:
+- в среднем лучше качество на синтетических данных
+- лучшее RFE, BAHSIC, mRMR, CCM на 4-ёх benchmark датасетах
 
-- **A Unified Approach to Interpreting Model Predictions, 2017** [[paper]](https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf)
-  - рассматривается семейство аддитивных explanation models
-  - в данном классе существует единственная explanation model, удовлетворяющая свойствам:
-    - local accuracy - совпадение значений f(x) и exp_model(x')
-    - missingness - признак, не присутствующий в x, будет иметь нулевую важность
-    - consistency - признак во всевозможных комбинациях остальных имеет не меньшее значение на изменение выхода f, чем на f' -> его важность для f >= важность для f'
-  - считать такую explanation model дорого
-  - Linear LIME + Kernel SHAP дают истинные значения SHAP values
-  - в случае f = max, можно за квадрат размерности признаков SHAP посчитать (пользуемся свойствами max)
-  - Deep SHAP - вместо важности в DeepLIFT подставляем SHAP важность для промежуточных расчётах  
-  *Итог*:
-    - обобщили предыдущие методы
-    - на реальной задаче SHAP важность совпала с человеческой
-    - для конкретных моделей улучшили время расчёта
+## <a name="3"/> Gimenez JR, Ghorbani A, Zou J (2019) [Knockoffs for the mass: new feature importance statistics with false discovery guarantees](https://arxiv.org/pdf/1807.06214.pdf)
+- аппроксимируется распределение данных (только признаки) байесовскими сетями
+- используется аугментация выборки определённым образом (чтобы не выходить за исходное распределение)
+- вместо того, чтобы перемешивать значения признака (в permutation importance), берется взвешенная сумма исходного признака и соответствующего признака из аугментированной выборки
+- важность признака - площадь под кривой (y - доля правильно отобранных признаков, x - параметр взвешенной суммы) для некоторого диапазона (например, [0, 10])
+- FDR в реальности нельзя оценить, предполагается, что мы хорошо моделируем распределение выборки
 
-- **Learning Important Features Through Propagating Activation Differences, 2017** [[paper]](https://arxiv.org/pdf/1704.02685.pdf)
-  - метод основан на разнице значений нейронов между начальным значением (reference) и конечным
-  - разделяются положительный и отрицательный вклады в целевую переменную
-  - важность признака линейно зависит от разницы x - x_reference
-  - важность - shapley value с количеством разбиений 2
-  - x_reference выбирается в зависимости от задачи  
-  *Итог*:
-    - использование разности x - x_reference позволяет информации распространяться когда градиент равен нулю
-    - gradients, gradients*input, guided backprop, rescale rule теряют зависимости в ходе вычисления важности в некоторых случаях в отличии от предложенного reveal_cancel rule
+## <a name="4"/> Lundberg S, Lee S (2017) [A Unified Approach to Interpreting Model Predictions](https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf)
+- рассматривается семейство аддитивных explanation models
+- в данном классе существует единственная explanation model, удовлетворяющая свойствам:
+  - local accuracy - совпадение значений f(x) и exp_model(x')
+  - missingness - признак, не присутствующий в x, будет иметь нулевую важность
+  - consistency - признак во всевозможных комбинациях остальных имеет не меньшее значение на изменение выхода f, чем на f' -> его важность для f >= важность для f'
+- считать такую explanation model дорого
+- Linear LIME + Kernel SHAP дают истинные значения SHAP values
+- в случае f = max, можно за квадрат размерности признаков SHAP посчитать (пользуемся свойствами max)
+- Deep SHAP - вместо важности в DeepLIFT подставляем SHAP важность для промежуточных расчётах  
+*Итог*:
+- обобщили предыдущие методы
+- на реальной задаче SHAP важность совпала с человеческой
+- для конкретных моделей улучшили время расчёта
 
-- **CXPlain: Causal Explanations for Model Interpretation under Uncertainty, 2019** [[paper]](https://arxiv.org/pdf/1910.12336.pdf)
-  - используется Granger's definition of causality (в реальности, исходя только из данных, нельзя проверить)
-    - все признаки релевантные
-    - признак временно предшествует метке (для того, чтобы получить метку, нужна информация о признаке)
-  - истинная важность признака - нормированная разница ошибок объясняемой модели на x_mask и x_reference
-  - обучается explanation model (подходящая решаемой задаче)
-    - цель - предсказать важность признаков
-    - input - маскированный элемент x_train
-    - loss - расстояние Кульбака — Лейблера между истинным и предсказанным распределениями важностей признаков
-  - для устойчивости обучаем ансамбль explanation_models (на сэмплированных выборках), предсказанная важность - медиана предсказаний ансамбля, а точность - интерквантильный размах  
-  *Итог*:
-    - точность оценки важности коррелирует с ошибкой ранжирования важности признаков
-    - при небольшой мощности ансамбля (5) хорошо оценивается точность explanation_model
-    - качество лучше на 20%, быстрее x100, чем Shap, Lime на Mnist и ImageNet
-    - качество сильно зависит от устройства explanation_model
+## <a name="5"/> Shrikumar A, Greenside P, Kundaje A (2017) [Learning Important Features Through Propagating Activation Differences](https://arxiv.org/pdf/1704.02685.pdf)
+- метод основан на разнице значений нейронов между начальным значением (reference) и конечным
+- разделяются положительный и отрицательный вклады в целевую переменную
+- важность признака линейно зависит от разницы x - x_reference
+- важность - shapley value с количеством разбиений 2
+- x_reference выбирается в зависимости от задачи  
+*Итог*:
+- использование разности x - x_reference позволяет информации распространяться когда градиент равен нулю
+- gradients, gradients*input, guided backprop, rescale rule теряют зависимости в ходе вычисления важности в некоторых случаях в отличии от предложенного reveal_cancel rule
 
-- **Bias in random forest variable importance measures, 2017** [[paper]](https://link.springer.com/content/pdf/10.1186/1471-2105-8-25.pdf)
-  - имплементирован метод построения дерева (ctree), где выбор переменной осуществляется путем минимизации значения p критерия независимости условного вывода, сравнимого, например, с тестом χ2 со степенью свободы, равной числу категорий признака
-  - лучше себя показывает, чем rf в синтетических экспериментах (с/без бутстрэпом, способ сэмплинга)
-  - bias в важности признаков в rf возникает из-за того, что признаки с большим количество уникальных значений располагаются ближе к корню дерева
-  - рассматривается две оценки важности признака
-    - количество узлов, в которых используется признак для разделения выборки (selection frequency)
-    - permutation importance
-    - Gini importance (большой bias)  
-  *Итоги экспериментов*:
-    - сэмплинг с возвратом сильно смещает selection frequency в сторону признаков с большим числом уникальных значений
-    - permutation importance более устойчив
+## <a name="6"/> Schwab P, Karlen W (2019) [CXPlain: Causal Explanations for Model Interpretation under Uncertainty](https://arxiv.org/pdf/1910.12336.pdf)
+- используется Granger's definition of causality (в реальности, исходя только из данных, нельзя проверить)
+  - все признаки релевантные
+  - признак временно предшествует метке (для того, чтобы получить метку, нужна информация о признаке)
+- истинная важность признака - нормированная разница ошибок объясняемой модели на x_mask и x_reference
+- обучается explanation model (подходящая решаемой задаче)
+  - цель - предсказать важность признаков
+  - input - маскированный элемент x_train
+  - loss - расстояние Кульбака — Лейблера между истинным и предсказанным распределениями важностей признаков
+- для устойчивости обучаем ансамбль explanation_models (на сэмплированных выборках), предсказанная важность - медиана предсказаний ансамбля, а точность - интерквантильный размах  
+*Итог*:
+- точность оценки важности коррелирует с ошибкой ранжирования важности признаков
+- при небольшой мощности ансамбля (5) хорошо оценивается точность explanation_model
+- качество лучше на 20%, быстрее x100, чем Shap, Lime на Mnist и ImageNet
+- качество сильно зависит от устройства explanation_model
 
-- **Grouped variable importance with random forests and application to multiple functional data analysis, 2015** [[paper]](https://arxiv.org/pdf/1411.4170.pdf)
-  - рассматривается оценка важности группы признаков с теоретической и практической стороны
-  - теоретическая сторона
-    - (признаки, целевая переменная) - случайный вектор
-    - важность признака - разница квадратичного риска с заменой/без замены признака на одинакового распределенный признак, но не зависящий от остальных и целевой переменной
-    - в определённых условиях важность группы признаков пропорциональна дисперсии функции (=модель) от этой группы
-  - практическая сторона
-    - важность группы признаков - oob + случайная перестановка строк для столбцов из группы
-    - используется RFE
-  - с помощью вейвлет декомпозиции можно получить различные разбиения коэффициентов на группы
-  - для отбора некоторых групп не применим алгоритм RFE, т.к. существует общая составляющая, вносящая большой вклад -> делим интересующий параметр на сетку и вычисляем важность в конкретных точках  
-  *Итоги экспериментов*:  
-    - оценка важности согласовывается как с синтетическими экспериментами, так и с реальными
+## <a name="7"/> Strobl C, Boulesteix A, Zeileis A & Hothorn T (2017) [Bias in random forest variable importance measures](https://link.springer.com/content/pdf/10.1186/1471-2105-8-25.pdf)
+- имплементирован метод построения дерева (ctree), где выбор переменной осуществляется путем минимизации значения p критерия независимости условного вывода, сравнимого, например, с тестом χ2 со степенью свободы, равной числу категорий признака
+- лучше себя показывает, чем rf в синтетических экспериментах (с/без бутстрэпом, способ сэмплинга)
+- bias в важности признаков в rf возникает из-за того, что признаки с большим количество уникальных значений располагаются ближе к корню дерева
+- рассматривается две оценки важности признака
+  - количество узлов, в которых используется признак для разделения выборки (selection frequency)
+  - permutation importance
+  - Gini importance (большой bias)  
+*Итоги экспериментов*:
+- сэмплинг с возвратом сильно смещает selection frequency в сторону признаков с большим числом уникальных значений
+- permutation importance более устойчив
 
-- **Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)**
-  - продолжение вышеописанной работы 
-  - эмпирическая важность признака при использовании purely rf для независимых признаков сходится экспоненциально к теоретической при стремлении количества итераций разбиения узла дерева и мощности тренировочной выборки так, чтобы отношение первого ко второму стремилось к 0 
-  - даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
-  *Итоги экспериментов*:
-    - NRFE и RFE в целом имеют одинаковое качество
+## <a name="8"/> Gregorutti B, Michel B, Saint-Pierre P (2015) [Grouped variable importance with random forests and application to multiple functional data analysis](https://arxiv.org/pdf/1411.4170.pdf)
+- рассматривается оценка важности группы признаков с теоретической и практической стороны
+- теоретическая сторона
+  - (признаки, целевая переменная) - случайный вектор
+  - важность признака - разница квадратичного риска с заменой/без замены признака на одинакового распределенный признак, но не зависящий от остальных и целевой переменной
+  - в определённых условиях важность группы признаков пропорциональна дисперсии функции (=модель) от этой группы
+- практическая сторона
+  - важность группы признаков - oob + случайная перестановка строк для столбцов из группы
+  - используется RFE
+- с помощью вейвлет декомпозиции можно получить различные разбиения коэффициентов на группы
+- для отбора некоторых групп не применим алгоритм RFE, т.к. существует общая составляющая, вносящая большой вклад -> делим интересующий параметр на сетку и вычисляем важность в конкретных точках  
+*Итоги экспериментов*:  
+- оценка важности согласовывается как с синтетическими экспериментами, так и с реальными
+
+## <a name="9"/> Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)**
+- продолжение вышеописанной работы 
+- эмпирическая важность признака при использовании purely rf для независимых признаков сходится экспоненциально к теоретической при стремлении количества итераций разбиения узла дерева и мощности тренировочной выборки так, чтобы отношение первого ко второму стремилось к 0 
+- даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
+
+*Итоги экспериментов*:
+- NRFE и RFE в целом имеют одинаковое качество
   
-  
-## Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
+
+## <a name="10"/> Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
 We present *a general method* for explaining *individual predictions* of *classification models*.  
 **Example of the disadvantage of methods related to masking only 1 feature** Let model is 1 or 1, then importance of left and right 1s will be 0  
 **Theorem** Let:  
@@ -136,7 +151,7 @@ The optimal (*minimal*) number of samples we need for the entire explanation is 
 The greater the variance in the model responses, the more samples will be required. For example, MLP have higher error/samples rate then logreg, dt, nb.
 
   
-## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
+## <a name="11"/> Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
 **Важность** - влияние input на интересующую функцию от <img src="svgs/c11cd2e3029f26a6a31c3a9ac4a5c75b.svg?invert_in_darkmode" align=middle width=9.97711605pt height=14.6118786pt/>  
 
 Consider **expanded  probability  space** on <img src="svgs/3d2ab5621d0e3b8ba2a24770cb64eb7c.svg?invert_in_darkmode" align=middle width=48.35611935pt height=22.4657235pt/>, with distribution <img src="svgs/743e458cb82e29385967a897f829f72c.svg?invert_in_darkmode" align=middle width=138.4187607pt height=24.657534pt/>. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
@@ -196,8 +211,7 @@ Embedded importance:
 **The Deegan-Packel index** - <img src="svgs/b7d7d23521edb069027f70eeb0e1773e.svg?invert_in_darkmode" align=middle width=240.23633535pt height=27.7756545pt/>
 - work with binary "outcome" (<img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.5578603pt height=14.1552444pt/>) of subsets in <img src="svgs/f9c4988898e7f532b9f826a75014ed3c.svg?invert_in_darkmode" align=middle width=14.99998995pt height=22.4657235pt/>
   
-  
-## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
+## <a name="12"/> Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
 **Идея** - будем искать важность группы признаков <img src="svgs/9efd0126287224eeab878b4d0b47b73c.svg?invert_in_darkmode" align=middle width=20.17129785pt height=22.4657235pt/> не для одной хорошей модели (reference model), а для класса моделей  
 **Датасет** - iid  
 
@@ -217,8 +231,6 @@ Embedded importance:
 
 > **_NOTE:_** The estimators <img src="svgs/c0b1011abbb7fe0877418710b9a042f0.svg?invert_in_darkmode" align=middle width=136.4868285pt height=24.657534pt/> and <img src="svgs/f958022a491e85342a86708a4aea6f40.svg?invert_in_darkmode" align=middle width=70.22293575pt height=24.657534pt/> all belong to the well-studied class of U-statistics. Thus, under fairly minor conditions, *these estimators are unbiased, asymptotically normal, and have finite-sample probabilistic bounds*  
 > Можно заменить сочетание всех пар объектов на группы и внутри них делать такое сочетание  
-
-  
 
  ### Illustrative Toy Example with Simulated Data    
 **Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
@@ -263,9 +275,6 @@ For “admissible variables” the <img src="svgs/6e4554423d2a03580ec0c895b2e969
 Идея работы алгоритма:  
 - Считаем необходимые матрицы и значения (расстояния, коэффициент регуляризации и т.д.)  
 - Считам MRC
-
-
-
 
 ### We introduce three bounded loss assumptions:  
 **Assumption 1** (*Bounded individual loss*) For a given model <img src="svgs/395cf4bf7dfc7f2e2da51b7a9a84d77c.svg?invert_in_darkmode" align=middle width=47.92223535pt height=22.8310566pt/> assume that <img src="svgs/d00be88766456732b157a8a360587de6.svg?invert_in_darkmode" align=middle width=25.57074135pt height=21.1872144pt/> <img src="svgs/0362b866c8b100f031c67717d70a820c.svg?invert_in_darkmode" align=middle width=165.13601775pt height=24.657534pt/> for any <img src="svgs/0b87ec9fbf75c80286c35c55797da12c.svg?invert_in_darkmode" align=middle width=193.18192575pt height=24.657534pt/>  
