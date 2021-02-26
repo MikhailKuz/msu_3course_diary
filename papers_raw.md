@@ -115,53 +115,51 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   *Итоги экспериментов*:
     - NRFE и RFE в целом имеют одинаковое качество
   
----
+  
+## Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
+We present *a general method* for explaining *individual predictions* of *classification models*.  
+**Example of the disadvantage of methods related to masking only 1 feature** Let model is 1 or 1, then importance of left and right 1s will be 0  
+**Theorem** Let:  
+<p align="center"><img src="svgs/b3927fd163eeae8c0c35d1224f9cf937.svg?invert_in_darkmode" align=middle width=432.5447907pt height=66.65529255pt/></p>  
+<p align="center"><img src="svgs/85b71bfeed397922c6f3aba9128cfdfe.svg?invert_in_darkmode" align=middle width=206.0751033pt height=37.77510825pt/></p>  
+<p align="center"><img src="svgs/8b125fec7ab2723e9bd4c36fca95ade6.svg?invert_in_darkmode" align=middle width=252.98866725pt height=36.90432735pt/></p>  
+<p align="center"><img src="svgs/8b13b38feb58f021f2bd1072e8b2652f.svg?invert_in_darkmode" align=middle width=325.4694069pt height=46.7371938pt/></p>  
 
+Then: <img src="svgs/7c08dd7b47762244a86b430482f32b92.svg?invert_in_darkmode" align=middle width=157.28660145pt height=24.657534pt/> is a coalitional form game and <img src="svgs/e613f9a343b62108a626dab1bbb87312.svg?invert_in_darkmode" align=middle width=167.89749735pt height=24.657534pt/> corresponds to the game's Shapley value <img src="svgs/b6e82acdaa64f61189e1da6233ae4ea6.svg?invert_in_darkmode" align=middle width=44.74900155pt height=24.657534pt/>.  
+**Main idea of the paper**  To use bootstrap sampling (with replacement) + the folowing definition:
+<p align="center"><img src="svgs/56db687dd5d2514559bc51c7c69df228.svg?invert_in_darkmode" align=middle width=580.50676695pt height=45.00203565pt/></p>  
+
+The key to minimizing the number of samples is *to estimate the sample variance* and draw the appropriate number of samples.  
+The optimal (*minimal*) number of samples we need for the entire explanation is  <img src="svgs/a37bb58dc5d1a115b19d5c755b4e1e85.svg?invert_in_darkmode" align=middle width=212.21608155pt height=41.1466572pt/>  
+
+### Experiments
+The greater the variance in the model responses, the more samples will be required. For example, MLP have higher error/samples rate then logreg, dt, nb.
+
+  
 ## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
-**Важность** - влияние input на интересующую функцию от $\textbf{x}$  
+**Важность** - влияние input на интересующую функцию от <img src="svgs/c11cd2e3029f26a6a31c3a9ac4a5c75b.svg?invert_in_darkmode" align=middle width=9.97711605pt height=14.6118786pt/>  
 
-Consider **expanded  probability  space** on $\mathcal{X} \times \mathcal{X}$, with distribution $\tilde{\pi}(\mathbf{x}, \mathbf{u})=\pi(\mathbf{x}) \pi(\mathbf{u})$. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
-For a quantity  of interes $Q_{\mathcal{A}}(\cdot)$, and an input $i$, **the Quantitative Input Influence** of $i$ on $Q_{\mathcal{A}}(\cdot)$ is defined to be  
-$$
-\iota^{Q \mathcal{A}}(i)=Q_{\mathcal{A}}(X)-Q_{\mathcal{A}}\left(X_{-i} U_{i}\right)
-$$  
+Consider **expanded  probability  space** on <img src="svgs/3d2ab5621d0e3b8ba2a24770cb64eb7c.svg?invert_in_darkmode" align=middle width=48.35611935pt height=22.4657235pt/>, with distribution <img src="svgs/743e458cb82e29385967a897f829f72c.svg?invert_in_darkmode" align=middle width=138.4187607pt height=24.657534pt/>. Вариацию элемента из датасета будет делать с помощью 2-го вероятностного пространства.  
+For a quantity  of interes <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/>, and an input <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/>, **the Quantitative Input Influence** of <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.6632257pt height=21.6830097pt/> on <img src="svgs/4a9bf1922de1393a571127c8bf3b114a.svg?invert_in_darkmode" align=middle width=41.7277146pt height=24.657534pt/> is defined to be  
+<p align="center"><img src="svgs/165b14f3f1928fc05d5033d72aab9887.svg?invert_in_darkmode" align=middle width=226.0421493pt height=18.7598829pt/></p>  
 
 *QII for Individual Outcomes*  
-$$
-\iota_{\text {ind }}^{\mathrm{x}}(i)=\mathbb{E}(c(X)=1 \mid X=\mathbf{x})-\mathbb{E}\left(c\left(X_{-i} U_{i}\right)=1 \mid X=\mathbf{x}\right)
-$$  
+<p align="center"><img src="svgs/7c26eeade99c63335a9b5c26962019d9.svg?invert_in_darkmode" align=middle width=424.78349595pt height=16.438356pt/></p>  
 
 *QII for Group Outcomes*  
-$$
-\iota_{\mathrm{grp}}^{\mathcal{Y}}(i)=\mathbb{E}(c(X)=1 \mid X \in \mathcal{Y})-\mathbb{E}\left(c\left(X_{-i} U_{i}\right)=1 \mid X \in \mathcal{Y}\right)
-$$  
-$$
-\hat{\mathbb{E}}_{\mathcal{D}}\left(c\left(X_{-S}\right)=1\right)=\frac{\sum_{\left.\mathbf{u}_{S} \in \mathcal{D}\right|_{S}} \sum_{\mathbf{x} \in \mathcal{D}} \mathbb{1}\left(c\left(\left.\mathbf{x}\right|_{N \backslash S} \mathbf{u}_{S}\right)=1\right)}{|\mathcal{D}|^{2}}
-$$  
+<p align="center"><img src="svgs/4f552a0189d3b5cf332e08010515704c.svg?invert_in_darkmode" align=middle width=422.13070515pt height=20.95157625pt/></p>  
+<p align="center"><img src="svgs/881d5f1752d720149616182e5337ff88.svg?invert_in_darkmode" align=middle width=428.30357625pt height=51.3856596pt/></p>  
 
 *QII for Group Disparity*  
-$$
-Q_{\text {disp }}^{\mathcal{Y}}(\cdot)=\mid \mathbb{E}(c(\cdot)=1 \mid X \in \mathcal{Y})-\mathbb{E}(c(\cdot)=1 \mid X \notin \mathcal{Y})
-$$  
-$$
-\iota_{\text {disp }}^{\mathcal{Y}}(i)=Q_{\text {disp }}^{\mathcal{Y}}(X)-Q_{\text {disp }}^{\mathcal{Y}}\left(X_{-i} U_{i}\right)
-$$  
-$$
-\begin{array}{r}
-\mid \frac{1}{|\mathcal{Y}|} \sum_{\mathbf{x} \in \mathcal{Y} \mathbf{u}_{S} \in \mathcal{D}_{S}} \mathbb{1}\left(c\left(\left.\mathbf{x}\right|_{N \backslash S} \mathbf{u}_{S}\right)=1\right) \\
--\frac{1}{|\mathcal{D} \backslash \mathcal{Y}|} \sum_{\mathbf{x} \in \mathcal{D} \backslash \mathcal{Y}} \sum_{\mathbf{u}_{S} \in \mathcal{D}_{S}} \mathbb{1}\left(c\left(\left.\mathbf{x}\right|_{N \backslash S} \mathbf{u}_{S}\right)=1\right) \mid
-\end{array}
-$$  
+<p align="center"><img src="svgs/02316401afc24f0b6eb83c2febf22757.svg?invert_in_darkmode" align=middle width=384.38888895pt height=21.8400138pt/></p>  
+<p align="center"><img src="svgs/c3f5b34c233bbfffb967c9a8c5faa840.svg?invert_in_darkmode" align=middle width=267.65091045pt height=21.8400138pt/></p>  
+<p align="center"><img src="svgs/3620a0f76d361fd4a88877ca5d3f70db.svg?invert_in_darkmode" align=middle width=354.0841755pt height=59.1786591pt/></p>  
 
 *Set  QII*  
-$$
-\iota^{Q}(S)=Q(X)-Q\left(X_{-S} U_{S}\right)
-$$  
+<p align="center"><img src="svgs/441e6e259a63ecc504c7025036c1caa1.svg?invert_in_darkmode" align=middle width=206.1864618pt height=18.7598829pt/></p>  
 
 *Marginal QII*  
-$$
-\iota^{Q}(i, S)=Q\left(X_{-S} U_{S}\right)-Q\left(X_{-S \cup\{i\}} U_{S \cup\{i\}}\right)
-$$  
+<p align="center"><img src="svgs/9a288a77c3bf932e9114c2821cab745f.svg?invert_in_darkmode" align=middle width=317.39127585pt height=20.49507075pt/></p>  
 
 :small_orange_diamond: для QII выполняются аксиомы, как для Shapley value  
 
@@ -173,7 +171,7 @@ It consists of the following elements:
 - *An aggregation technique*, which combines marginal QII measures across different subsets of inputs (features)
   
 ### Experiments  
-В реальности сложность полного алгоритма большая -> сэмплируем выборку и на ней применяем алгоритм + добавляем шум $\operatorname{Lap}(\Delta f(\mathcal{D}) / \epsilon)$ для приватности. Доказано, что при достаточном n можно приблизить оценки истинных параметров сколь угодно близко (по вероятности).  
+В реальности сложность полного алгоритма большая -> сэмплируем выборку и на ней применяем алгоритм + добавляем шум <img src="svgs/a39614f21b3b5d05cb2247844922df04.svg?invert_in_darkmode" align=middle width=104.74126575pt height=24.657534pt/> для приватности. Доказано, что при достаточном n можно приблизить оценки истинных параметров сколь угодно близко (по вероятности).  
 Для определения влияния признака не достаточно его одного изменить. Нужно другие тоже изменить. Это обусловлено наличием скоррелированных признаков.  
 Features correlated with the sensitive attribute are the most influential for group disparity according to the sensitive attribute instead of the sensitive attribute itself. It is in this sense that **QII measures can identify proxy variables** that cause associations between outcomes and sensitive attributes.  
 
@@ -189,14 +187,14 @@ Embedded importance:
 - Probabilistic  Scaling  
   
 ### Appendix
-**Shapley value** - $\varphi_{i}(N, v)=\sum_{S \subseteq N} p[S] m_{i}(S)$, where $p[S]=\frac{1}{n} \frac{1}{\left(\begin{array}{c}n-1 \\ |S|\end{array}\right)}$  
-**The Banzhaf Index** defines as $\beta_{i}(N, v)=\frac{1}{2^{n-1}} \sum_{S \subseteq N \backslash\{i\}} m_{i}(S)$
-- index  is  not  guaranteed  to  be  *efficient*, i.e. $\sum_{i \in N} \beta_{i}(N, v)$ is not necessarily equal to $v(N)$. But satisfies *2-efficiency* property  
+**Shapley value** - <img src="svgs/9bdbff647fbb9cabbd799700c4b77575.svg?invert_in_darkmode" align=middle width=204.56316045pt height=24.6577353pt/>, where <img src="svgs/ecb3735a7e249535bca17707c6df48c4.svg?invert_in_darkmode" align=middle width=142.03270125pt height=76.6033587pt/>  
+**The Banzhaf Index** defines as <img src="svgs/819f38106c0afccdcb86fe0c2685d3e9.svg?invert_in_darkmode" align=middle width=235.3303524pt height=27.7756545pt/>
+- index  is  not  guaranteed  to  be  *efficient*, i.e. <img src="svgs/54db9a2e914365bceb7c3eb42f96db26.svg?invert_in_darkmode" align=middle width=103.575351pt height=24.6577353pt/> is not necessarily equal to <img src="svgs/fc6d302183dd80c822ba12c907941e10.svg?invert_in_darkmode" align=middle width=36.3432432pt height=24.657534pt/>. But satisfies *2-efficiency* property  
 - the only function to satisfy (*sym*), (*d*), (*mono*) and (*2-eff*)
-- tend to select sets with the cardinality equals to $n/2$  
+- tend to select sets with the cardinality equals to <img src="svgs/d6d54860f3796e33548482099695dec5.svg?invert_in_darkmode" align=middle width=26.30529495pt height=24.657534pt/>  
 
-**The Deegan-Packel index** - $\delta_{i}(N, v)=\frac{1}{|\mathcal{M}(v)|} \sum_{S \in \mathcal{M}(v): i \in S} \frac{1}{|S|}$
-- work with binary "outcome" ($v$) of subsets in $N$
+**The Deegan-Packel index** - <img src="svgs/b7d7d23521edb069027f70eeb0e1773e.svg?invert_in_darkmode" align=middle width=240.23633535pt height=27.7756545pt/>
+- work with binary "outcome" (<img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.5578603pt height=14.1552444pt/>) of subsets in <img src="svgs/f9c4988898e7f532b9f826a75014ed3c.svg?invert_in_darkmode" align=middle width=14.99998995pt height=22.4657235pt/>
   
   
 ## Fisher A, Rudin C, Dominici F (2018) [All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](https://arxiv.org/pdf/1801.01489.pdf) [[code]](https://github.com/aaronjfisher/mcr-supplement)
@@ -223,12 +221,12 @@ Embedded importance:
   
 
  ### Illustrative Toy Example with Simulated Data    
-**Building an empirical $R(\epsilon)$:**  
-Обучаются reference model/models. $R(\epsilon)$ получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
+**Building an empirical <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>:**  
+Обучаются reference model/models. <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/> получается нормальным зашумлением координат одной выбранной reference model с дисперсиями:
 - если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models == 0: все 1
 - если дисперсия хотя бы одной координаты из соотвествующей колонки матрицы весов reference model/models != 0: соотвествующей дисперсией столбца  
 
-Причём, если нам необходимо $p*n$ (p-доля хороших моделей, n-количество всего моделей) в $R(\epsilon)$, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
+Причём, если нам необходимо <img src="svgs/a1440dd74ba1e92365207181e8af0963.svg?invert_in_darkmode" align=middle width=33.66241065pt height=15.2968299pt/> (p-доля хороших моделей, n-количество всего моделей) в <img src="svgs/1526dd9e7c063f7c98ae001d3ce6e202.svg?invert_in_darkmode" align=middle width=32.0662947pt height=24.657534pt/>, то процедура поправки "плохой" модели осуществляется линейным приближением к reference model.  
 
 ### Simulations of Bootstrap Confidence Intervals  
 **идея**:  

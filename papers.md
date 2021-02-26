@@ -115,8 +115,27 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
   *Итоги экспериментов*:
     - NRFE и RFE в целом имеют одинаковое качество
   
----
+  
+## Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
+We present *a general method* for explaining *individual predictions* of *classification models*.  
+**Example of the disadvantage of methods related to masking only 1 feature** Let model is 1 or 1, then importance of left and right 1s will be 0  
+**Theorem** Let:  
+<p align="center"><img src="svgs/b3927fd163eeae8c0c35d1224f9cf937.svg?invert_in_darkmode" align=middle width=432.5447907pt height=66.65529255pt/></p>  
+<p align="center"><img src="svgs/85b71bfeed397922c6f3aba9128cfdfe.svg?invert_in_darkmode" align=middle width=206.0751033pt height=37.77510825pt/></p>  
+<p align="center"><img src="svgs/8b125fec7ab2723e9bd4c36fca95ade6.svg?invert_in_darkmode" align=middle width=252.98866725pt height=36.90432735pt/></p>  
+<p align="center"><img src="svgs/8b13b38feb58f021f2bd1072e8b2652f.svg?invert_in_darkmode" align=middle width=325.4694069pt height=46.7371938pt/></p>  
 
+Then: <img src="svgs/7c08dd7b47762244a86b430482f32b92.svg?invert_in_darkmode" align=middle width=157.28660145pt height=24.657534pt/> is a coalitional form game and <img src="svgs/e613f9a343b62108a626dab1bbb87312.svg?invert_in_darkmode" align=middle width=167.89749735pt height=24.657534pt/> corresponds to the game's Shapley value <img src="svgs/b6e82acdaa64f61189e1da6233ae4ea6.svg?invert_in_darkmode" align=middle width=44.74900155pt height=24.657534pt/>.  
+**Main idea of the paper**  To use bootstrap sampling (with replacement) + the folowing definition:
+<p align="center"><img src="svgs/56db687dd5d2514559bc51c7c69df228.svg?invert_in_darkmode" align=middle width=580.50676695pt height=45.00203565pt/></p>  
+
+The key to minimizing the number of samples is *to estimate the sample variance* and draw the appropriate number of samples.  
+The optimal (*minimal*) number of samples we need for the entire explanation is  <img src="svgs/a37bb58dc5d1a115b19d5c755b4e1e85.svg?invert_in_darkmode" align=middle width=212.21608155pt height=41.1466572pt/>  
+
+### Experiments
+The greater the variance in the model responses, the more samples will be required. For example, MLP have higher error/samples rate then logreg, dt, nb.
+
+  
 ## Datta A, Sen S, Zick Y (2016) [Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](http://www.andrew.cmu.edu/user/danupam/datta-sen-zick-oakland16.pdf) [[code]](https://github.com/hovinh/QII)
 **Важность** - влияние input на интересующую функцию от <img src="svgs/c11cd2e3029f26a6a31c3a9ac4a5c75b.svg?invert_in_darkmode" align=middle width=9.97711605pt height=14.6118786pt/>  
 
