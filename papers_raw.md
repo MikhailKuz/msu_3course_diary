@@ -15,7 +15,7 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 10. [Kononenko I et al (2010) An efficient explanation of individual classifications using game theory](#10)
 11. [Datta A, Sen S, Zick Y (2016) Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](#11)
 12. [Fisher A, Rudin C, Dominici F (2018) All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](#12)
-13. [Louppe G, Wehenkel L, Sutera A, Geurts P (2013) Understanding variable importances in forests of randomized trees](#13)  
+13. [Louppe G, Wehenkel L, Sutera A, Geurts P (2013) Understanding variable importances in forests of randomized trees](https://github.com/MikhailKuz/3_course_diary#-12102020---%D0%BF%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D1%8E-%D0%BF%D1%80%D0%BE-variable-importances-in-forests-of-randomized-trees)  
 
 ## <a name="1"/> Thiagarajan JJ at el (2020) [Accurate and Robust Feature Importance Estimation under Distribution Shifts](https://arxiv.org/pdf/2009.14454.pdf)
 - описывается подход к оценке важности признаков для нейросетей: основная сеть обучается совместно с дополнительной (second net), у которой:
