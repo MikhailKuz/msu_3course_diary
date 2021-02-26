@@ -1,4 +1,6 @@
 # Дневник
+Most of the reports are related to the feature importance.  
+:memo:[[synopsis_of_articles]](papers.md) &nbsp;&nbsp;&nbsp; :pencil:[[libs_description]](libs.md) &nbsp;&nbsp;&nbsp; :dart:[[todo_list]](todo.md)
 #### 27/09/2020 - повторил 2 первые главы [курса](https://stepik.org/course/54098/promo)
 ##### Глава 1
 - Генерация текста:
