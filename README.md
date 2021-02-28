@@ -54,3 +54,4 @@ Most of the reports are related to the feature importance.
 
 **22/02/2021** - законспектировал [две статьи](https://github.com/MikhailKuz/3_course_diary/commit/5719baf75c4a5bb0c8c95010a2ef770e1ec1e755).
 
+**28/02/2021** - законспектировал [две статьи](https://github.com/MikhailKuz/3_course_diary/commit/03b9e69ed299796f0607b3163cb7e50b973a1a09).
