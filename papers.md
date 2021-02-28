@@ -15,7 +15,47 @@ python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md
 10. [Kononenko I et al (2010) An efficient explanation of individual classifications using game theory](#10)
 11. [Datta A, Sen S, Zick Y (2016) Algorithmic transparency via quantitative input influence: theory and experiments with learning systems](#11)
 12. [Fisher A, Rudin C, Dominici F (2018) All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance](#12)
-13. [Louppe G, Wehenkel L, Sutera A, Geurts P (2013) Understanding variable importances in forests of randomized trees](https://github.com/MikhailKuz/3_course_diary#-12102020---%D0%BF%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D1%8E-%D0%BF%D1%80%D0%BE-variable-importances-in-forests-of-randomized-trees)  
+13. [Louppe G, Wehenkel L, Sutera A, Geurts P (2013) Understanding variable importances in forests of randomized trees](https://github.com/MikhailKuz/3_course_diary#-12102020---%D0%BF%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D1%8E-%D0%BF%D1%80%D0%BE-variable-importances-in-forests-of-randomized-trees)
+14. [Staniak M, Biecek P (2018) Explanations of model predictions with live and breakDown packages](#14)
+
+## <a name="14"/> Staniak M, Biecek P (2018) [Explanations of model predictions with live and breakDown packages](https://arxiv.org/pdf/1804.01955.pdf)
+### Related work
+In Lime [(2016 Tulio Ribeiro et al.)](https://arxiv.org/pdf/1606.05386.pdf)
+1. original observation of interest is transformed into simplified input space of binary vectors
+2. a dataset of similar observations is created by sampling features that are present in the representation of the explained instance
+3. one may add regularization  
+  
+Live is for for regression problems.  
+Dataset for local exploration is simulated by perturbing the explained instance one feature at a time.  
+The package uses *the mlr interface* to handle machine learning algorithms.
+
+### Live
+Идея: для генерации аугментаций наблюдения
+- заменяется каждый признак сэмплом из маргинального распределения
+- оставшееся число необходимых аугментаций происходит аналогично с рандомным выбором признака
+
+### Lm-break
+Model prediction equals to
+<p align="center"><img src="svgs/a818d8361ffbf852785fc23a3d7dbf87.svg?invert_in_darkmode" align=middle width=586.4327733pt height=20.95157625pt/></p>  
+
+where  
+
+<p align="center"><img src="svgs/ab36c9e24bb3d7a6b9cb9ef7c9f48764.svg?invert_in_darkmode" align=middle width=239.9756238pt height=16.1187015pt/></p>  
+
+The **feature importance of <img src="svgs/dc80c8df8d6a3120a158fb62653b1321.svg?invert_in_darkmode" align=middle width=14.04588735pt height=14.1552444pt/>** equals to <img src="svgs/667254ba633f8a8961e16333cff01c06.svg?invert_in_darkmode" align=middle width=98.8319937pt height=24.657534pt/>
+
+### Ag-break
+The intuition: find such features with a small increase in which the prediction of the explained model significantly changes.  
+**Algorithm**: on each iteration find the feature, which minimize/maximaze <img src="svgs/469b4468af60d459f7037ec018fb9447.svg?invert_in_darkmode" align=middle width=198.7675074pt height=27.9454065pt/>
+- *step-up*: then in each step a single feature is beingrelaxed
+- *step-down*: then in each step a single feature is removedfrom the set  
+
+Generates a sequence of variables with *increasing contributions*.
+
+### Experiments
+- важность по *step-up* и *step-down* методам ~ совпадает
+- важность между *ag-break* и *Shapley values* в среднем очень близки
+
 
 ## <a name="1"/> Thiagarajan JJ at el (2020) [Accurate and Robust Feature Importance Estimation under Distribution Shifts](https://arxiv.org/pdf/2009.14454.pdf)
 - описывается подход к оценке важности признаков для нейросетей: основная сеть обучается совместно с дополнительной (second net), у которой:
