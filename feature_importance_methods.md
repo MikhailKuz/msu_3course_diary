@@ -12,7 +12,8 @@ If PDP is constant then thera are no interactions between selected subset and ot
 For every dataset example, we fix variables not in subset of interest and vary another.  
 Advantages:
 - more intuitive to understand
-- uncover heterogeneous relationships
+- uncover heterogeneous relationships  
+
 Disadvantages:
 - some points in the lines might be invalid data points
 - can only display one feature *meaningfully*
@@ -25,7 +26,8 @@ ALE plots show the *first or second-order* effect.
 ## Feature Interaction
 The amount of the variance explained by the interaction (difference between observed and no-interaction PD) is used as interaction strength statistic.  
 Pros:
-- the statistic **detects all kinds of interactions**, regardless of their particular form
+- the statistic **detects all kinds of interactions**, regardless of their particular form  
+
 Cons:
 - computationally expensives
 - results can be unstable
