@@ -9,7 +9,7 @@
 - [x] Kononenko I et al (2010) An efficient explanation of individual classifications using game theory
 - [x] Staniak M, Biecek P (2018) Explanations of model predictions with live and breakDown packages
 - [x] G. Louppe, L. Wehenkel, A. Sutera, and P. Geurts. Understanding variable impor-tances in forests of randomized trees. InAdvances in Neural Information ProcessingSystems
-- [ ] A. Sutera, G. Louppe, V. A. Huynh-Thu, L. Wehenkel, and P. Geurts. Context-dependent feature analysis with random forests
+- [x] A. Sutera, G. Louppe, V. A. Huynh-Thu, L. Wehenkel, and P. Geurts. Context-dependent feature analysis with random forests
 - [ ] Robin Genuer, Jean-Michel Poggi, Christine Tuleau-Malot. Variable selection using Random Forests.Pattern Recognition Letters, Elsevier, 2010
   
 

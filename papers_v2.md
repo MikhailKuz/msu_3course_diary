@@ -1,6 +1,6 @@
 <!--- 
 activate p2
-python -m readme2tex --nocdn --output papers_v2.md --readme papers.md
+python -m readme2tex --nocdn --output papers.md --rerender papers_raw.md 
 -->
 # Конспекты статей
 1. [Thiagarajan JJ at el (2020) Accurate and Robust Feature Importance Estimation under Distribution Shifts](#1)
