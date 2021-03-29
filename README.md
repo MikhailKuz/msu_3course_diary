@@ -59,3 +59,5 @@ Most of the reports are related to the feature importance.
 **14/03/2021** - законспектировал обзор на filter methods и поэкспериментировал на датасете про диабет [link](https://github.com/MikhailKuz/3_course_diary/commit/e4c6a40a86fb7fb8a6cde084469fd6f6384e6563).
 
 **23/03/2021** - законспектировал [статью](https://github.com/MikhailKuz/3_course_diary/blob/master/papers.md#15) и сделал [эксперимент](https://github.com/MikhailKuz/3_course_diary/blob/master/experiments/diabets.ipynb) с сэмплированием признаков.
+
+**29/03/2021** - добавил [2 эксперимента](https://github.com/MikhailKuz/3_course_diary/blob/master/experiments/diabets.ipynb) с копией признака и RFE.
