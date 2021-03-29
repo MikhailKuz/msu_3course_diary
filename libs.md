@@ -8,6 +8,7 @@
 | [QII](https://github.com/hovinh/QII) | black box | determine the Quantity of interest that we want to evaluate: <ul><li>Define a trained classifier inheriting the QIIPredictor, with predict() method to output quantity of interest.</li><li>Define a QuantityOfInterest instance with appropriate way to compute quantity of interest from output of QIIPredictor.predict()</li></ul> use QII to compute Shapley/Banzhaf values for each chosen feature/set. |
 | [mcr](https://github.com/aaronjfisher/mcr) | black box | given a set of models of interest (a model class), this package finds the models that rely as much, or as little as possible on variables of interest, while still performing well. More information you can find in [Fisher et al., 2019](https://www.jmlr.org/papers/v20/18-760.html). |
 | [breakDown](https://github.com/MI2DataLab/pyBreakDown) | back box | approximate Shapley values by sequentially choosing variable to add to the set of relaxed features |
+| [alibi](https://docs.seldon.io/projects/alibi/en/stable/index.html) | - | - |
 | [FeatureImportanceDL](https://github.com/maksym33/FeatureImportanceDL) | - | - |
 | [shap](https://github.com/slundberg/shap) | - | - |
 | [deeplift](https://github.com/kundajelab/deeplift) | - | - |
