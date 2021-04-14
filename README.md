@@ -1,6 +1,6 @@
 # Дневник
 Most of the reports are related to the feature importance.  
-:memo:[synopsis_of_articles](papers.md) &nbsp;&nbsp;&nbsp; :pencil:[libs_description](libs.md) &nbsp;&nbsp;&nbsp; :dart:[todo_list](todo.md)  
+:memo:[synopsis_of_articles](papers.md) &nbsp;&nbsp;&nbsp; :pencil:[libs_description](info_tables.md) &nbsp;&nbsp;&nbsp; :dart:[todo_list](todo.md)  
 :speaking_head:[seminar_pdfs](https://github.com/MikhailKuz/3_course_diary/tree/master/seminar)
 #### 27/09/2020 - повторил 2 первые главы [курса](https://stepik.org/course/54098/promo)
 ##### Глава 1
@@ -48,7 +48,7 @@ Most of the reports are related to the feature importance.
 
 **25/12/2020** - читаю статью «Fisher A, Rudin C, Dominici F (2018) All models are wrong but many are useful». В последнее время разбирал и конспектировал статьи.
 
-**23/01/2021** - начал ввести описание библиотек в [таблице](libs.md). Добавил rfpimp, eli5, cxplain.
+**23/01/2021** - начал ввести описание библиотек в [таблице](info_tables.md). Добавил rfpimp, eli5, cxplain.
 
 **08/02/2021** - доделываю [слайды](https://github.com/MikhailKuz/3_course_diary/blob/master/seminar/speech_1/speech_1.pdf) на семинар.
 
@@ -61,3 +61,5 @@ Most of the reports are related to the feature importance.
 **23/03/2021** - законспектировал [статью](https://github.com/MikhailKuz/3_course_diary/blob/master/papers.md#15) и сделал [эксперимент](https://github.com/MikhailKuz/3_course_diary/blob/master/experiments/diabets.ipynb) с сэмплированием признаков.
 
 **29/03/2021** - добавил [2 эксперимента](https://github.com/MikhailKuz/3_course_diary/blob/master/experiments/diabets.ipynb) с копией признака и RFE.
+
+**14/04/2021** - добавил эксперименты с искусственным датасетом и прочитал [обзор](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f) о недостатках permutation importance.

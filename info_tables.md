@@ -1,4 +1,4 @@
-# Feature importance libs
+## Feature importance libs
 
 | Name | Explainable model | Description |
 |:--:|:--:|--|
@@ -15,3 +15,9 @@
 | [lime](https://github.com/marcotcr/lime) | - | - |
 
 More [libs](https://github.com/jphall663/awesome-machine-learning-interpretability#explainability--or-fairness-enhancing-software-packages)
+
+## Pros and Cons of the methods
+
+| Name | Pluses | Minuses |
+|:--:|:--:|--|
+| permutation importance | <ul><li>*fast* (no need to refit model)</li><li>*model free*</li><li>saves *marginal distribution*</li><ul> | <ul><li>weak to *strong* correlation [link](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f) </li><ul> |
