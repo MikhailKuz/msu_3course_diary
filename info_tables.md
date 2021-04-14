@@ -20,4 +20,4 @@ More [libs](https://github.com/jphall663/awesome-machine-learning-interpretabili
 
 | Name | Pluses | Minuses |
 |:--:|:--:|--|
-| permutation importance | <ul><li>*fast* (no need to refit model)</li><li>*model free*</li><li>saves *marginal distribution*</li><ul> | <ul><li>weak to *strong* correlation [link](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f) </li><ul> |
+| permutation importance | <ul><li>*fast* (no need to refit model)</li><li>*model free*</li><li>saves *marginal distribution*</li><ul> | <ul><li>weak to *strong* correlation [[link](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f)] </li><ul> |
