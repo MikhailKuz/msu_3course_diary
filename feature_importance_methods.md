@@ -5,7 +5,7 @@
 
 
 
-# Filter Methods
+# Wrapper Methods
 ## Partial Dependence Plots
 "Let me show you what the model predicts on average when each data instance has the value v for that feature. I ignore whether the value v makes sense for all data instances."  
 If PDP is constant then thera are no interactions between selected subset and other features.  
