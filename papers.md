@@ -210,7 +210,7 @@ Generates a sequence of variables with *increasing contributions*.
 *Итоги экспериментов*:  
 - оценка важности согласовывается как с синтетическими экспериментами, так и с реальными
 
-## <a name="9"/> Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)**
+## <a name="9"/> Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)
 - продолжение вышеописанной работы 
 - эмпирическая важность признака при использовании purely rf для независимых признаков сходится экспоненциально к теоретической при стремлении количества итераций разбиения узла дерева и мощности тренировочной выборки так, чтобы отношение первого ко второму стремилось к 0 
 - даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
