@@ -216,9 +216,9 @@ Generates a sequence of variables with *increasing contributions*.
 - даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
 *Итоги экспериментов*:
 - NRFE и RFE в целом имеют одинаковое качество
-- чем больше коррелированных признаков, тем меньше их важность (зависимость как 1/x)
+- чем больше коррелированных признаков, тем меньше их важность (зависимость как 1/x^2)
 - зависимость важности от корреляции с Y квадратична
-- зависимотсь важности от корреляции между собой (2 признака всего) зависит, как 1/x
+- зависимотсь важности от корреляции между собой (2 признака всего) зависит, как 1/x^2
 
 ## <a name="10"/> Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
 We present *a general method* for explaining *individual predictions* of *classification models*.  
