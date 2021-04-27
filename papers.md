@@ -9,7 +9,7 @@ python -m readme2tex --nocdn --output papers_v2.md --readme papers.md
 4. [Lundberg S, Lee S (2017) A Unified Approach to Interpreting Model Predictions](#4)
 5. [Shrikumar A, Greenside P, Kundaje A (2017) Learning Important Features Through Propagating Activation Differences](#5)
 6. [Schwab P, Karlen W (2019) CXPlain: Causal Explanations for Model Interpretation under Uncertainty](#6)
-7. [Strobl C, Boulesteix A, Zeileis A & Hothorn T (2017) Bias in random forest variable importance measures](#7)
+7. [Strobl C, Boulesteix A, Zeileis A & Hothorn T (2007) Bias in random forest variable importance measures](#7)
 8. [Gregorutti B, Michel B, Saint-Pierre P (2015) Grouped variable importance with random forests and application to multiple functional data analysis](#8)
 9. [Gregorutti B, Michel B, Saint-Pierre P (2017) Correlation and variable importance in random forests](#9)
 10. [Kononenko I et al (2010) An efficient explanation of individual classifications using game theory](#10)
@@ -172,8 +172,8 @@ Generates a sequence of variables with *increasing contributions*.
 - используется Granger's definition of causality (в реальности, исходя только из данных, нельзя проверить)
   - все признаки релевантные
   - признак временно предшествует метке (для того, чтобы получить метку, нужна информация о признаке)
-- истинная важность признака - нормированная разница ошибок объясняемой модели на x_mask и x_reference
-- обучается explanation model (подходящая решаемой задаче)
+- важность признака - нормированная разница ошибок объясняемой модели на x_mask и x_reference
+- обучается explanation model (подходящая решаемой задаче, нужна когда нет истинных меток объектов)
   - цель - предсказать важность признаков
   - input - маскированный элемент x_train
   - loss - расстояние Кульбака — Лейблера между истинным и предсказанным распределениями важностей признаков
@@ -184,7 +184,7 @@ Generates a sequence of variables with *increasing contributions*.
 - качество лучше на 20%, быстрее x100, чем Shap, Lime на Mnist и ImageNet
 - качество сильно зависит от устройства explanation_model
 
-## <a name="7"/> Strobl C, Boulesteix A, Zeileis A & Hothorn T (2017) [Bias in random forest variable importance measures](https://link.springer.com/content/pdf/10.1186/1471-2105-8-25.pdf)
+## <a name="7"/> Strobl C, Boulesteix A, Zeileis A & Hothorn T (2007) [Bias in random forest variable importance measures](https://link.springer.com/content/pdf/10.1186/1471-2105-8-25.pdf)
 - имплементирован метод построения дерева (ctree), где выбор переменной осуществляется путем минимизации значения p критерия независимости условного вывода, сравнимого, например, с тестом χ2 со степенью свободы, равной числу категорий признака
 - лучше себя показывает, чем rf в синтетических экспериментах (с/без бутстрэпом, способ сэмплинга)
 - bias в важности признаков в rf возникает из-за того, что признаки с большим количество уникальных значений располагаются ближе к корню дерева
@@ -210,15 +210,15 @@ Generates a sequence of variables with *increasing contributions*.
 *Итоги экспериментов*:  
 - оценка важности согласовывается как с синтетическими экспериментами, так и с реальными
 
-## <a name="9"/> Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)**
+## <a name="9"/> Gregorutti B, Michel B, Saint-Pierre P (2017) [Correlation and variable importance in random forests](https://arxiv.org/pdf/1310.5726.pdf)
 - продолжение вышеописанной работы 
 - эмпирическая важность признака при использовании purely rf для независимых признаков сходится экспоненциально к теоретической при стремлении количества итераций разбиения узла дерева и мощности тренировочной выборки так, чтобы отношение первого ко второму стремилось к 0 
 - даже сильно коррелирующие признаки с целевой переменной могут получить малую важность из-за корреляции между собой  
 *Итоги экспериментов*:
 - NRFE и RFE в целом имеют одинаковое качество
-- чем больше коррелированных признаков, тем меньше их важность (зависимость как 1/x)
+- чем больше коррелированных признаков, тем меньше их важность (зависимость как 1/x^2)
 - зависимость важности от корреляции с Y квадратична
-- зависимотсь важности от корреляции между собой (2 признака всего) зависит, как 1/x
+- зависимотсь важности от корреляции между собой (2 признака всего) зависит, как 1/x^2
 
 ## <a name="10"/> Kononenko I et al (2010) [An efficient explanation of individual classifications using game theory](https://www.jmlr.org/papers/volume11/strumbelj10a/strumbelj10a.pdf)
 We present *a general method* for explaining *individual predictions* of *classification models*.  
