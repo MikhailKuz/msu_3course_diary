@@ -63,3 +63,6 @@ Most of the reports are related to the feature importance.
 **29/03/2021** - добавил [2 эксперимента](https://github.com/MikhailKuz/3_course_diary/blob/master/experiments/diabets.ipynb) с копией признака и RFE.
 
 **14/04/2021** - добавил эксперименты с искусственным датасетом и прочитал [обзор](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f) о недостатках permutation importance.
+
+**28/04/2021** - добавил 1-ую версию [курсовой работы](course_work/3_course_work.pdf)
+
