@@ -95,8 +95,8 @@ The **feature importance of <img src="svgs/dc80c8df8d6a3120a158fb62653b1321.svg?
 ### Ag-break
 The intuition: find such features with a small increase in which the prediction of the explained model significantly changes.  
 **Algorithm**: on each iteration find the feature, which minimize/maximaze <img src="svgs/469b4468af60d459f7037ec018fb9447.svg?invert_in_darkmode" align=middle width=198.7675074pt height=27.9454065pt/>, where <img src="svgs/0b0a64ea8fd262f269b6a205d37dbc19.svg?invert_in_darkmode" align=middle width=105.2401185pt height=27.9124395pt/> is PD on <img src="svgs/b96ade00837c3f28f59972f848703264.svg?invert_in_darkmode" align=middle width=46.90662735pt height=21.8393703pt/>
-- *step-up*: then in each step a single feature is beingrelaxed
-- *step-down*: then in each step a single feature is removedfrom the set  
+- *step-up*: then in each step a single feature is removedfrom the set
+- *step-down*: then in each step a single feature is being relaxed
 
 Generates a sequence of variables with *increasing contributions*.
 
