@@ -98,7 +98,8 @@ The intuition: find such features with a small increase in which the prediction 
 - *step-up*: then in each step a single feature is added to the set
 - *step-down*: then in each step a single feature is being relaxed
 
-Generates a sequence of variables with *increasing contributions*.
+*Step-down* generates a sequence of variables with *increasing contributions*.
+*Step-up* generates a sequence of variables with *decreasing contributions*.
 
 ### Experiments
 - важность по *step-up* и *step-down* методам ~ совпадает
