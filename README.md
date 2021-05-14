@@ -64,6 +64,8 @@ Most of the reports are related to the feature importance.
 
 **14/04/2021** - добавил эксперименты с искусственным датасетом и прочитал [обзор](https://towardsdatascience.com/stop-permuting-features-c1412e31b63f) о недостатках permutation importance.
 
-**28/04/2021** - добавил 1-ую версию [курсовой работы](course_work/3_course_work.pdf)
+**28/04/2021** - добавил 1-ую версию [курсовой работы](course_work/3_course_work.pdf).
 
 **05/05/2021** - сделал еще [эксперименты](experiments/artificial_2.ipynb) с искусственным датасетом, добавил аналог CXplain(официальная реализация не очень хорошо сработала).
+
+**14/05/2021** - обновил эксперименты и добавил 2-ую версию [курсовой работы](course_work/3_course_work.pdf).
