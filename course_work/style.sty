@@ -1,0 +1,218 @@
+\usepackage[utf8]{inputenc}   % позволяет использовать не-ASCII символы
+\usepackage[russian]{babel}   % используем русский язык
+\usepackage[T2A, T1]{fontenc} % ?!?
+
+\usepackage{indentfirst}         % первый абзац с отступом
+\usepackage{opensans}            % красивый шрифт
+\usepackage[a4paper,             % параметры страницы
+            bindingoffset=0.2in,
+            left=0.6in,
+            right=0.6in,
+            top=0.6in,
+            bottom=0.9in,
+            footskip=0.3in]{geometry}
+\interfootnotelinepenalty=10000  % штраф за разрыв футноутов.
+\tolerance=2000                  % терпимость к жидким строкам (штрафует за выход строк за правую границу)
+
+\usepackage{graphicx}           % Картинки
+\usepackage{wrapfig}            % Картинки в тексте
+\usepackage{tikz}               % Схемы с картинками
+\usepackage{float}              % H опция для рисунков
+\usepackage{caption}            % для настройки ширины кэпшнов под таблицами
+\setlength{\abovecaptionskip}{4pt}           % Расстояние от кэпшна до содержимого?
+\graphicspath{{Pictures/}{Experiments/}}     % Specifies the directory where pictures are stored
+
+% математика
+\usepackage{mathtools}         % ?!?
+\usepackage{amsmath,amsfonts,amssymb,amsthm}  % уравнения, теоремы и символы в принятом американском стиле
+\allowdisplaybreaks           % позволяет делать разрывы страниц внутри align многострочных формул.
+
+%----------------------------------------------------------------------------------------
+%	DESIGN...
+%----------------------------------------------------------------------------------------
+
+% переопределение понятия выделения через \emph
+%\let\emph\relax
+%\DeclareTextFontCommand{\emph}{\bfseries\em}
+
+% Цвета
+\usepackage{xcolor}
+\definecolor{ChadBlue}{rgb}{.1,.1,.5}   
+\definecolor{ChadRed}{rgb}{.4,0,0}
+\definecolor{ChadPurple}{rgb}{.5,0,.5}
+\definecolor{Black}{rgb}{0, 0, 0}
+
+% формат заголовков глав
+\usepackage{lipsum}
+\usepackage[explicit]{titlesec}
+\titleformat{\chapter}
+    {\bfseries\huge}
+    {}
+    {0pt}
+    {\ifnum\value{chapter}>0 \titlerule[3pt] ~\raisebox{-1.5pt}{ \sc{Глава}~\thechapter } ~\titlerule[3pt]  %
+            \\\vspace{.05cm}\titlerule \\\filcenter #1 \\\vspace{.25cm}\titlerule \fi 
+     \ifnum\value{chapter}=0 #1 \fi 
+    }
+    
+% формат секций и подсекций
+\titleformat{\section}
+{\needspace{10\baselineskip}\color{Black}\normalfont\Large\bfseries}
+{{\S\color{Black}\thesection. #1}}{2em}{}
+
+\titleformat{\subsection}
+{\needspace{7\baselineskip}\color{Black}\normalfont\large\bfseries}
+{\color{Black}\thesubsection. #1}{1em}{}
+
+% красивые поля страниц
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[R]{} % Empty left footer
+\fancyfoot[C]{\thepage} % Page numbering
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+% футноты в minipages по дефолту латинские и с ними возникают беды
+\let\thempfootnote\thefootnote
+
+%----------------------------------------------------------------------------------------
+%	TABLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{booktabs}   % toprule, midrule, bottomrule
+\renewcommand{\arraystretch}{1.25}  % расстояние между строчками
+
+\usepackage{longtable}   % easier multilines
+\usepackage{multirow, makecell}    % multirows
+
+%dashed line
+\usepackage{array}
+\usepackage{arydshln}
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+
+%----------------------------------------------------------------------------------------
+%	LITERATURE
+%----------------------------------------------------------------------------------------
+\usepackage[square, numbers]{natbib}
+\bibliographystyle{ugost2008s}
+% \bibliographystyle{gost780s}
+% \bibliographystyle{abbrvnat}
+% \usepackage[nottoc, notlot, notlof]{tocbibind}
+%\renewcommand{\bibsection}{\section*{Список литературы}}
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+
+\definecolor{linkcolor}{HTML}{0000AA} % цвет ссылок
+\definecolor{urlcolor}{HTML}{0000FF} % цвет гиперссылок 
+\definecolor{Black}{HTML}{000000} % цвет чёрный одна штука 
+
+\usepackage[colorlinks,breaklinks, bookmarks=false,
+     pdfstartview=Fit,  % for fitting entire page; FitW just fits width
+     pdfview=Fit,       % after traversing a hyperlink
+     linkcolor=linkcolor,
+     urlcolor=urlcolor,
+     citecolor=Black,
+     hyperfootnotes=false
+         ]{hyperref}
+\usepackage[figure,table]{hypcap} % Correct a problem with hyperref
+\urlstyle{rm}                     % so it doesn't use a typewriter font for url's.
+
+% При нажатии на ссылку отображает референс посередине страницы, а не в самом верху!
+\makeatletter
+\newcommand\org@hypertarget{}
+\let\org@hypertarget\hypertarget
+\renewcommand\hypertarget[2]{%
+\Hy@raisedlink{\org@hypertarget{#1}{}}#2%
+} \makeatother 
+
+%----------------------------------------------------------------------------------------
+%	THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+\makeatletter % Чинит какую-то проблему
+
+\newtheoremstyle{blacknumbox} % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% Body font
+{\parindent}% Indent amount
+{}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\underline{\thmname{#1}}\nobreakspace\thmnote{(#3)}.}% Optional theorem note
+
+\theoremstyle{blacknumbox}
+\newtheorem{exampleT}{Пример}
+
+\renewcommand\qedsymbol{$\triangledown$}
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Example box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=false,
+topline=false,
+bottomline=false,
+linecolor=ChadPurple,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{eBox}	
+
+
+\newenvironment{example}{\begin{eBox}\begin{exampleT}}{\qed \end{exampleT}\end{eBox}}
+
+%----------------------------------------------------------------------------------------
+%	MATH
+%----------------------------------------------------------------------------------------
+\def\cdfeq{\mathrel{\stackrel{\rm c.d.f.}=}}
+\def\cdfcoloneqq{\mathrel{\stackrel{\rm c.d.f.}\coloneqq}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Proba}{\mathcal{P}}
+
+\newcommand{\St}{\mathcal{S}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Trans}{\mathcal{P}}
+\newcommand{\Traj}{\mathcal{T}}
+\newcommand{\T}{\mathbb{T}}
+
+\newcommand{\B}{\mathfrak{B}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\Z}{\mathcal{Z}}
+
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}}
+\newcommand{\Argmax}{\mathop{\mathrm{Argmax}}}
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}}
+
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\Loss}{\operatorname{Loss}}
+\newcommand{\softmax}{\operatorname{softmax}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\Uniform}{\operatorname{Uniform}}
+
+\newcommand{\done}{\mathrm{done}}
+\newcommand{\actor}{\mathrm{actor}}
+\newcommand{\critic}{\mathrm{critic}}
+\newcommand{\old}{\mathrm{old}}
+\newcommand{\new}{\mathrm{new}}
+\newcommand{\expert}{\mathrm{expert}}
+\newcommand{\soft}{\mathrm{soft}}
+\newcommand{\intr}{\mathrm{intr}}
+\newcommand{\extr}{\mathrm{extr}}
