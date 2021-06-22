@@ -29,7 +29,7 @@ class Feature_Interactions():
         self.n_samples_one = n_samples_one
         self.n_samples_all_exc_one = n_samples_all_exc_one
 
-    def calculate_interaction(clf, X, n_samples=100):
+    def calculate_interaction(self, clf, X, n_samples=100):
         """Finds feature interaction value for each column in X.
 
         Parameters
@@ -52,7 +52,7 @@ class Feature_Interactions():
 
         return H2_all.ravel()
 
-    def pd_all_exc_one(clf, X, n_samples=1000):
+    def pd_all_exc_one(self, clf, X, n_samples=1000):
         """Computes matrix (X.shape[0] x X.shape[1]), where in (i,j) position value
         is equal to pdp(all_variables_except_j == values in row i)
 
@@ -89,7 +89,7 @@ class Feature_Interactions():
             ind_r += 1
         return answer
 
-    def pd_one(clf, X, n_samples=1000):
+    def pd_one(self, clf, X, n_samples=1000):
         """Computes matrix (X.shape[0] x X.shape[1]), where in (i,j) position value
         is equal to pdp(j_variable == value in row i)
 
