@@ -1,6 +1,6 @@
 # Дневник
 Most of the reports are related to the feature importance.  
-:memo:[synopsis_of_articles](papers.md) &nbsp;&nbsp;&nbsp; :pencil:[info_tables](info_tables.md) &nbsp;&nbsp;&nbsp; :dart:[todo_list](todo.md)  
+:memo:[article_summaries](papers.md) &nbsp;&nbsp;&nbsp; :pencil:[info_tables](info_tables.md) &nbsp;&nbsp;&nbsp; :dart:[todo_list](todo.md)  
 :speaking_head:[seminar_pdfs](https://github.com/MikhailKuz/3_course_diary/tree/master/seminar) &nbsp;&nbsp;&nbsp; :page_facing_up:[course_work](course_work/3_course_work.pdf)
 #### 27/09/2020 - повторил 2 первые главы [курса](https://stepik.org/course/54098/promo)
 ##### Глава 1
